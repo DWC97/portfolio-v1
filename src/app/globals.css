@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
 @font-face {
     font-family: 'Cyberway Riders';
     src: url('/fonts/CyberwayRiders.ttf') format('truetype');

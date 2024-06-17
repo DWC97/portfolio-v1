@@ -2,4 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Cyberway Riders';
+    src: url('/fonts/CyberwayRiders.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+.cyberpunk-heading {
+    font-family: 'Cyberway Riders', sans-serif;
+}

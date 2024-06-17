@@ -1,8 +1,9 @@
-import { Inter } from 'next/font/google';
+import { Chakra_Petch } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/global/Navbar';
 
-const inter = Inter({ subsets: ['latin'] });
+const chakraPetch = Chakra_Petch({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
+
 
 export const metadata = {
     title: 'Create Next App',
@@ -12,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={inter.className}>
+            <body className={chakraPetch.className}>
               <header>
                 <Navbar />
               </header>

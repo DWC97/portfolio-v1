@@ -13,6 +13,7 @@
     "@react-three/fiber": "^8.16.8",
     "@react-three/postprocessing": "^2.16.2",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.2.10",
     "next": "14.2.4",
     "prettier": "^3.3.2",
     "react": "^18",

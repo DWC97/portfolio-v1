@@ -6,11 +6,12 @@ import clsx from "clsx";
 import { Suspense } from "react";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
-export default function RenderModel({ children, className }){
+export default function RenderModel({ children, className, setModelReady }){
     
     return (
         <Canvas 
         className={clsx("w-screen h-screen relative -z-10", className)}
+        onCreated={() => setModelReady(true)}
         >
             <Suspense fallback={null}>
                 {children}

@@ -9,23 +9,23 @@ import { Reveal } from '@/animations/Reveal';
 export default function Hero() {
     const nameRef = useRef(null);
     const [playing, setPlaying] = useState(false);
+    const [modelReady, setModelReady] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        if (modelReady){
             setPlaying(true);
             
-        }, 500);
+
         nameRef.current.play();
+        }
+
+            
         
-    }, []);
+    }, [modelReady]);
 
     return (
         <div className="h-screen w-full relative flex justify-center items-center">
-            <div className="absolute top-0 left-0 opacity-60 w-full h-screen z-0">
-                <RenderModel>
-                    <Digital />
-                </RenderModel>
-            </div>
+            
             {/* <Reveal> */}
                 <div className="w-[800px] h-[324px] z-10 backdrop-blur-sm relative flex flex-col pl-8">
                     <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-b from-med-blue to-[#143A3A] opacity-10" />
@@ -47,6 +47,11 @@ export default function Hero() {
                     </h1>
                 </div>
             {/* </Reveal> */}
+            <div className="absolute top-0 left-0 opacity-60 w-full h-screen z-0">
+                <RenderModel setModelReady={setModelReady}>
+                    <Digital />
+                </RenderModel>
+            </div>
         </div>
     );
 }

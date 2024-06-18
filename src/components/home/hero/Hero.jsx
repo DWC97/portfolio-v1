@@ -11,8 +11,12 @@ export default function Hero() {
     const [playing, setPlaying] = useState(false);
 
     useEffect(() => {
-        setPlaying(true);
+        setTimeout(() => {
+            setPlaying(true);
+            
+        }, 500);
         nameRef.current.play();
+        
     }, []);
 
     return (
@@ -22,7 +26,7 @@ export default function Hero() {
                     <Digital />
                 </RenderModel>
             </div>
-            <Reveal>
+            {/* <Reveal> */}
                 <div className="w-[800px] h-[324px] z-10 backdrop-blur-sm relative flex flex-col pl-8">
                     <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-b from-med-blue to-[#143A3A] opacity-10" />
                     <h2
@@ -42,7 +46,7 @@ export default function Hero() {
                         Researcher
                     </h1>
                 </div>
-            </Reveal>
+            {/* </Reveal> */}
         </div>
     );
 }

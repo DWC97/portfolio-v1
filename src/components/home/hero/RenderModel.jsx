@@ -24,7 +24,7 @@ export default function RenderModel({ children, className }){
 
                 />
             </EffectComposer>
-            <Environment preset="night" />
+            <Environment preset="studio" />
         
             {/* <ambientLight /> */}
         </Canvas>

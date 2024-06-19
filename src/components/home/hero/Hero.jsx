@@ -101,7 +101,7 @@ export default function Hero() {
                 </RenderModel>
             </div>
             <div
-                    className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[200px] ${scrollAnimation ? ' opacity-80' : 'opacity-0'} flex justify-center items-center ease-in-out duration-1000 z-30`}
+                    className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[200px] ${scrollAnimation ? ' opacity-70' : 'opacity-0'} flex justify-center items-center ease-in-out duration-1000 z-30`}
                 >
                     <Lottie
                         lottieRef={scrollAnimationRef}

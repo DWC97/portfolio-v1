@@ -4,10 +4,10 @@ import useBodyLockScroll from '@/hooks/useBodyLockScroll';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
     const [nav, setNav] = useState(false); // set mobile nav menu
-    const [toggle] = useBodyLockScroll(); // toggle scroll lock
 
     const glitch = useGlitch({
         timing: {
@@ -34,24 +34,48 @@ export default function Navbar() {
                 className="lg:hidden flex justify-center items-center absolute right-0 mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80"
                 onClick={() => {
                     setNav(!nav);
-                    toggle();
+
                 }}
             >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={40}
-                    height={40}
-                    viewBox="0 0 32 32"
-                >
-                    <path
-                        fill="none"
-                        stroke="#BDE6EC"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 8h22M5 16h22M5 24h22"
-                    ></path>
-                </svg>
+                <AnimatePresence>
+                    {!nav ? ( // Show hamburger menu when nav is false
+                        <motion.svg
+                            initial={{ opacity: 1, rotate: 0 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            exit={{ opacity: 0, rotate: 0 }}
+                            transition={{ duration: 0.3 }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={40}
+                            height={40}
+                            viewBox="0 0 32 32"
+                        >
+                            <path
+                                fill="none"
+                                stroke="#BDE6EC"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 8h22M5 16h22M5 24h22"
+                            ></path>
+                        </motion.svg>
+                    ) : ( // Show X icon when nav is true
+                        <motion.svg
+                            initial={{ opacity: 1, rotate: 0 }}
+                            animate={{ opacity: 1, rotate: 90 }}
+                            exit={{ opacity: 0, rotate: 0 }}
+                            transition={{ duration: 0.3 }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={40}
+                            height={40}
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="#BDE6EC"
+                                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"
+                            ></path>
+                        </motion.svg>
+                    )}
+                </AnimatePresence>
             </div>
             <div className="hidden lg:flex flex-col justify-between h-full items-baseline">
                 <div className=" -rotate-90 mt-52 w-6  align-baseline">

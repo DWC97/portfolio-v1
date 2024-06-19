@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
             <head>
                 <style>{`
                     body {
-                        background: linear-gradient(to bottom, #0C1523, #050A10);
+                        background-color: #0C1523;
                         margin: 0;
                         padding: 0;
                         font-family: ${chakraPetch.className};

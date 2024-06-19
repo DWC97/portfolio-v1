@@ -13,6 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className="scroll-smooth">
+            <head>
+                <style>{`
+                    body {
+                        background: linear-gradient(to bottom, #0C1523, #050A10);
+                        margin: 0;
+                        padding: 0;
+                        font-family: ${chakraPetch.className};
+                    }
+                `}</style>
+            </head>
             <body className={chakraPetch.className}>
               <header>
                 <Navbar />

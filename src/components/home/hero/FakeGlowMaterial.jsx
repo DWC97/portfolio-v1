@@ -6,13 +6,13 @@ import { Color, AdditiveBlending } from 'three'
 
 /**
  * @typedef {Object} FakeGlowMaterialProps
- * @property {Number} [falloff=0.1] - Controls the value of the Falloff effect. Ranges from 0.0 to 1.0.
- * @property {Number} [glowInternalRadius=6.0] - Controls the internal glow radius. Ranges from -1.0 to 1.0. Set a darker color to get the fresnel effect only.
+ * @property {Number} [falloff=0.025] - Controls the value of the Falloff effect. Ranges from 0.0 to 1.0.
+ * @property {Number} [glowInternalRadius=4.0] - Controls the internal glow radius. Ranges from -1.0 to 1.0. Set a darker color to get the fresnel effect only.
  * @property {String} [glowColor='#00ff00'] - Specifies the color of the hologram. Use hexadecimal format.
- * @property {Number} [glowSharpness=1.0] - Specifies the edges sharpness. Defaults to 1.0.
- * @property {String} [side='THREE.FrontSide'] - Specifies side for the material, as THREE.DoubleSide. Options are "THREE.FrontSide", "THREE.BackSide", "THREE.DoubleSide". Defaults to "THREE.FrontSide".
+ * @property {Number} [glowSharpness=5.0] - Specifies the edges sharpness. Defaults to 1.0.
+ * @property {String} [side='THREE.DoubleSide'] - Specifies side for the material, as THREE.DoubleSide. Options are "THREE.FrontSide", "THREE.BackSide", "THREE.DoubleSide". Defaults to "THREE.FrontSide".
  * @property {Boolean} [depthTest=false] - Enable or disable depthTest. Defaults to false.
- * @property {Number} [opacity=1.0] - Controls the opacity. Defaults to 1.0,
+ * @property {Number} [opacity=5.0] - Controls the opacity. Defaults to 1.0,
  */
 
 /**
@@ -21,12 +21,12 @@ import { Color, AdditiveBlending } from 'three'
  */
 const FakeGlowMaterial = ({
   falloff = 0.025,
-  glowInternalRadius = 1.0,
+  glowInternalRadius = 4.0,
   glowColor = '#00EEFF',
   glowSharpness = 15.0,
   side = 'THREE.DoubleSide',
   depthTest = true,
-  opacity = 1.0,
+  opacity = 5.0,
 }) => {
   const FakeGlowMaterial = useMemo(() => {
     return shaderMaterial(

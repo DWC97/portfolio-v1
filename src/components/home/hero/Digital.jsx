@@ -83,7 +83,7 @@ export function Digital(props) {
         material={materials.defaultMat}
         rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
       >
-        {/* <FakeGlowMaterial /> */}
+        <FakeGlowMaterial />
 
         </mesh>
     </group>

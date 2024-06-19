@@ -5,13 +5,14 @@ import { Digital } from './Digital';
 import RenderModel from './RenderModel';
 import DecodeAnimation from 'react-decode-animation';
 import { motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
     const nameRef = useRef(null);
     const [playing, setPlaying] = useState(false);
     const [modelReady, setModelReady] = useState(false);
     const [divVisible, setDivVisible] = useState(false);
-    const [textVisible, setTextVisible] = useState(false)
+    const [textVisible, setTextVisible] = useState(false);
 
     useEffect(() => {
         if (modelReady) {
@@ -22,7 +23,7 @@ export default function Hero() {
                 setPlaying(true);
                 if (nameRef.current) {
                     nameRef.current.play();
-                    setTextVisible(true)
+                    setTextVisible(true);
                 }
             }, 750); // Adjust this delay as needed
         }
@@ -49,15 +50,39 @@ export default function Hero() {
                             />
                         </h2>
                     </div>
-                    
-                    <h1 className={`z-20 font-medium text-[120px]  mt-[36px] -mb-6 -ml-2 ${textVisible ? "text-white" : "text-transparent"} ease-in-out transition-colors duration-300`}>
+
+                    <h1
+                        className={`z-20 font-medium text-[120px]  mt-[36px] -mb-6 -ml-2 ${textVisible ? 'text-white' : 'text-transparent'} ease-in-out transition-colors duration-300`}
+                    >
                         Developer
                     </h1>
-                    <h1 className={`z-20 font-medium text-[120px] text-white  -my-6 -ml-2 ${textVisible ? "text-white" : "text-transparent"} ease-in-out transition-colors duration-500`}>
-                        <span className={`${textVisible ? "text-custom-gray" : "text-transparent"} ease-in-out transition-colors duration-500`}>+&nbsp;</span>
-                        Researcher
+                    <h1
+                        className={`z-20 font-medium text-[120px] text-white  -my-6 -ml-2 ${textVisible ? 'text-white' : 'text-transparent'} ease-in-out transition-colors duration-500`}
+                    >
+                        <span
+                            className={`${textVisible ? 'text-custom-gray' : 'text-transparent'} ease-in-out transition-colors duration-500`}
+                        >
+                            +&nbsp;
+                        </span>
+                        <TypeAnimation
+                            sequence={[
+                                // Same substring at the start will only be typed out once, initially
+                                'Designer',
+                                3000, // wait 1s before replacing "Mice" with "Hamsters"
+                                'Engineer',
+                                3000,
+                                'Researcher',
+                                3000,
+                            ]}
+                            wrapper="span"
+                            speed={10}
+                            omitDeletionAnimation={true}
+                            deletionSpeed={30}
+                            repeat={Infinity}
+                            cursor={true}
+                            preRenderFirstString={false}
+                        />
                     </h1>
-                    
                 </motion.div>
             )}
 

@@ -1,36 +1,68 @@
 'use client';
 
+import useBodyLockScroll from '@/hooks/useBodyLockScroll';
 import Link from 'next/link';
-import { useGlitch } from 'react-powerglitch'
+import { useState } from 'react';
+import { useGlitch } from 'react-powerglitch';
 
 export default function Navbar() {
+    const [nav, setNav] = useState(false); // set mobile nav menu
+    const [toggle] = useBodyLockScroll(); // toggle scroll lock
 
     const glitch = useGlitch({
-        "timing": {
-          "duration": 3950
+        timing: {
+            duration: 3950,
         },
-        "shake": {
-          "velocity": 10,
-          "amplitudeX": 0.04,
-          "amplitudeY": 0.06
-        }
-      });
+        shake: {
+            velocity: 10,
+            amplitudeX: 0.04,
+            amplitudeY: 0.06,
+        },
+    });
 
     return (
-        <div className="fixed h-screen top-0 left-0 p-[60px] 2xl:p-[80px]  flex flex-col z-[1000]">
-            <Link href={'/'} className=' pb-6'><span ref={glitch.ref} className="text-white weak-glow cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300">
-                DWC
-            </span></Link>
-            <div className="flex flex-col justify-between h-full items-baseline">
+        <div className="fixed w-full h-screen top-0 left-0 p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
+            <Link href={'/'} className=" pb-6">
+                <span
+                    ref={glitch.ref}
+                    className="text-white weak-glow cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300"
+                >
+                    DWC
+                </span>
+            </Link>
+            <div
+                className="lg:hidden flex justify-center items-center absolute right-0 mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80"
+                onClick={() => {
+                    setNav(!nav);
+                    toggle();
+                }}
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={40}
+                    height={40}
+                    viewBox="0 0 32 32"
+                >
+                    <path
+                        fill="none"
+                        stroke="#BDE6EC"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 8h22M5 16h22M5 24h22"
+                    ></path>
+                </svg>
+            </div>
+            <div className="hidden lg:flex flex-col justify-between h-full items-baseline">
                 <div className=" -rotate-90 mt-52 w-6  align-baseline">
                     <ul className="flex flex-row gap-6 text-light-blue font-medium">
-                        <li className='hover:opacity-80 cursor-pointer ease-in-out duration-300'>
+                        <li className="hover:opacity-80 cursor-pointer ease-in-out duration-300">
                             <Link href={'/articles'}>Articles</Link>
                         </li>
-                        <li className='hover:opacity-80 cursor-pointer ease-in-out duration-300'>
+                        <li className="hover:opacity-80 cursor-pointer ease-in-out duration-300">
                             <Link href={'/'}>Contact</Link>
                         </li>
-                        <li className='hover:opacity-80 cursor-pointer ease-in-out duration-300'>
+                        <li className="hover:opacity-80 cursor-pointer ease-in-out duration-300">
                             <Link href={'/'}>Projects</Link>
                         </li>
                     </ul>

@@ -35,6 +35,7 @@ export default function Hero() {
             }, 5000);
         }
     }, [modelReady]);
+    
 
     return (
         <div className="h-screen w-full relative flex justify-center items-center">

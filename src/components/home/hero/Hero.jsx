@@ -36,12 +36,12 @@ export default function Hero() {
                     initial={{ width: 0 }}
                     animate={{ width: '784px' }}
                     transition={{ duration: 1.5, ease: [0.4, 0, 0.1, 1] }}
-                    className=" h-[336px] z-10 backdrop-blur-sm relative flex flex-col px-8 overflow-hidden"
+                    className=" h-[336px] z-10 backdrop-blur-sm relative flex flex-col px-8 overflow-hidden "
                 >
                     <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-b from-med-blue to-[#143A3A] opacity-10" />
                     <div className="absolute top-0 left-0 w-full">
                         <h2
-                            className={`z-20 text-[24px] ${playing ? 'text-dark-blue' : 'text-transparent'}  font-semibold tracking-widest pt-6 px-8`}
+                            className={`z-20 text-[24px] ${playing ? 'text-dark-blue weak-glow' : 'text-transparent'}  font-semibold tracking-widest pt-6 px-8`}
                         >
                             <DecodeAnimation
                                 ref={nameRef}
@@ -52,12 +52,12 @@ export default function Hero() {
                     </div>
 
                     <h1
-                        className={`z-20 font-medium text-[116px]  mt-[36px] -mb-6 -ml-2 ${textVisible ? 'text-white' : 'text-transparent'} ease-in-out transition-colors duration-300`}
+                        className={`z-20 font-medium text-[116px]  mt-[36px] -mb-6 -ml-2 ${textVisible ? 'text-white weak-glow' : 'text-transparent'} ease-in-out transition-colors duration-300`}
                     >
                         Developer
                     </h1>
                     <h1
-                        className={`z-20 font-medium text-[116px] -my-6 -ml-2 ease-in-out transition-colors duration-500 ${textVisible ? 'text-white' : 'text-transparent'}`}
+                        className={`z-20 font-medium text-[116px] -my-6 -ml-2 ease-in-out transition-colors duration-500 ${textVisible ? 'text-white weak-glow' : 'text-transparent'}`}
                     >
                         <span
                             className={`${textVisible ? 'text-custom-gray' : 'text-transparent'} ease-in-out transition-colors duration-500`}

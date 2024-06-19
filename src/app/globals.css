@@ -22,3 +22,10 @@ h1, h2, h3, h4, h5, h6 {
 .cyberpunk-heading {
     font-family: 'Cyberway Riders', sans-serif;
 }
+
+.strong-glow {
+    filter: drop-shadow(0 0 40px rgba(0, 238, 255, 1));
+}
+.weak-glow {
+    filter: drop-shadow(0 0 2px rgba(0, 238, 255, 0.8));
+}

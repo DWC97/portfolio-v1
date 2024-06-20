@@ -20,63 +20,41 @@ export default function Navbar() {
         },
     });
 
+    const menuVariants = {
+        open: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: 'easeInOut'
+            }
+        },
+        closed: {
+            opacity: 0,
+            y: '-100%',
+            transition: {
+                duration: 0.5,
+                ease: 'easeInOut'
+            }
+        }
+    };
+
     return (
         <div className="fixed w-full h-screen top-0 left-0 p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
             <Link href={'/'} className=" pb-6">
                 <span
                     ref={glitch.ref}
-                    className="text-white weak-glow cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300"
+                    className="text-white weak-glow cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300 z-[1100]"
+                    onClick={() => {
+                        if (nav){
+                            setNav(false)
+                        }
+                    }}
                 >
                     DWC
                 </span>
             </Link>
-            <div
-                className="lg:hidden flex justify-center items-center absolute right-0 mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80"
-                onClick={() => {
-                    setNav(!nav);
-
-                }}
-            >
-                <AnimatePresence>
-                    {!nav ? ( // Show hamburger menu when nav is false
-                        <motion.svg
-                            initial={{ opacity: 1, rotate: 0 }}
-                            animate={{ opacity: 1, rotate: 0 }}
-                            exit={{ opacity: 0, rotate: 0 }}
-                            transition={{ duration: 0.3 }}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={40}
-                            height={40}
-                            viewBox="0 0 32 32"
-                        >
-                            <path
-                                fill="none"
-                                stroke="#BDE6EC"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 8h22M5 16h22M5 24h22"
-                            ></path>
-                        </motion.svg>
-                    ) : ( // Show X icon when nav is true
-                        <motion.svg
-                            initial={{ opacity: 1, rotate: 0 }}
-                            animate={{ opacity: 1, rotate: 90 }}
-                            exit={{ opacity: 0, rotate: 0 }}
-                            transition={{ duration: 0.3 }}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={40}
-                            height={40}
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                fill="#BDE6EC"
-                                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"
-                            ></path>
-                        </motion.svg>
-                    )}
-                </AnimatePresence>
-            </div>
+            
             <div className="hidden lg:flex flex-col justify-between h-full items-baseline">
                 <div className=" -rotate-90 mt-52 w-6  align-baseline">
                     <ul className="flex flex-row gap-6 text-light-blue font-medium">
@@ -130,6 +108,70 @@ export default function Navbar() {
                     </a>
                 </div>
             </div>
+            <div
+                className="lg:hidden flex justify-center items-center absolute right-0 mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80 z-[1100]"
+                onClick={() => {
+                    setNav(!nav);
+
+                }}
+            >
+                <AnimatePresence>
+                    {!nav ? ( // Show hamburger menu when nav is false
+                        <motion.svg
+                            initial={{ opacity: 1, rotate: 0 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            exit={{ opacity: 0, rotate: 0 }}
+                            transition={{ duration: 0.3 }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={40}
+                            height={40}
+                            viewBox="0 0 32 32"
+ 
+                        >
+                            <path
+                                fill="none"
+                                stroke="#BDE6EC"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 8h22M5 16h22M5 24h22"
+                            ></path>
+                        </motion.svg>
+                    ) : ( // Show X icon when nav is true
+                        <motion.svg
+                            initial={{ opacity: 1, rotate: 0 }}
+                            animate={{ opacity: 1, rotate: 90 }}
+                            exit={{ opacity: 0, rotate: 0 }}
+                            transition={{ duration: 0.3 }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={40}
+                            height={40}
+                            viewBox="0 0 24 24"
+                 
+                        >
+                            <path
+                                fill="#BDE6EC"
+                                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"
+                            ></path>
+                        </motion.svg>
+                    )}
+                </AnimatePresence>
+            </div>
+            {/* Mobile menu */}
+            <AnimatePresence>
+                {nav && (
+                    <motion.div
+                        key="menu"
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                        variants={menuVariants}
+                        className="fixed top-0 left-0 z-[1000] h-screen w-full flex lg:hidden flex-col justify-center items-center bg-[#0C1523] bg-opacity-80 backdrop-blur-md"
+                    >
+                        {/* Add your mobile menu content here */}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

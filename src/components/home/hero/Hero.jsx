@@ -18,6 +18,13 @@ export default function Hero() {
     const [scrollAnimation, setScrollAnimation] = useState(false);
     const scrollAnimationRef = useRef(null);
     const [opacity, setOpacity] = useState(1);
+    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         if (modelReady) {
@@ -30,7 +37,7 @@ export default function Hero() {
                     nameRef.current.play();
                     setTextVisible(true);
                 }
-            }, 750); 
+            }, 1000); 
             setTimeout(() => {
                 setScrollAnimation(true)
             }, 5000);
@@ -50,19 +57,26 @@ export default function Hero() {
         };
     }, []);
 
+    const divStyles = viewportWidth < 640
+        ? { height: '170px', width: '328px' }
+        : viewportWidth < 1536
+        ? { height: '256px', width: '600px' }
+        : { height: '336px', width: '784px' };
+
     return (
         <div className="h-screen w-full relative flex justify-center items-center">
             {divVisible && (
                 <motion.div
                     initial={{ width: 0 }}
-                    animate={{ width: '784px' }}
+                    animate={{ width: divStyles.width }}
                     transition={{ duration: 1.5, ease: [0.4, 0, 0.1, 1] }}
-                    className=" h-[336px] z-10 backdrop-blur-sm relative flex flex-col px-8 overflow-hidden select-none"
+                    style={{ height: divStyles.height }}
+                    className="z-10 backdrop-blur-sm relative flex flex-col px-8 overflow-hidden select-none"
                 >
                     <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-b from-med-blue to-[#143A3A] opacity-10" />
                     <div className="absolute top-0 left-0 w-full">
                         <h2
-                            className={`z-20 text-[24px] ${playing ? 'text-dark-blue weak-glow' : 'text-transparent'}  font-semibold tracking-widest pt-6 px-8`}
+                            className={`z-20 text-[14px] sm:text-[20px] 2xl:text-[24px] ${playing ? 'text-dark-blue weak-glow' : 'text-transparent'}  font-semibold tracking-widest pt-6 px-7 sm:px-8`}
                         >
                             <DecodeAnimation
                                 ref={nameRef}
@@ -73,12 +87,12 @@ export default function Hero() {
                     </div>
 
                     <h1
-                        className={`z-20 font-medium text-[116px]  mt-[36px] -mb-6 -ml-2 ${textVisible ? 'text-white ' : 'text-transparent'} ease-in-out transition-colors duration-300`}
+                        className={`z-20 font-medium text-[44px] sm:text-[88px] 2xl:text-[116px]  mt-[36px] sm:-mb-6 -ml-2 ${textVisible ? 'text-white ' : 'text-transparent'} ease-in-out transition-colors duration-300`}
                     >
                         Developer
                     </h1>
                     <h1
-                        className={`z-20 font-medium text-[116px] -my-6 -ml-2 ease-in-out transition-colors duration-500 ${textVisible ? 'text-white ' : 'text-transparent'}`}
+                        className={`z-20 font-medium text-[44px] sm:text-[88px] 2xl:text-[116px] -my-4 sm:-my-6 -ml-2 ease-in-out transition-colors duration-500 ${textVisible ? 'text-white ' : 'text-transparent'}`}
                     >
                         <span
                             className={`${textVisible ? 'text-custom-gray' : 'text-transparent'} ease-in-out transition-colors duration-500`}
@@ -110,7 +124,7 @@ export default function Hero() {
 
             <div className="absolute top-0 left-0 opacity-80 w-full h-screen z-0">
                 <RenderModel setModelReady={setModelReady}>
-                    <Digital />
+                    {/* <Digital /> */}
                 </RenderModel>
             </div>
             <div

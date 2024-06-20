@@ -17,7 +17,7 @@ export default function Hero() {
     const [textVisible, setTextVisible] = useState(false);
     const [scrollAnimation, setScrollAnimation] = useState(false);
     const scrollAnimationRef = useRef(null);
-    const [opacity, setOpacity] = useState(1);
+    const [opacity, setOpacity] = useState(0);
     const [viewportWidth, setViewportWidth] = useState(0);
 
     useEffect(() => {
@@ -52,6 +52,7 @@ export default function Hero() {
             }, 1000);
             setTimeout(() => {
                 setScrollAnimation(true);
+                setOpacity(1);
             }, 5000);
         }
     }, [modelReady]);

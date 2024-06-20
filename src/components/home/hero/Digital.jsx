@@ -18,6 +18,7 @@ export function Digital(props) {
   const targetSpeed = useRef(0.2);
   const timeoutRef = useRef();
   const lastScrollPos = useRef(0);
+  const [viewportWidth, setViewportWidth] = useState(0);
 
   const lerp = (start, end, t) => start * (1 - t) + end * t;
 
@@ -27,6 +28,24 @@ export function Digital(props) {
     setRotationSpeed(newSpeed);
     model.current.rotateOnAxis(rotationAxis, newSpeed * delta);
   })
+
+  useEffect(() => {
+    // Define a function to update viewport width
+    const updateViewportWidth = () => {
+      setViewportWidth(window.innerWidth); // Access window.innerWidth safely
+    };
+
+    // Update viewport width on initial mount
+    updateViewportWidth();
+
+    // Add event listener to update viewport width on window resize
+    window.addEventListener('resize', updateViewportWidth);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener('resize', updateViewportWidth);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScrollEvent = (deltaY) => {
@@ -69,11 +88,23 @@ export function Digital(props) {
       }
     };
   }, []);
+
+  const scale = viewportWidth < 768
+    ? [0.025, 0.025, 0.025]
+    : viewportWidth < 1280
+    ? [0.065, 0.05, 0.05]
+    : [0.09, 0.07, 0.07];
+
+    const position = viewportWidth < 768
+    ? [0, 0, 0]
+    : viewportWidth < 1280
+    ? [2.5, 0, 0]
+    : [4, 0, 0];
   
   return (
     <group {...props} dispose={null} ref={model}
-    scale={[0.09, 0.07, 0.07]}
-    position={[4, 0, 0]}
+    scale={scale}
+    position={position}
     rotation={[0.3, 0.2, -0.5]}
     >
       <mesh

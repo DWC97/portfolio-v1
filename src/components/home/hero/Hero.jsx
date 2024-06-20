@@ -17,6 +17,7 @@ export default function Hero() {
     const [textVisible, setTextVisible] = useState(false);
     const [scrollAnimation, setScrollAnimation] = useState(false);
     const scrollAnimationRef = useRef(null);
+    const [opacity, setOpacity] = useState(1);
 
     useEffect(() => {
         if (modelReady) {
@@ -36,6 +37,18 @@ export default function Hero() {
         }
     }, [modelReady]);
     
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            setOpacity(scrollY === 0 ? 1 : 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <div className="h-screen w-full relative flex justify-center items-center">
@@ -101,6 +114,7 @@ export default function Hero() {
                 </RenderModel>
             </div>
             <div
+                    style={{ opacity: opacity, transition: 'opacity 0.5s ease-in-out' }}
                     className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[200px] ${scrollAnimation ? ' opacity-70' : 'opacity-0'} flex justify-center items-center ease-in-out duration-1000 z-30`}
                 >
                     <Lottie

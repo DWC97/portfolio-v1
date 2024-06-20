@@ -1,6 +1,5 @@
 'use client';
 
-import useBodyLockScroll from '@/hooks/useBodyLockScroll';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
@@ -19,6 +18,7 @@ export default function Navbar() {
             amplitudeY: 0.06,
         },
     });
+
 
     const menuVariants = {
         open: {

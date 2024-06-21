@@ -47,7 +47,7 @@ export default function Navbar() {
             <Link href={'/#hero'} className=" pb-6">
                 <span
                     ref={glitch.ref}
-                    className="text-white weak-glow cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300 z-[1100]"
+                    className="text-white cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300 z-[1100]"
                     onClick={() => {
                         if (nav) {
                             setNav(false);

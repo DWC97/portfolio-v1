@@ -4,9 +4,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
 
 export default function Navbar() {
     const [nav, setNav] = useState(false); // set mobile nav menu
+    const sectionIds = ['hero', 'projects', 'contact', 'articles'];
+    const activeSection = useInView(sectionIds);
+    console.log(activeSection);
 
     const glitch = useGlitch({
         timing: {
@@ -18,7 +22,6 @@ export default function Navbar() {
             amplitudeY: 0.06,
         },
     });
-
 
     const menuVariants = {
         open: {
@@ -41,7 +44,7 @@ export default function Navbar() {
 
     return (
         <div className="fixed w-full h-screen top-0 left-0 p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
-            <Link href={'/'} className=" pb-6">
+            <Link href={'/#hero'} className=" pb-6">
                 <span
                     ref={glitch.ref}
                     className="text-white weak-glow cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300 z-[1100]"
@@ -58,13 +61,19 @@ export default function Navbar() {
             <div className="hidden lg:flex flex-col justify-between h-full items-baseline">
                 <div className=" -rotate-90 mt-52 w-6  align-baseline">
                     <ul className="flex flex-row gap-6 text-light-blue font-medium">
-                        <li className="hover:opacity-80 cursor-pointer ease-in-out duration-300">
+                        <li
+                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'articles' ? 'text-dark-blue' : ''}`}
+                        >
                             <Link href={'/articles'}>Articles</Link>
                         </li>
-                        <li className="hover:opacity-80 cursor-pointer ease-in-out duration-300">
-                            <Link href={'/'}>Contact</Link>
+                        <li
+                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'contact' ? 'text-dark-blue' : ''}`}
+                        >
+                            <Link href={'/#contact'}>Contact</Link>
                         </li>
-                        <li className="hover:opacity-80 cursor-pointer ease-in-out duration-300">
+                        <li
+                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'projects' ? 'text-dark-blue' : ''}`}
+                        >
                             <Link href={'/'}>Projects</Link>
                         </li>
                     </ul>
@@ -177,7 +186,7 @@ export default function Navbar() {
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"
                                 onClick={() => setNav(false)}
                             >
-                                <Link href={'/'}>Contact</Link>
+                                <Link href={'/#contact'}>Contact</Link>
                             </li>
                             <li
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"
@@ -186,43 +195,43 @@ export default function Navbar() {
                                 <Link href={'/articles'}>Articles</Link>
                             </li>
                         </ul>
-                        <div className='absolute p-[60px] bottom-0 left-0 flex flex-row gap-6'>
-                        <a
-                        href="http://www.instagram.com"
-                        aria-label="instagram"
-                        target="_blank"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={28}
-                            height={28}
-                            viewBox="0 0 24 24"
-                            className="hover:opacity-80 cursor-pointer ease-in-out duration-300"
-                        >
-                            <path
-                                fill="#6E98AE"
-                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
-                            ></path>
-                        </svg>
-                    </a>
-                    <a
-                        href="http://www.instagram.com"
-                        aria-label="instagram"
-                        target="_blank"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={28}
-                            height={28}
-                            viewBox="0 0 24 24"
-                            className="hover:opacity-80 cursor-pointer ease-in-out duration-300"
-                        >
-                            <path
-                                fill="#6E98AE"
-                                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
-                            ></path>
-                        </svg>
-                    </a>
+                        <div className="absolute p-[60px] bottom-0 left-0 flex flex-row gap-6">
+                            <a
+                                href="http://www.instagram.com"
+                                aria-label="instagram"
+                                target="_blank"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={28}
+                                    height={28}
+                                    viewBox="0 0 24 24"
+                                    className="hover:opacity-80 cursor-pointer ease-in-out duration-300"
+                                >
+                                    <path
+                                        fill="#6E98AE"
+                                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
+                                    ></path>
+                                </svg>
+                            </a>
+                            <a
+                                href="http://www.instagram.com"
+                                aria-label="instagram"
+                                target="_blank"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={28}
+                                    height={28}
+                                    viewBox="0 0 24 24"
+                                    className="hover:opacity-80 cursor-pointer ease-in-out duration-300"
+                                >
+                                    <path
+                                        fill="#6E98AE"
+                                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                                    ></path>
+                                </svg>
+                            </a>
                         </div>
                     </motion.div>
                 )}

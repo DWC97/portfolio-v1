@@ -35,7 +35,7 @@ export default function Hero() {
             }, 1000);
             setTimeout(() => {
                 setScrollAnimation(true);
-                setOpacity(1);
+                setOpacity(0.7);
             }, 5000);
         }
     }, [modelReady]);
@@ -43,7 +43,7 @@ export default function Hero() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            setOpacity(scrollY === 0 ? 1 : 0);
+            setOpacity(scrollY === 0 ? 0.7 : 0);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -61,7 +61,7 @@ export default function Hero() {
               : { height: '336px', width: '784px' };
 
     return (
-        <div className="h-screen w-full relative flex justify-center items-center">
+        <div className="h-screen w-full relative flex justify-center items-center" id='hero'>
             {divVisible && (
                 <motion.div
                     initial={{ width: 0 }}

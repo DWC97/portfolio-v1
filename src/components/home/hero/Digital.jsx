@@ -6,6 +6,7 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame} from '@react-three/fiber'
 import * as THREE from "three";
 import FakeGlowMaterial from './FakeGlowMaterial';
+import { useViewportWidth } from '@/hooks/useViewportWidth';
 
 
 
@@ -18,7 +19,7 @@ export function Digital(props) {
   const targetSpeed = useRef(0.2);
   const timeoutRef = useRef();
   const lastScrollPos = useRef(0);
-  const [viewportWidth, setViewportWidth] = useState(0);
+  const viewportWidth = useViewportWidth()
 
   const lerp = (start, end, t) => start * (1 - t) + end * t;
 
@@ -29,23 +30,7 @@ export function Digital(props) {
     model.current.rotateOnAxis(rotationAxis, newSpeed * delta);
   })
 
-  useEffect(() => {
-    // Define a function to update viewport width
-    const updateViewportWidth = () => {
-      setViewportWidth(window.innerWidth); // Access window.innerWidth safely
-    };
-
-    // Update viewport width on initial mount
-    updateViewportWidth();
-
-    // Add event listener to update viewport width on window resize
-    window.addEventListener('resize', updateViewportWidth);
-
-    // Cleanup function to remove event listener
-    return () => {
-      window.removeEventListener('resize', updateViewportWidth);
-    };
-  }, []);
+  
 
   useEffect(() => {
     const handleScrollEvent = (deltaY) => {
@@ -90,7 +75,7 @@ export function Digital(props) {
   }, []);
 
   const scale = viewportWidth < 768
-    ? [0.025, 0.025, 0.025]
+    ? [0.035, 0.035, 0.035]
     : viewportWidth < 1280
     ? [0.065, 0.05, 0.05]
     : [0.09, 0.07, 0.07];

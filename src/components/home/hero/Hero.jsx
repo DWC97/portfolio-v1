@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import Lottie from 'lottie-react';
 import animationData from '@/animations/scroll-animation.json';
+import { useViewportWidth } from '@/hooks/useViewportWidth';
 
 export default function Hero() {
     const nameRef = useRef(null);
@@ -18,25 +19,7 @@ export default function Hero() {
     const [scrollAnimation, setScrollAnimation] = useState(false);
     const scrollAnimationRef = useRef(null);
     const [opacity, setOpacity] = useState(0);
-    const [viewportWidth, setViewportWidth] = useState(0);
-
-    useEffect(() => {
-        // Define a function to update viewport width
-        const updateViewportWidth = () => {
-          setViewportWidth(window.innerWidth); // Access window.innerWidth safely
-        };
-    
-        // Update viewport width on initial mount
-        updateViewportWidth();
-    
-        // Add event listener to update viewport width on window resize
-        window.addEventListener('resize', updateViewportWidth);
-    
-        // Cleanup function to remove event listener
-        return () => {
-          window.removeEventListener('resize', updateViewportWidth);
-        };
-      }, []);
+    const viewportWidth = useViewportWidth()
 
     useEffect(() => {
         if (modelReady) {

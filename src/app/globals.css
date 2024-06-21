@@ -30,3 +30,7 @@ h1, h2, h3, h4, h5, h6 {
     filter: drop-shadow(0 0 2px rgba(0, 238, 255, 0.8));
 }
 
+.polygon1 {
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+

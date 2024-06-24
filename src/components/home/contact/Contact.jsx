@@ -1,18 +1,60 @@
 'use client';
 
 import { FloatingLabel } from 'flowbite-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import debounce from 'lodash/debounce';
 
 export default function Contact() {
-    const [email, setEmail] = useState('');
+    const initFormData = {
+        email: '',
+        message: '',
+    };
+    const [formData, setFormData] = useState(initFormData);
+    const [formErrors, setFormErrors] = useState({ email: '', message: "" });
+
+    const validateEmail = (email) => {
+        if (email.trim() === '') {
+            return 'Email is required';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return 'Please enter a valid email address';
+        }
+        return '';
+    };
+
+    const validateMessage = (message) => {
+        if (message.trim() === '') {
+            return 'Message is required';
+        }
+        return '';
+    };
+
+    const debouncedValidate = useCallback(
+        debounce((name, value) => {
+            let error = '';
+            if (name === 'email') {
+                error = validateEmail(value);
+            } else if (name === 'message') {
+                error = validateMessage(value);
+            }
+            setFormErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+        }, 1000),
+        []
+    );
 
     function handleChange(e) {
-        setEmail(e.target.value);
+        const { name, value } = e.target;
+
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+
+        debouncedValidate(name, value);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(email);
+        console.log(formData);
     }
 
     return (
@@ -39,12 +81,29 @@ export default function Contact() {
                             type="text"
                             id="email"
                             name="email"
-                            value={email}
+                            value={formData.email}
                             onChange={handleChange}
                             autoComplete="off"
-                            className={`bg-primary-dark w-full  text-gray-200 border-opacity-30 border-custom-gray focus:border-dark-blue ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}
+                            className={`bg-primary-dark w-full  text-gray-200 ${formErrors.email ? "border-custom-red focus:border-custom-red" : "border-opacity-30 border-custom-gray focus:border-dark-blue"}   ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}
                         />
+                        {formErrors.email && <div className="flex flex-row gap-2 items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={20}
+                                height={20}
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill="#FF2463"
+                                    d="M1 21L12 2l11 19zm3.45-2h15.1L12 6zM12 18q.425 0 .713-.288T13 17t-.288-.712T12 16t-.712.288T11 17t.288.713T12 18m-1-3h2v-5h-2zm1-2.5"
+                                ></path>
+                            </svg>
+                            <span className="text-custom-red">
+                                {formErrors.email}
+                            </span>
+                        </div>}
                     </div>
+
                     <div className="w-full relative">
                         <FloatingLabel
                             variant="filled"
@@ -52,14 +111,33 @@ export default function Contact() {
                             type="text"
                             id="message"
                             name="message"
-                            value={email}
+                            value={formData.message}
                             onChange={handleChange}
                             autoComplete="off"
-                            className={`bg-primary-dark w-full  text-gray-200 border-opacity-30 border-custom-gray focus:border-dark-blue ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}
+                            className={`bg-primary-dark w-full  text-gray-200 ${formErrors.message ? "border-custom-red focus:border-custom-red" : "border-opacity-30 border-custom-gray focus:border-dark-blue"} ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}
                         />
+                        {formErrors.message && <div className="flex flex-row gap-2 items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={20}
+                                height={20}
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill="#FF2463"
+                                    d="M1 21L12 2l11 19zm3.45-2h15.1L12 6zM12 18q.425 0 .713-.288T13 17t-.288-.712T12 16t-.712.288T11 17t.288.713T12 18m-1-3h2v-5h-2zm1-2.5"
+                                ></path>
+                            </svg>
+                            <span className="text-custom-red">
+                                {formErrors.message}
+                            </span>
+                        </div>}
                     </div>
 
-                    <button type="submit" className="cursor-pointer bg-dark-blue w-[200px] py-4 polygon2 hover:opacity-80 ease-in-out duration-300 mt-6">
+                    <button
+                        type="submit"
+                        className="cursor-pointer bg-dark-blue w-[200px] py-4 polygon2 hover:opacity-80 ease-in-out duration-300 mt-6"
+                    >
                         <div className="flex flex-row justify-center items-center gap-2">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

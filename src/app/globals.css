@@ -34,3 +34,6 @@ h1, h2, h3, h4, h5, h6 {
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
 }
 
+.polygon2 {
+    clip-path: polygon(100% 0, 100% 75%, 92% 100%, 0 100%, 0 0);
+}

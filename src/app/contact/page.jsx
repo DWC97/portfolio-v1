@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import DecodeAnimation from 'react-decode-animation';
 import { useInView, motion } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
+import Footer from '@/components/global/Footer';
 
 
 export default function Contact() {
@@ -75,9 +76,10 @@ export default function Contact() {
 
 
     return (
+        <>
         <div
             ref={contactRef}
-            className="h-screen w-full flex justify-center items-center z-50"
+            className="min-h-[90vh] w-full flex justify-center items-center z-50"
             id="contact"
         >
             <div className="flex flex-col justify-center w-[530px] ">
@@ -199,5 +201,7 @@ export default function Contact() {
                 </Reveal>           
             </div>
         </div>
+        <Footer />
+        </>
     );
 }

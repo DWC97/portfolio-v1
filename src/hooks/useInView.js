@@ -43,6 +43,9 @@ export const useInView = (sectionIds, initialActive = '') => {
         if (path.includes('articles')) {
             setActiveSection('articles');
         }
+        else if (path.includes('contact')) {
+            setActiveSection('contact');
+        }
     }, [path]);
 
     return activeSection;

@@ -69,7 +69,7 @@ export default function Navbar() {
                         <li
                             className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'contact' ? 'text-dark-blue' : ''}`}
                         >
-                            <Link href={'/#contact'}>Contact</Link>
+                            <Link href={'/contact'}>Contact</Link>
                         </li>
                         <li
                             className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'projects' ? 'text-dark-blue' : ''}`}
@@ -186,7 +186,7 @@ export default function Navbar() {
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"
                                 onClick={() => setNav(false)}
                             >
-                                <Link href={'/#contact'}>Contact</Link>
+                                <Link href={'/contact'}>Contact</Link>
                             </li>
                             <li
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"

@@ -4,17 +4,18 @@ import { useEffect, useRef } from 'react';
 
 
 // reveal animation
-export function Reveal({ children }) {
+export function Reveal({ children, isPlaying }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const mainControls = useAnimation();
 
     useEffect(() => {
+        if (isPlaying){
         if (isInView) {
 
             mainControls.start('visible');
-        }
-    }, [isInView, mainControls]);
+        }}
+    }, [isInView, mainControls, isPlaying]);
 
     return (
         <div ref={ref} className="">

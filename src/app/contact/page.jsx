@@ -13,6 +13,7 @@ export default function Contact() {
     const contactRef = useRef(null)
     const isInView = useInView(contactRef, { once: true });
     const [playing, setPlaying] = useState(false);
+    const [playing2, setPlaying2] = useState(false)
     const initFormData = {
         email: '',
         message: '',
@@ -26,6 +27,7 @@ export default function Contact() {
             setPlaying(true);
             if (titleRef.current) {
                 titleRef.current.play();
+                setPlaying2(true)
             }
         }, 1000);
         }
@@ -71,7 +73,6 @@ export default function Contact() {
         console.log(email);
     }
 
-    console.log(isInView)
 
     return (
         <div
@@ -88,16 +89,16 @@ export default function Contact() {
                                 playing={playing}
                             />
                 </h1>
-                <div className={`w-full relative ${playing ? "opacity-100" : "opacity-0"} ease-in-out duration-500`}>
+                <div className={`w-full relative ${playing2 ? "opacity-100" : "opacity-0"} ease-in-out duration-500`}>
                     <div className="polygon1 bg-dark-blue w-[112px] h-[12px] border-b border-b-dark-blue" />
                     <motion.div
                         className="absolute h-[2px] w-full bg-dark-blue bottom-0 left-0"
                         initial={{ width: '0%' }}
-                        animate={{ width: isInView ? '100%' : '0%' }}
-                        transition={{ duration: 2 }}
+                        animate={{ width: playing2 ? '100%' : '0%' }}
+                        transition={{ duration: 2.5, ease: [0.4, 0, 0.1, 1] }}
                     />
                 </div>
-              
+                <Reveal isPlaying={playing2}>
                 <form
                     onSubmit={handleSubmit}
                     className="pt-8 flex flex-col gap-6"
@@ -114,10 +115,11 @@ export default function Contact() {
                             autoComplete="off"
                             className={`bg-primary-dark w-full  text-gray-200 ${formErrors.email ? "border-custom-red focus:border-custom-red" : "border-opacity-30 border-custom-gray focus:border-dark-blue"}   ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}
                         />
-                        <div
-                            className={`flex flex-row gap-2 items-center transition-all ease-in-out duration-500 ${
-                                formErrors.email ? 'max-h-[40px] opacity-100' : 'max-h-0 opacity-0'
-                            }`}
+                        <motion.div
+                            className="flex flex-row gap-2 items-center"
+                            initial={{ maxHeight: 0, opacity: 0 }}
+                            animate={{ maxHeight: formErrors.email ? 40 : 0, opacity: formErrors.email ? 1 : 0 }}
+                            transition={{ duration: 0.5, ease: 'easeInOut' }}
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +135,7 @@ export default function Contact() {
                             <span className="text-custom-red">
                                 {formErrors.email}
                             </span>
-                        </div>
+                        </motion.div>
                     
                     </div>
 
@@ -149,10 +151,11 @@ export default function Contact() {
                             autoComplete="off"
                             className={`bg-primary-dark w-full  text-gray-200 ${formErrors.message ? "border-custom-red focus:border-custom-red" : "border-opacity-30 border-custom-gray focus:border-dark-blue"} ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}
                         />
-                        <div
-                            className={`flex flex-row gap-2 items-center transition-all ease-in-out duration-500 ${
-                                formErrors.message ? 'max-h-[40px] opacity-100' : 'max-h-0 opacity-0'
-                            }`}
+                        <motion.div
+                            className="flex flex-row gap-2 items-center"
+                            initial={{ maxHeight: 0, opacity: 0 }}
+                            animate={{ maxHeight: formErrors.message ? 40 : 0, opacity: formErrors.message ? 1 : 0 }}
+                            transition={{ duration: 0.5, ease: 'easeInOut' }}
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +171,7 @@ export default function Contact() {
                             <span className="text-custom-red">
                                 {formErrors.message}
                             </span>
-                        </div>
+                        </motion.div>
                     </div>
 
                     <button
@@ -193,7 +196,7 @@ export default function Contact() {
                         </div>
                     </button>
                 </form>
-            
+                </Reveal>           
             </div>
         </div>
     );

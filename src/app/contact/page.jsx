@@ -6,21 +6,22 @@ import DecodeAnimation from 'react-decode-animation';
 import { useInView, motion } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
 import Footer from '@/components/global/Footer';
-
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
 
     const titleRef = useRef(null)
     const contactRef = useRef(null)
+    const formRef = useRef(null);
     const isInView = useInView(contactRef, { once: true });
     const [playing, setPlaying] = useState(false);
     const [playing2, setPlaying2] = useState(false)
     const initFormData = {
-        email: '',
+        from_name: '',
         message: '',
     };
     const [formData, setFormData] = useState(initFormData);
-    const [formErrors, setFormErrors] = useState({ email: '', message: "" });
+    const [formErrors, setFormErrors] = useState({ from_name: '', message: "" });
 
     useEffect(() => {
         if (isInView) {
@@ -55,7 +56,7 @@ export default function Contact() {
 
         // Validate inputs
         let error = '';
-        if (name === 'email') {
+        if (name === 'from_name') {
             error = validateEmail(value);
         } else if (name === 'message') {
             error = validateMessage(value);
@@ -71,7 +72,26 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(email);
+        
+        const templateParams = {
+            from_name: formData.email,
+            to_name: "DWC",
+            message: formData.message
+        }
+
+        emailjs
+      .sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
     }
 
 
@@ -102,6 +122,7 @@ export default function Contact() {
                 </div>
                 <Reveal isPlaying={playing2}>
                 <form
+                ref={formRef}
                     onSubmit={handleSubmit}
                     className="pt-8 flex flex-col gap-6"
                 >
@@ -110,9 +131,9 @@ export default function Contact() {
                             variant="filled"
                             label="Your email"
                             type="text"
-                            id="email"
-                            name="email"
-                            value={formData.email}
+                            id="from_name"
+                            name="from_name"
+                            value={formData.from_name}
                             onChange={handleChange}
                             autoComplete="off"
                             className={`bg-primary-dark w-full  text-gray-200 ${formErrors.email ? "border-custom-red focus:border-custom-red" : "border-opacity-30 border-custom-gray focus:border-dark-blue"}   ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}

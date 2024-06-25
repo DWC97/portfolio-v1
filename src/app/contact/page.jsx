@@ -17,11 +17,11 @@ export default function Contact() {
     const [playing, setPlaying] = useState(false);
     const [playing2, setPlaying2] = useState(false)
     const initFormData = {
-        from_name: '',
+        email: '',
         message: '',
     };
     const [formData, setFormData] = useState(initFormData);
-    const [formErrors, setFormErrors] = useState({ from_name: '', message: "" });
+    const [formErrors, setFormErrors] = useState({ email: '', message: "" });
 
     useEffect(() => {
         if (isInView) {
@@ -56,7 +56,7 @@ export default function Contact() {
 
         // Validate inputs
         let error = '';
-        if (name === 'from_name') {
+        if (name === 'email') {
             error = validateEmail(value);
         } else if (name === 'message') {
             error = validateMessage(value);
@@ -73,11 +73,16 @@ export default function Contact() {
     function handleSubmit(e) {
         e.preventDefault();
         
-        const templateParams = {
-            from_name: formData.email,
-            to_name: "DWC",
-            message: formData.message
-        }
+        const emailError = validateEmail(formData.email);
+    const messageError = validateMessage(formData.message);
+
+    if (emailError || messageError) {
+        setFormErrors({
+            email: emailError,
+            message: messageError,
+        });
+        return;
+    }
 
         emailjs
       .sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -131,9 +136,9 @@ export default function Contact() {
                             variant="filled"
                             label="Your email"
                             type="text"
-                            id="from_name"
-                            name="from_name"
-                            value={formData.from_name}
+                            id="email"
+                            name="email"
+                            value={formData.email}
                             onChange={handleChange}
                             autoComplete="off"
                             className={`bg-primary-dark w-full  text-gray-200 ${formErrors.email ? "border-custom-red focus:border-custom-red" : "border-opacity-30 border-custom-gray focus:border-dark-blue"}   ease-in-out duration-500 outline-none transition peer-focus:text-custom-gray `}

@@ -7,6 +7,7 @@ import { useInView, motion } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
 import Footer from '@/components/global/Footer';
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 
 export default function Contact() {
 
@@ -22,6 +23,7 @@ export default function Contact() {
     };
     const [formData, setFormData] = useState(initFormData);
     const [formErrors, setFormErrors] = useState({ email: '', message: "" });
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         if (isInView) {
@@ -72,11 +74,14 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        setSubmitted(true)
         
         const emailError = validateEmail(formData.email);
     const messageError = validateMessage(formData.message);
 
     if (emailError || messageError) {
+        setSubmitted(false)
         setFormErrors({
             email: emailError,
             message: messageError,
@@ -91,10 +96,29 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
       .then(
         () => {
-          console.log('SUCCESS!');
+            Swal.fire({
+                title: 'Message sent!',
+                text: "I'll get back to you on email",
+                icon: 'success',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                scrollbarPadding: false,
+            });
+          setSubmitted(false)
+          setFormData(initFormData)
         },
         (error) => {
-          console.log('FAILED...', error.text);
+            Swal.fire({
+                title: 'Error!',
+                text: text.error,
+                icon: 'error',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                scrollbarPadding: false,
+            });
+          setSubmitted(false)
         },
       );
     }
@@ -204,7 +228,7 @@ export default function Contact() {
 
                     <button
                         type="submit"
-                        className="cursor-pointer bg-dark-blue w-[200px] py-4 polygon2 hover:opacity-80 ease-in-out duration-300 mt-6"
+                        className={`cursor-pointer bg-dark-blue w-[200px] py-4 polygon2 hover:opacity-80 ease-in-out duration-300 mt-6 ${submitted ? "opacity-80" : ""}`}
                     >
                         <div className="flex flex-row justify-center items-center gap-2">
                             <svg
@@ -219,7 +243,7 @@ export default function Contact() {
                                 ></path>
                             </svg>
                             <span className="text-primary-dark font-semibold ">
-                                Send message
+                                {submitted ? "Sending..." : "Send message"}
                             </span>
                         </div>
                     </button>

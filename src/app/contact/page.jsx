@@ -131,8 +131,8 @@ export default function Contact() {
             className="min-h-[90vh] w-full flex justify-center items-center z-50"
             id="contact"
         >
-            <div className="flex flex-col justify-center w-[530px] ">
-                <h1 className={`${playing ? "text-white" : "text-transparent"} text-[36px] font-semibold pb-10`}>
+            <div className="flex flex-col justify-center w-full sm:px-0 px-10 sm:w-[530px] sm:mt-0 mt-10">
+                <h1 className={`${playing ? "text-white" : "text-transparent"} text-[28px] sm:text-[36px] font-semibold pb-10`}>
                 <DecodeAnimation
                                 ref={titleRef}
                                 text={'Drop me a line'}

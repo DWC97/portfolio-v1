@@ -43,7 +43,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="fixed w-full lg:w-48 h-20 lg:h-screen top-0 left-0 p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
+        <div className="fixed w-full lg:w-48 h-20 lg:h-screen top-0 left-0 p-[40px] sm:p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
             <Link href={'/#hero'} className=" pb-6">
                 <span
                     ref={glitch.ref}
@@ -118,7 +118,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div
-                className="lg:hidden flex justify-center items-center absolute right-0 mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80 z-[1100]"
+                className="lg:hidden flex justify-center items-center absolute right-0 mr-[40px] sm:mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80 z-[1100]"
                 onClick={() => {
                     setNav(!nav);
                 }}

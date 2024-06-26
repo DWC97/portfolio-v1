@@ -43,7 +43,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="fixed w-full lg:w-48 h-20 lg:h-screen top-0 left-0 p-[40px] sm:p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
+        <div className="fixed w-full 2xl:w-48 h-20 2xl:h-screen top-0 left-0 p-[40px] sm:p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
             <Link href={'/#hero'} className=" pb-6">
                 <span
                     ref={glitch.ref}
@@ -58,7 +58,7 @@ export default function Navbar() {
                 </span>
             </Link>
 
-            <div className="hidden lg:flex flex-col justify-between h-full items-baseline">
+            <div className="hidden 2xl:flex flex-col justify-between h-full items-baseline">
                 <div className=" -rotate-90 mt-52 w-6  align-baseline">
                     <ul className="flex flex-row gap-6 text-light-blue font-medium">
                         <li
@@ -118,7 +118,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div
-                className="lg:hidden flex justify-center items-center absolute right-0 mr-[40px] sm:mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80 z-[1100]"
+                className="2xl:hidden flex justify-center items-center absolute right-0 mr-[40px] sm:mr-[60px] 2xl:mr-[80px] cursor-pointer ease-in-out duration-300 hover:opacity-80 z-[1100]"
                 onClick={() => {
                     setNav(!nav);
                 }}
@@ -173,7 +173,7 @@ export default function Navbar() {
                         animate="open"
                         exit="closed"
                         variants={menuVariants}
-                        className="fixed top-0 left-0 z-[1000] h-screen w-full flex lg:hidden flex-col justify-center items-center bg-[#0C1523] bg-opacity-80 backdrop-blur-md"
+                        className="fixed top-0 left-0 z-[1000] h-screen w-full flex 2xl:hidden flex-col justify-center items-center bg-[#0C1523] bg-opacity-80 backdrop-blur-md"
                     >
                         <ul className="flex flex-col  text-light-blue font-medium text-lg w-full px-10 md:px-20">
                             <li

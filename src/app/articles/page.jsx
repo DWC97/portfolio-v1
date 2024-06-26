@@ -1,5 +1,9 @@
 export default function Articles(){
     return (
-        <div className="h-screen w-full text-white flex justify-center items-center" id="articles">Article page</div>
+        <div className="min-h-screen w-full flex-col 2xl:flex-row" id="articles">
+            <div className="w-full 2xl:w-2/5">
+
+            </div>
+        </div>
     )
 }

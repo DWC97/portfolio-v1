@@ -44,7 +44,7 @@ export default function Navbar() {
 
     return (
         <div className="fixed w-full 2xl:w-48 h-20 2xl:h-screen top-0 left-0 p-[40px] sm:p-[60px] 2xl:p-[80px]  flex flex-col z-[1000] ">
-            <Link href={'/#hero'} className=" pb-6">
+            <Link href={'/#hero'} className=" pb-6 w-28">
                 <span
                     ref={glitch.ref}
                     className="text-white cyberpunk-heading text-4xl 2xl:text-5xl hover:opacity-80 cursor-pointer ease-in-out duration-300 z-[1100]"

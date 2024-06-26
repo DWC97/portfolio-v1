@@ -20,6 +20,7 @@ module.exports = {
         "light-blue": "#BDE6EC",
         "custom-gray": "#6E98AE",
         "primary-dark": "#0C1523",
+        "primary-light": "#112035",
         "custom-red": "#FF2463"
       },
     },

@@ -38,3 +38,11 @@ h1, h2, h3, h4, h5, h6 {
     clip-path: polygon(100% 0, 100% 75%, 92% 100%, 0 100%, 0 0);
 }
 
+.featured-bg {
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.featured-container:hover .featured-bg {
+    transform: scale(1.1);
+}

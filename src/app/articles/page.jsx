@@ -85,6 +85,11 @@ export default function Articles() {
                         </div>
                     </div>
                 </div>
+                <div className='w-full border-b border-opacity-10 border-white my-6' />
+                <SkeletonCard />
+                <div className='w-full border-b border-opacity-10 border-white my-6' />
+                <SkeletonCard />
+                <div className='w-full border-b border-opacity-10 border-white my-6' />
             </div>
         </div>
     );
@@ -92,8 +97,58 @@ export default function Articles() {
 
 function SkeletonCard(){
     return (
-        <div>
-            
-        </div>
+        <div className="flex flex-col  p-4 opacity-70">
+                    <div className="flex flex-row gap-6">
+                        <div
+                            className={`w-[220px] relative 'opacity-100' ease-in-out duration-500`}
+                        >
+                            <div className="absolute bottom-0 left-0 polygon1 bg-custom-gray w-[112px] h-[12px] border-b border-custom-gray" />
+                            <div
+                                className="absolute h-[2px] w-full bg-custom-gray bottom-0 left-0"
+                                
+                            />
+                        </div>
+                        <span className={`text-custom-gray font-medium `}>
+                            Coming soon...
+                        </span>
+                    </div>
+                    <div className="w-full h-6 my-6 bg-primary-light" />
+                    <div className="w-full h-12 bg-primary-light" />
+                        
+                    <div className="flex flex-row justify-between mt-6">
+                        <div className="flex flex-row gap-2 items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={24}
+                                height={24}
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill="#6E98AE"
+                                    d="M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6z"
+                                ></path>
+                            </svg>
+                            <span className="text-custom-gray font-semibold">
+                                Read article
+                            </span>
+                        </div>
+                        <div className="flex flex-row gap-4 items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={24}
+                                height={24}
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fill="#6E98AE"
+                                    fillRule="evenodd"
+                                    d="M6.25 0a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5zM13 9A5 5 0 1 1 3 9a5 5 0 0 1 10 0m1.5 0a6.5 6.5 0 1 1-13 0a6.5 6.5 0 0 1 13 0m-2.28-7.28a.75.75 0 0 1 1.06 0l1.5 1.5a.75.75 0 0 1-1.06 1.06l-1.5-1.5a.75.75 0 0 1 0-1.06M8.75 6a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 .3.6l1.333 1a.75.75 0 1 0 .9-1.2L8.75 8.625z"
+                                    clipRule="evenodd"
+                                ></path>
+                            </svg>
+                            <span className='font-medium text-custom-gray'>? min</span>
+                        </div>
+                    </div>
+                </div>
     )
 }

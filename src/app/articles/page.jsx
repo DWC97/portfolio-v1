@@ -13,7 +13,7 @@ export default function Articles() {
     return (
         <>
         <div
-            className="min-h-[90vh] w-full pl-0 pr-0 2xl:pl-60 2xl:pr-32 2xl:gap-12  flex flex-col 2xl:flex-row overflow-hidden relative pb-10"
+            className="w-full pl-0 pr-0 2xl:pl-60 2xl:pr-32 2xl:gap-12  flex flex-col 2xl:flex-row  relative pb-16"
             id="articles"
         >
             <div className="w-full 2xl:w-1/2 flex flex-col px-10 2xl:px-0">
@@ -96,10 +96,14 @@ export default function Articles() {
                 <div className="w-full border-b border-opacity-10 border-white my-6" />
                 <SkeletonCard />
                 <div className="w-full border-b border-opacity-10 border-white my-6" />
+                <SkeletonCard />
+                <div className="w-full border-b border-opacity-10 border-white my-6" />
+                <SkeletonCard />
+                <div className="w-full border-b border-opacity-10 border-white mt-6" />
                 
                 
             </div>
-            <div className="flex flex-col h-[80vh] 2xl:h-[84vh] w-full 2xl:w-1/2  px-10 2xl:px-0 mt-6  mb-12 2xl:mb-0 relative 2xl:sticky 2xl:top-[8vh] featured-container">
+            <div className="flex flex-col h-[80vh] 2xl:h-[84vh] w-full 2xl:w-1/2  px-10 2xl:px-0 mt-12  mb-12 2xl:mb-0 relative 2xl:sticky 2xl:top-[8vh] featured-container 2xl:justify-start">
             <div className='relative w-full h-full z-0  overflow-hidden'>
                 <div
                     className="h-full w-full  opacity-50 featured-bg"

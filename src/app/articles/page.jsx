@@ -16,16 +16,16 @@ export default function Articles() {
             className="w-full pl-0 pr-0 2xl:pl-60 2xl:pr-32 2xl:gap-12  flex flex-col 2xl:flex-row  relative pb-16"
             id="articles"
         >
-            <div className="w-full 2xl:w-1/2 flex flex-col px-10 2xl:px-0">
+            <div className="w-full 2xl:w-1/2 flex flex-col px-6 sm:px-10 2xl:px-0">
                 <h2 className="text-[28px] font-medium text-white mt-40  mb-10 w-full border-b border-opacity-10 border-white px-4">
                     Latest articles
                 </h2>
                 <div className="flex flex-col hover:bg-primary-light p-4 cursor-pointer duration-500 ease-in-out">
                     <div className="flex flex-row gap-6">
                         <div
-                            className={`w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                            className={`w-[100px] sm:w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
                         >
-                            <div className="absolute bottom-0 left-0 polygon1 bg-dark-blue w-[112px] h-[12px] border-b border-b-dark-blue" />
+                            <div className="absolute bottom-0 left-0 polygon1 bg-dark-blue w-[60px] sm:w-[112px] h-[12px] border-b border-b-dark-blue" />
                             <motion.div
                                 className="absolute h-[2px] w-full bg-dark-blue bottom-0 left-0"
                                 initial={{ width: '0%' }}
@@ -37,12 +37,12 @@ export default function Articles() {
                             />
                         </div>
                         <span
-                            className={`text-dark-blue font-medium ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                            className={`text-dark-blue font-medium ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500 text-[14px] sm:text-[16px]`}
                         >
                             July 28th 2024
                         </span>
                     </div>
-                    <h1 className="text-[32px] font-semibold text-white my-6">
+                    <h1 className="text-[24px] sm:text-[32px] font-semibold text-white my-6">
                         How I created an interactive 3-D parallax effect in
                         React
                     </h1>
@@ -103,7 +103,7 @@ export default function Articles() {
                 
                 
             </div>
-            <div className="flex flex-col h-[80vh] 2xl:h-[84vh] w-full 2xl:w-1/2  px-10 2xl:px-0 mt-12  mb-12 2xl:mb-0 relative 2xl:sticky 2xl:top-[8vh] featured-container 2xl:justify-start">
+            <div className="flex flex-col h-[90vh] sm:h-[80vh] 2xl:h-[84vh] w-full 2xl:w-1/2  px-10 2xl:px-0 mt-12  mb-12 2xl:mb-0 relative 2xl:sticky 2xl:top-[8vh] featured-container 2xl:justify-start">
             <div className='relative w-full h-full z-0  overflow-hidden'>
                 <div
                     className="h-full w-full  opacity-50 featured-bg"
@@ -114,13 +114,13 @@ export default function Articles() {
                     }}
                 />
                 </div>
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col  z-10 px-28 2xl:px-10 pb-12 justify-end ">
+                <div className="absolute top-0 left-0 w-full h-full flex flex-col  z-10 px-16 lg:px-28 2xl:px-10 pb-12 justify-end ">
                     <span className='absolute -top-4 left-20 z-20 bg-primary-dark text-white font-medium py-2 px-4'>Coming soon</span>
                     <div className="flex flex-row gap-6 mb-6">
                         <div
-                            className={`w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                            className={`w-[100px] sm:w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
                         >
-                            <div className="absolute bottom-0 left-0 polygon1 bg-dark-blue w-[112px] h-[12px] border-b border-b-dark-blue" />
+                            <div className="absolute bottom-0 left-0 polygon1 bg-dark-blue w-[60px] sm:w-[112px] h-[12px] border-b border-b-dark-blue" />
                             <motion.div
                                 className="absolute h-[2px] w-full bg-dark-blue bottom-0 left-0"
                                 initial={{ width: '0%' }}
@@ -137,7 +137,7 @@ export default function Articles() {
                             September 2024
                         </span>
                     </div>
-                    <h1 className="font-semibold text-white text-[56px] leading-[76px] pb-6">
+                    <h1 className="font-semibold text-white text-[28px] sm:text-[56px] leading-snug sm:leading-[76px] pb-6">
                         Why Next.js is perfect for your portfolio website
                     </h1>
                     <p className="text-custom-gray font-medium">
@@ -197,9 +197,9 @@ function SkeletonCard() {
         <div className="flex flex-col  p-4 opacity-70">
             <div className="flex flex-row gap-6">
                 <div
-                    className={`w-[220px] relative 'opacity-100' ease-in-out duration-500`}
+                    className={`w-[100px] sm:w-[220px] relative 'opacity-100' ease-in-out duration-500`}
                 >
-                    <div className="absolute bottom-0 left-0 polygon1 bg-custom-gray w-[112px] h-[12px] border-b border-custom-gray" />
+                    <div className="absolute bottom-0 left-0 polygon1 bg-custom-gray w-[60px] sm:w-[112px] h-[12px] border-b border-custom-gray" />
                     <div className="absolute h-[2px] w-full bg-custom-gray bottom-0 left-0" />
                 </div>
                 <span className={`text-custom-gray font-medium `}>

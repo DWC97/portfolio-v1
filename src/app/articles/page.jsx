@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useInView, motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Footer from '@/components/global/Footer';
 
 export default function Articles() {
@@ -14,11 +13,11 @@ export default function Articles() {
     return (
         <>
         <div
-            className="min-h-[90vh] w-full flex-col 2xl:flex-row overflow-hidden"
+            className="min-h-[90vh] w-full pl-0 pr-0 2xl:pl-60 2xl:pr-32 2xl:gap-12  flex flex-col 2xl:flex-row overflow-hidden relative pb-10"
             id="articles"
         >
-            <div className="w-full 2xl:w-2/5 flex flex-col px-10">
-                <h2 className="text-[28px] font-medium text-white mt-40 mb-10 w-full border-b border-opacity-10 border-white px-4">
+            <div className="w-full 2xl:w-1/2 flex flex-col px-10 2xl:px-0">
+                <h2 className="text-[28px] font-medium text-white mt-40  mb-10 w-full border-b border-opacity-10 border-white px-4">
                     Latest articles
                 </h2>
                 <div className="flex flex-col hover:bg-primary-light p-4 cursor-pointer duration-500 ease-in-out">
@@ -97,8 +96,10 @@ export default function Articles() {
                 <div className="w-full border-b border-opacity-10 border-white my-6" />
                 <SkeletonCard />
                 <div className="w-full border-b border-opacity-10 border-white my-6" />
+                
+                
             </div>
-            <div className="flex flex-col h-[80vh] w-full 2xl:w-2/5 px-10 mt-6 mb-12 relative featured-container">
+            <div className="flex flex-col h-[80vh] 2xl:h-[84vh] w-full 2xl:w-1/2  px-10 2xl:px-0 mt-6  mb-12 2xl:mb-0 relative 2xl:sticky 2xl:top-[8vh] featured-container">
             <div className='relative w-full h-full z-0  overflow-hidden'>
                 <div
                     className="h-full w-full  opacity-50 featured-bg"
@@ -109,7 +110,7 @@ export default function Articles() {
                     }}
                 />
                 </div>
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col  z-10 px-28 pb-12 justify-end ">
+                <div className="absolute top-0 left-0 w-full h-full flex flex-col  z-10 px-28 2xl:px-10 pb-12 justify-end ">
                     <span className='absolute -top-4 left-20 z-20 bg-primary-dark text-white font-medium py-2 px-4'>Coming soon</span>
                     <div className="flex flex-row gap-6 mb-6">
                         <div
@@ -133,7 +134,7 @@ export default function Articles() {
                         </span>
                     </div>
                     <h1 className="font-semibold text-white text-[56px] leading-[76px] pb-6">
-                        Why Next.js is perfect for your next portfolio website
+                        Why Next.js is perfect for your portfolio website
                     </h1>
                     <p className="text-custom-gray font-medium">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

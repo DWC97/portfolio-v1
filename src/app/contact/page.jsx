@@ -8,6 +8,7 @@ import { Reveal } from '@/animations/Reveal';
 import Footer from '@/components/global/Footer';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
+import { Slide } from '@/animations/Slide';
 
 export default function Contact() {
 
@@ -251,7 +252,9 @@ export default function Contact() {
                 </Reveal>           
             </div>
         </div>
+        <Slide>
         <Footer />
+        </Slide>
         </>
     );
 }

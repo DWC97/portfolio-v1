@@ -1,10 +1,10 @@
-import { Slide } from "@/animations/Slide";
+
 
 export default function Footer() {
     return (
         
-        <div className="h-[10vh] w-full flex justify-center items-start px-10 text-center">
-            <Slide>
+        <div className="h-[10vh]  w-full flex justify-center items-start px-10 text-center">
+         
             <span className="text-custom-gray font-medium ">
                 © 2024 Douglas William Carton.&nbsp;
                 <a 
@@ -16,7 +16,7 @@ export default function Footer() {
                     Created in Next.js, Three.js and Framer Motion.
                 </a>
             </span>
-            </Slide>
+           
         </div>
     );
 }

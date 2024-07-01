@@ -118,7 +118,7 @@ export default function ParallaxArticle() {
                         to give users a unique experience. Parallax effects with
                         layers in the foreground and background moving at
                         different speeds to create a realistic perspective are
-                        paticularly popular. In this article, I'll break down
+                        paticularly popular. In this article, I&apos;ll break down
                         how I implemented such an effect in React.js using basic
                         Javascript and CSS.
                     </p>

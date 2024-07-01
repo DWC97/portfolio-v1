@@ -43,7 +43,9 @@ export default function ParallaxArticle() {
                         />
                     </div>
                     <div className="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent to-primary-dark opacity-100 z-0" />
-                    <div className="w-[700px]  z-10 mt-20">
+                    <div
+                        className={`w-[700px]  z-10 mt-20 ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                    >
                         <div className="flex flex-row gap-6">
                             <div
                                 className={`w-[100px] sm:w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
@@ -60,7 +62,7 @@ export default function ParallaxArticle() {
                                 />
                             </div>
                             <span
-                                className={`text-dark-blue font-medium ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500 text-[14px] sm:text-[16px]`}
+                                className={`text-dark-blue font-medium  text-[14px] sm:text-[16px]`}
                             >
                                 July 28th 2024
                             </span>
@@ -70,17 +72,22 @@ export default function ParallaxArticle() {
                             React
                         </h1>
                         <div className="flex flex-row items-center justify-between">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={36}
-                                height={36}
-                                viewBox="0 0 1024 1024"
+                            <a
+                                href="#p1"
+                                className="hover:opacity-80 ease-in-out duration-300"
                             >
-                                <path
-                                    fill="#6E98AE"
-                                    d="M8.2 275.4c0-8.6 3.4-17.401 10-24.001c13.2-13.2 34.8-13.2 48 0l451.8 451.8l445.2-445.2c13.2-13.2 34.8-13.2 48 0s13.2 34.8 0 48L542 775.399c-13.2 13.2-34.8 13.2-48 0l-475.8-475.8c-6.8-6.8-10-15.4-10-24.199"
-                                ></path>
-                            </svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={36}
+                                    height={36}
+                                    viewBox="0 0 1024 1024"
+                                >
+                                    <path
+                                        fill="#6E98AE"
+                                        d="M8.2 275.4c0-8.6 3.4-17.401 10-24.001c13.2-13.2 34.8-13.2 48 0l451.8 451.8l445.2-445.2c13.2-13.2 34.8-13.2 48 0s13.2 34.8 0 48L542 775.399c-13.2 13.2-34.8 13.2-48 0l-475.8-475.8c-6.8-6.8-10-15.4-10-24.199"
+                                    ></path>
+                                </svg>
+                            </a>
                             <div className="flex flex-row gap-4 items-center">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -100,6 +107,34 @@ export default function ParallaxArticle() {
                                 </span>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div
+                    className={`w-[700px] text-gray-300 text-[20px] leading-relaxed ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                >
+                    <p className=" pt-12" id="p1">
+                        2024 has seen the rise of interactivity in web design.
+                        Designers are pushing the boundaries with 3-D elements
+                        to give users a unique experience. Parallax effects with
+                        layers in the foreground and background moving at
+                        different speeds to create a realistic perspective are
+                        paticularly popular. In this article, I'll break down
+                        how I implemented such an effect in React.js using basic
+                        Javascript and CSS. 
+                    </p>
+                    <div className="flex flex-row gap-4 pl-4 py-4 items-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 1024 1024"
+                        >
+                            <path
+                                fill="#00EEFF"
+                                d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                            ></path>
+                        </svg>
+                        <span className='border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out'>Demo of the final result.</span>
                     </div>
                 </div>
             </div>

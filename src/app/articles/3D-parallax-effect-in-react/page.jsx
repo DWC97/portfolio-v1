@@ -27,20 +27,21 @@ export default function ParallaxArticle() {
 
     return (
         <>
-            <div className="w-full h-[200vh] flex flex-col items-center pb-20">
+            <div className="w-full  flex flex-col items-center pb-20">
                 <div className="w-full h-[75vh] relative flex flex-col justify-center items-center">
                     <div
-                        className="absolute w-full h-full -z-10"
+                        className="absolute w-full h-full -z-10 overflow-hidden"
                         style={{ opacity }}
                     >
-                        <Image
+                        {/* <Image
                             src="/images/articlebg.png"
                             alt="article banner"
                             fill
                             sizes="(height: 100%)"
                             className="object-cover object-top opacity-90"
                             priority
-                        />
+                        /> */}
+                        <img src="/images/articlebg.png" alt="" className='w-full object-fill opacity-90'/>
                     </div>
                     <div className="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent to-primary-dark opacity-100 z-0" />
                     <div
@@ -119,7 +120,7 @@ export default function ParallaxArticle() {
                         layers in the foreground and background moving at
                         different speeds to create a realistic perspective are
                         paticularly popular. In this article, I&apos;ll break down
-                        how I implemented such an effect in React.js using basic
+                        how I implemented a parallax scroll effect using the mouse position in React.js with 
                         Javascript and CSS.
                     </p>
                     <div className="flex flex-row gap-4 pl-4 py-4 items-center">
@@ -134,19 +135,19 @@ export default function ParallaxArticle() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out">
+                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue">
                             Demo of the final result.
                         </span>
                     </div>
                     <p className="pt-10">
                         The first and most important decision is to choose a
-                        scene. Find an image that has layers at varying distance
+                        scene. Find a high-resolution image that has layers at varying distance
                         from the point of observation. That means there should
                         be layers in the foreground and in the background of the
                         image, otherwise it will be impossible to create the
-                        illusion of depth.
+                        illusion of depth.  
                     </p>
-                    <div className="w-full relative mt-10 mb-16">
+                    <div className="w-full relative mt-10 mb-10">
                     <Image
                                             src={"/images/articlebg2.jpg"}
                                             alt="scene img"
@@ -160,12 +161,13 @@ export default function ParallaxArticle() {
                                         />
                     </div>
                     <p className="mt-10">
-                        The first and most important decision is to choose a
-                        scene. Find an image that has layers at varying distance
-                        from the point of observation. That means there should
-                        be layers in the foreground and in the background of the
-                        image, otherwise it will be impossible to create the
-                        illusion of depth.
+                        Once we have the image, we can move into Photoshop or another photo editing tool of your choice. This isn't a photoshop tutorial so I will keep the explanation brief. In my case, the image needed color adjustments to dampen the whites so the text content would be able to stand out later on. The main work involved is cutting out each individual layer and  <a href="https://www.adobe.com/products/photoshop/generative-fill.html"
+                        aria-label="generative fill tutorial"
+                        target="_blank"
+                        className='border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue'>generating a filling</a> for the cut out sections.
+                        <br />
+                        <br />
+                        Import the layers into React by adding them into the public folder of the root directory. Give them an absolute position and tweak their top/left values until they are placed in the correct position on the page. Giving each layer a width of 100% will ensure they are the right size. Give the layers in the foreground a higher z-index value so they sit at the top of the stack. Each <code>&lt;img&gt;</code> element needs the parallax class so that we can translate it's x, y and z coordinates later with a Javascript function. The parallax class is given a scale value so that the scene is slightly zoomed in. This to stop the edge of the background layers from becoming visible after they are shifted due to the parallax effect.
                     </p>
                 </div>
             </div>

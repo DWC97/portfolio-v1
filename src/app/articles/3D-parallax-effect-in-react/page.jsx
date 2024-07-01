@@ -4,6 +4,8 @@ import Footer from '@/components/global/Footer';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export default function ParallaxArticle() {
     const [opacity, setOpacity] = useState(1);
@@ -167,8 +169,34 @@ export default function ParallaxArticle() {
                         className='border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue'>generating a filling</a> for the cut out sections.
                         <br />
                         <br />
-                        Import the layers into React by adding them into the public folder of the root directory. Give them an absolute position and tweak their top/left values until they are placed in the correct position on the page. Giving each layer a width of 100% will ensure they are the right size. Give the layers in the foreground a higher z-index value so they sit at the top of the stack. Each <code>&lt;img&gt;</code> element needs the parallax class so that we can translate it's x, y and z coordinates later with a Javascript function. The parallax class is given a scale value so that the scene is slightly zoomed in. This to stop the edge of the background layers from becoming visible after they are shifted due to the parallax effect.
+                        Import the layers into React by adding them into the public folder of the root directory. Using CSS, give them an absolute position and tweak their top/left values until they are placed in the correct position on the page. Giving each layer a width of 100% will ensure they are the right size. The layers in the foreground need a higher z-index value so they sit at the top of the stack. Each <code>&lt;img&gt;</code> element has the parallax class so that we can translate the x, y and z coordinates later with a Javascript function. The parallax class is given a scale value so that the scene is slightly zoomed in. This to stop the edge of the background layers from becoming visible after they are shifted due to the parallax effect.
                     </p>
+                    <div className="mt-10">
+                    <SyntaxHighlighter language="css" style={docco}
+                    customStyle={{ fontSize: '14px' }}
+                    >
+                    {`.parallax {
+    transform: translate(-50%, -50%);
+    scale: 1.085;
+    transition: 0.45s cubic-bezier(0.2, 0.49, 0.32, .99);
+}
+
+.sky {
+    position: absolute;
+    width: 100%;
+    top: 28%;
+    left: 54.25%;
+    z-index: 0;
+}
+.sea {
+    position: absolute;
+    width: 100%;
+    top: 89%;
+    left: 54.03%;
+    z-index: 1;
+}`}
+    </SyntaxHighlighter>
+                    </div>
                 </div>
             </div>
             <Footer />

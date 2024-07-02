@@ -39,12 +39,12 @@ export default function ParallaxArticle() {
                         <img
                             src="/images/articlebg.png"
                             alt=""
-                            className="w-full object-fill opacity-90"
+                            className="w-full h-full object-cover opacity-90"
                         />
                     </div>
                     <div className="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent to-primary-dark opacity-100 z-0" />
                     <div
-                        className={`w-[700px]  z-10 mt-20 ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                        className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  z-10 mt-20 ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
                     >
                         <div className="flex flex-row gap-6">
                             <div
@@ -67,7 +67,7 @@ export default function ParallaxArticle() {
                                 July 28th 2024
                             </span>
                         </div>
-                        <h1 className="text-[24px] sm:text-[48px] font-bold text-white my-6 leading-tight mt-10">
+                        <h1 className="text-[28px] sm:text-[48px] font-bold text-white my-6 leading-tight mt-10">
                             How I created an interactive 3-D parallax effect in
                             React
                         </h1>
@@ -110,7 +110,7 @@ export default function ParallaxArticle() {
                     </div>
                 </div>
                 <div
-                    className={`w-[700px]  text-gray-300 text-[20px] leading-relaxed ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                    className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  text-gray-300 text-[20px] leading-relaxed ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
                 >
                     <p className=" pt-10" id="p1">
                         2024 has seen the rise of interactivity in web design.

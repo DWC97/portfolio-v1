@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Link from 'next/link';
 
 export default function ParallaxArticle() {
     const [opacity, setOpacity] = useState(1);
@@ -133,9 +134,11 @@ export default function ParallaxArticle() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue">
+                        <a href="https://github.com/DWC97" 
+                    target="_blank" 
+                    rel="noopener noreferrer" className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue">
                             Demo of the final result.
-                        </span>
+                        </a>
                     </div>
                     <p className="pt-10">
                         The first and most important decision is to choose a
@@ -190,7 +193,8 @@ export default function ParallaxArticle() {
                         parallax class is given a scale value so that the scene
                         is slightly zoomed in. This to stop the edge of the
                         background layers from becoming visible after they are
-                        shifted due to the parallax effect.
+                        shifted due to the parallax effect. The transition
+                        property gives the movement a smooth feel.
                     </p>
                     <div className="mt-10">
                         <SyntaxHighlighter
@@ -335,6 +339,26 @@ export default function ParallaxArticle() {
 loadEvents();`}
                             </SyntaxHighlighter>
                         </div>
+                        <p className="mt-10">
+                            You should be all set now! Feel free to reach out
+                            through my{' '}
+                            <Link
+                                href={'/contact'}
+                                className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                            >
+                                Contact
+                            </Link>{' '}
+                            form if you have any questions. You can find the
+                            full repo for the project{' '}
+                            <a
+                                href="https://github.com/DWC97"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                            >
+                                here.
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>

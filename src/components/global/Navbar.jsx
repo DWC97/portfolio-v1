@@ -175,24 +175,39 @@ export default function Navbar() {
                         variants={menuVariants}
                         className="fixed top-0 left-0 z-[1000] h-screen w-full flex 2xl:hidden flex-col justify-center items-center bg-[#0C1523] bg-opacity-80 backdrop-blur-md"
                     >
-                        <ul className="flex flex-col  text-light-blue font-medium text-lg w-full px-10 md:px-20">
+                        <ul className="flex flex-col text-light-blue font-medium text-lg w-full px-10 md:px-20">
                             <li
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"
                                 onClick={() => setNav(false)}
                             >
-                                <Link href={'/'}>Projects</Link>
+                                <Link
+                                    className="w-full h-full flex items-center justify-center"
+                                    href={'/'}
+                                >
+                                    Projects
+                                </Link>
                             </li>
                             <li
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"
                                 onClick={() => setNav(false)}
                             >
-                                <Link href={'/contact'}>Contact</Link>
+                                <Link
+                                    className="w-full h-full flex items-center justify-center"
+                                    href={'/contact'}
+                                >
+                                    Contact
+                                </Link>
                             </li>
                             <li
                                 className="hover:opacity-80 cursor-pointer ease-in-out duration-300 w-full text-center py-5"
                                 onClick={() => setNav(false)}
                             >
-                                <Link href={'/articles'}>Articles</Link>
+                                <Link
+                                    className="w-full h-full flex items-center justify-center"
+                                    href={'/articles'}
+                                >
+                                    Articles
+                                </Link>
                             </li>
                         </ul>
                         <div className="absolute p-[60px] bottom-0 left-0 flex flex-row gap-6">

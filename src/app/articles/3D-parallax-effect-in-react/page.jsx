@@ -143,7 +143,7 @@ export default function ParallaxArticle() {
                     <p className="pt-10">
                         The first and most important decision is to choose a
                         scene. Find a high-resolution image that has layers at
-                        varying distance from the point of observation. That
+                        varying distances from the point of observation. That
                         means there should be layers in the foreground and in
                         the background of the image, otherwise it will be
                         impossible to create the illusion of depth.
@@ -163,7 +163,7 @@ export default function ParallaxArticle() {
                     </div>
                     <p className="mt-10">
                         Once we have the image, we can move into Photoshop or
-                        another photo editing tool of your choice. This isn't a
+                        another photo editing tool of your choice. This isn&apos;t a
                         photoshop tutorial so I will keep the explanation brief.
                         In my case, the image needed color adjustments to dampen
                         the whites so the text content would be able to stand
@@ -190,7 +190,7 @@ export default function ParallaxArticle() {
                         the stack. Each <code>&lt;img&gt;</code> element has the
                         parallax class so that we can translate the x, y and z
                         coordinates later with a Javascript function. The
-                        parallax class is given a scale value so that the scene
+                        parallax class is given a scale property so that the scene
                         is slightly zoomed in. This to stop the edge of the
                         background layers from becoming visible after they are
                         shifted due to the parallax effect. The transition
@@ -314,7 +314,7 @@ export default function ParallaxArticle() {
                         <p className="mt-10">
                             Use a loadEvents function to attach the mousemove
                             event listener to the parallax layers upon component
-                            mounting. The function checks whether the window
+                            mounting. This function checks whether the window
                             object is defined or not to avoid errors in React.
                         </p>
                         <div className="mt-10">

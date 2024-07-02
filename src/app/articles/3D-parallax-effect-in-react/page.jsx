@@ -35,15 +35,11 @@ export default function ParallaxArticle() {
                         className="absolute w-full h-full -z-10 overflow-hidden"
                         style={{ opacity }}
                     >
-                        {/* <Image
+                        <img
                             src="/images/articlebg.png"
-                            alt="article banner"
-                            fill
-                            sizes="(height: 100%)"
-                            className="object-cover object-top opacity-90"
-                            priority
-                        /> */}
-                        <img src="/images/articlebg.png" alt="" className='w-full object-fill opacity-90'/>
+                            alt=""
+                            className="w-full object-fill opacity-90"
+                        />
                     </div>
                     <div className="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent to-primary-dark opacity-100 z-0" />
                     <div
@@ -121,9 +117,9 @@ export default function ParallaxArticle() {
                         to give users a unique experience. Parallax effects with
                         layers in the foreground and background moving at
                         different speeds to create a realistic perspective are
-                        paticularly popular. In this article, I&apos;ll break down
-                        how I implemented a parallax scroll effect using the mouse position in React.js with 
-                        Javascript and CSS.
+                        paticularly popular. In this article, I&apos;ll break
+                        down how I implemented a parallax scroll effect using
+                        the mouse position in React.js with Javascript and CSS.
                     </p>
                     <div className="flex flex-row gap-4 pl-4 py-4 items-center">
                         <svg
@@ -143,39 +139,66 @@ export default function ParallaxArticle() {
                     </div>
                     <p className="pt-10">
                         The first and most important decision is to choose a
-                        scene. Find a high-resolution image that has layers at varying distance
-                        from the point of observation. That means there should
-                        be layers in the foreground and in the background of the
-                        image, otherwise it will be impossible to create the
-                        illusion of depth.  
+                        scene. Find a high-resolution image that has layers at
+                        varying distance from the point of observation. That
+                        means there should be layers in the foreground and in
+                        the background of the image, otherwise it will be
+                        impossible to create the illusion of depth.
                     </p>
                     <div className="w-full relative mt-10 mb-10">
-                    <Image
-                                            src={"/images/articlebg2.jpg"}
-                                            alt="scene img"
-                                            width={0}
-                                            height={0}
-                                            sizes="100vw"
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                            }}
-                                        />
+                        <Image
+                            src={'/images/articlebg2.jpg'}
+                            alt="scene img"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                            }}
+                        />
                     </div>
                     <p className="mt-10">
-                        Once we have the image, we can move into Photoshop or another photo editing tool of your choice. This isn't a photoshop tutorial so I will keep the explanation brief. In my case, the image needed color adjustments to dampen the whites so the text content would be able to stand out later on. The main work involved is cutting out each individual layer and  <a href="https://www.adobe.com/products/photoshop/generative-fill.html"
-                        aria-label="generative fill tutorial"
-                        target="_blank"
-                        className='border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue'>generating a filling</a> for the cut out sections.
+                        Once we have the image, we can move into Photoshop or
+                        another photo editing tool of your choice. This isn't a
+                        photoshop tutorial so I will keep the explanation brief.
+                        In my case, the image needed color adjustments to dampen
+                        the whites so the text content would be able to stand
+                        out later on. The main work involved is cutting out each
+                        individual layer and{' '}
+                        <a
+                            href="https://www.adobe.com/products/photoshop/generative-fill.html"
+                            aria-label="generative fill tutorial"
+                            target="_blank"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                        >
+                            generating a filling
+                        </a>{' '}
+                        for the cut out sections.
                         <br />
                         <br />
-                        Import the layers into React by adding them into the public folder of the root directory. Using CSS, give them an absolute position and tweak their top/left values until they are placed in the correct position on the page. Giving each layer a width of 100% will ensure they are the right size. The layers in the foreground need a higher z-index value so they sit at the top of the stack. Each <code>&lt;img&gt;</code> element has the parallax class so that we can translate the x, y and z coordinates later with a Javascript function. The parallax class is given a scale value so that the scene is slightly zoomed in. This to stop the edge of the background layers from becoming visible after they are shifted due to the parallax effect.
+                        Import the layers into React by adding them into the
+                        public folder of the root directory. Using CSS, give
+                        them an absolute position and tweak their top/left
+                        values until they are placed in the correct position on
+                        the page. Giving each layer a width of 100% will ensure
+                        they are the right size. The layers in the foreground
+                        need a higher z-index value so they sit at the top of
+                        the stack. Each <code>&lt;img&gt;</code> element has the
+                        parallax class so that we can translate the x, y and z
+                        coordinates later with a Javascript function. The
+                        parallax class is given a scale value so that the scene
+                        is slightly zoomed in. This to stop the edge of the
+                        background layers from becoming visible after they are
+                        shifted due to the parallax effect.
                     </p>
                     <div className="mt-10">
-                    <SyntaxHighlighter language="css" style={docco}
-                    customStyle={{ fontSize: '14px' }}
-                    >
-                    {`.parallax {
+                        <SyntaxHighlighter
+                            language="css"
+                            style={docco}
+                            customStyle={{ fontSize: '14px' }}
+                        >
+                            {`.parallax {
     transform: translate(-50%, -50%);
     scale: 1.085;
     transition: 0.45s cubic-bezier(0.2, 0.49, 0.32, .99);
@@ -195,7 +218,123 @@ export default function ParallaxArticle() {
     left: 54.03%;
     z-index: 1;
 }`}
-    </SyntaxHighlighter>
+                        </SyntaxHighlighter>
+                    </div>
+                    <p className="mt-10">
+                        Before we can begin implementing the parallax effect
+                        logic, we need to attach a dataset to each layer. This
+                        will allow us to create relative motion between the
+                        foreground and background layers when the mouse moves.
+                        Layers in the background should generally have higher
+                        values for speedX & speedY than the foreground layers
+                        but lower values for speedZ and rotation. You will need
+                        to tweak the values later on when you can actually see
+                        the effect so don&apos;t worry about them too much now.
+                    </p>
+                    <div className="mt-10">
+                        <SyntaxHighlighter
+                            language="html"
+                            style={docco}
+                            customStyle={{ fontSize: '14px' }}
+                        >
+                            {`
+{/* Background layer example */}
+<img
+    src="/hero/sky6.avif"
+    alt="sky"
+    className="sky parallax"
+    data-speedx="0.08"
+    data-speedy="0.075"
+    data-speedz="0"
+    data-rotation="0"
+/>
+
+{/* Foreground layer example */}
+<img
+    src="/hero/left-cliff.png"
+    alt="left cliff"
+    className="left-cliff parallax"
+    data-speedx="0.05"
+    data-speedy="0.045"
+    data-speedz="0.6"
+    data-rotation="0.15"
+/>
+    `}
+                        </SyntaxHighlighter>
+                    </div>
+                    <p className="mt-10">
+                        Finally, we can derive the logic for the mousemove
+                        function. The basic idea is to determine the position of
+                        the mouse relative to the center of the screen and
+                        displace the layers according to their dataset values
+                        using a transform inside a for loop. We use a isInLeft
+                        var to check which side of the page the layer is on.
+                        Layers will rotate clockwise or anti-clockwise around
+                        the y-axis depending the boolean value.
+                    </p>
+                    <div className="mt-10">
+                        <SyntaxHighlighter
+                            language="javascript"
+                            style={docco}
+                            customStyle={{ fontSize: '14px' }}
+                        >
+                            {`function handleMousemove(e) {
+    // Determine the x coordinate of the mouse relative to the center of the screen
+    const xValue = e.clientX - window.innerWidth / 2;
+
+    // Determine the y coordinate of the mouse relative to the center of the screen
+    const yValue = e.clientY - window.innerHeight / 2;
+
+    // Calculate the degree of rotation based on the x coordinate value
+    const rotateDegree = (xValue / (window.innerWidth / 2)) * 25;
+
+    // Get all elements with the class 'parallax'
+    const parallaxElements = Array.from(document.getElementsByClassName('parallax'));
+
+    // Iterate over each parallax element
+    parallaxElements.forEach((el) => {
+        // Destructure the dataset attributes (speedx, speedy, speedz, rotation) from the element
+        const { speedx, speedy, speedz, rotation } = el.dataset;
+
+        // Determine if the element is on the left side of the screen
+        let isInLeft = parseFloat(getComputedStyle(el).left) < window.innerWidth / 2 ? 1 : -1;
+
+        // Calculate the z-axis value based on the mouse x coordinate and element's left position
+        let zValue = (e.clientX - parseFloat(getComputedStyle(el).left)) * isInLeft * 0.06;
+
+        // Apply the transform to the element
+        el.style.transform = \`translateX(calc(-50% + \${-xValue * parseFloat(speedx)}px)) translateY(calc(-50% + \${yValue * parseFloat(speedy)}px))  translateZ(\${zValue * parseFloat(speedz)}px) rotateY(\${rotateDegree * parseFloat(rotation)}deg)\`;
+    });
+}`}
+                        </SyntaxHighlighter>
+                        <p className="mt-10">
+                            Use a loadEvents function to attach the mousemove
+                            event listener to the parallax layers upon component
+                            mounting. The function checks whether the window
+                            object is defined or not to avoid errors in React.
+                        </p>
+                        <div className="mt-10">
+                            <SyntaxHighlighter
+                                language="javascript"
+                                style={docco}
+                                customStyle={{ fontSize: '14px' }}
+                            >
+                                {`function loadEvents() {
+    if (typeof window !== 'undefined') {
+        window.addEventListener('mousemove', handleMousemove);
+    }
+
+    // Cleanup function to remove event listener when the component unmounts
+    return () => {
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('mousemove', handleMousemove);
+        }
+    };
+}
+
+loadEvents();`}
+                            </SyntaxHighlighter>
+                        </div>
                     </div>
                 </div>
             </div>

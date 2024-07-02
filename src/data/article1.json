@@ -1,0 +1,24 @@
+{
+    "codeSnippets": [
+        "`.parallax {
+            transform: translate(-50%, -50%);
+            scale: 1.085;
+            transition: 0.45s cubic-bezier(0.2, 0.49, 0.32, .99);
+        }
+        
+        .sky {
+            position: absolute;
+            width: 100%;
+            top: 28%;
+            left: 54.25%;
+            z-index: 0;
+        }
+        .sea {
+            position: absolute;
+            width: 100%;
+            top: 89%;
+            left: 54.03%;
+            z-index: 1;
+        }`"
+    ]
+}

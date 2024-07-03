@@ -1,12 +1,10 @@
 import Hero from "@/components/home/hero/Hero";
+import Projects from "@/components/home/projects/Projects";
 
 
 export default function Home() {
     return <>
       <Hero />
-      <div className="h-screen w-full">
-
-      </div>
-
+      <Projects />
     </>;
 }

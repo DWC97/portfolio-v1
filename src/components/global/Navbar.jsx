@@ -74,7 +74,7 @@ export default function Navbar() {
                         <li
                             className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'projects' ? 'text-dark-blue' : ''}`}
                         >
-                            <Link href={'/'}>Projects</Link>
+                            <Link href={'/#projects'}>Projects</Link>
                         </li>
                     </ul>
                 </div>
@@ -182,7 +182,7 @@ export default function Navbar() {
                             >
                                 <Link
                                     className="w-full h-full flex items-center justify-center"
-                                    href={'/'}
+                                    href={'/#projects'}
                                 >
                                     Projects
                                 </Link>

@@ -1,4 +1,11 @@
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
 export default function ProjectSection() {
+    const [infoVisible, setInfoVisible] = useState(false);
+
     return (
         <div className="w-full min-h-screen flex flex-row justify-center items-center gap-20">
             <div className="w-[400px] flex flex-col border border-orange-600">
@@ -11,18 +18,131 @@ export default function ProjectSection() {
                 <h1 className="mt-2 text-white font-semibold text-[40px]">
                     XRPL Dash
                 </h1>
-                <p className="font-semibold text-custom-gray mt-3">
+                <p className="font-semibold text-custom-gray mt-3 mb-4">
                     Trading & analytics dashboard for the XRPL blockchain.
                     Development Funded by Ripple as part of their XRPL Grants
                     program.
                 </p>
-                <div className="flex flex-row gap-2 items-center mt-3">
-                    <span className="text-light-blue ">See more</span>
-                    <svg
+                <AnimatePresence>
+                    {infoVisible && (
+                        <motion.div
+                            className=" overflow-hidden"
+                            initial={{ height: 0 }}
+                            animate={{ height: 'auto' }}
+                            exit={{ height: 0 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <ul>
+                                <li>
+                                    <div className="flex flex-row pl-2 gap-2 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width={16}
+                                            height={16}
+                                            viewBox="0 0 1024 1024"
+                                        >
+                                            <path
+                                                fill="#6E98AE"
+                                                d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                            ></path>
+                                        </svg>
+                                        <span className="text-custom-gray italic font-medium">
+                                            Live trading via the XRPL DEX
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="flex flex-row pl-2 gap-2 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width={16}
+                                            height={16}
+                                            viewBox="0 0 1024 1024"
+                                        >
+                                            <path
+                                                fill="#6E98AE"
+                                                d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                            ></path>
+                                        </svg>
+                                        <span className="text-custom-gray italic font-medium">
+                                            Charts for market/portfolio analysis
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="flex flex-row pl-2 gap-2 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width={16}
+                                            height={16}
+                                            viewBox="0 0 1024 1024"
+                                        >
+                                            <path
+                                                fill="#6E98AE"
+                                                d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                            ></path>
+                                        </svg>
+                                        <span className="text-custom-gray italic font-medium">
+                                            Drag & drop modularity for a custom
+                                            UI
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="flex flex-row pl-2 gap-2 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width={16}
+                                            height={16}
+                                            viewBox="0 0 1024 1024"
+                                        >
+                                            <path
+                                                fill="#6E98AE"
+                                                d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                            ></path>
+                                        </svg>
+                                        <span className="text-custom-gray italic font-medium">
+                                            Personalized user profiles
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="flex flex-row pl-2 gap-2 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width={16}
+                                            height={16}
+                                            viewBox="0 0 1024 1024"
+                                        >
+                                            <path
+                                                fill="#6E98AE"
+                                                d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                            ></path>
+                                        </svg>
+                                        <span className="text-custom-gray italic font-medium">
+                                            Real-time messaging with web sockets
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+                <div
+                    className="flex flex-row w-[110px] items-center mt-3 cursor-pointer relative hover:opacity-80 ease-in-out duration-300"
+                    onClick={() => setInfoVisible(!infoVisible)}
+                >
+                    <span className="text-light-blue">
+                        {infoVisible ? 'See less' : 'See more'}
+                    </span>
+                    <motion.svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={24}
                         height={24}
                         viewBox="0 0 24 24"
+                        animate={{ rotate: infoVisible ? 180 : 0 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className={"absolute top-50 left-[4.5rem]"}
                     >
                         <path
                             fill="none"
@@ -32,10 +152,12 @@ export default function ProjectSection() {
                             strokeWidth={2}
                             d="m7 10l5 5m0 0l5-5"
                         ></path>
-                    </svg>
+                    </motion.svg>
                 </div>
-                <div className="flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2 mt-6 w-[180px]  h-[48px]">
-                    <span className="text-primary-dark font-semibold">View demo</span>
+                <div className="flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2 mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer">
+                    <span className="text-primary-dark font-semibold">
+                        View demo
+                    </span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={24}

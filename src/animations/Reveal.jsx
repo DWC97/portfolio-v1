@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 
 // reveal animation
-export function Reveal({ children, isPlaying }) {
+export function Reveal({ children, isPlaying, delay }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const mainControls = useAnimation();
@@ -26,7 +26,7 @@ export function Reveal({ children, isPlaying }) {
                 }}
                 initial="hidden"
                 animate={mainControls}
-                transition={{ duration: 1, delay: 0.25 }}
+                transition={{ duration: 1, delay }}
             >
                 {children}
             </motion.div>

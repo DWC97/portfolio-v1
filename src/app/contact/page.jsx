@@ -150,7 +150,7 @@ export default function Contact() {
                         transition={{ duration: 2.5, ease: [0.4, 0, 0.1, 1] }}
                     />
                 </div>
-                <Reveal isPlaying={playing2}>
+                <Reveal isPlaying={playing2} delay={0.25}>
                 <form
                 ref={formRef}
                     onSubmit={handleSubmit}

@@ -2,27 +2,45 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Reveal } from '@/animations/Reveal';
 
 export default function ProjectSection() {
     const [infoVisible, setInfoVisible] = useState(false);
 
     return (
         <div className="w-full min-h-screen flex flex-row justify-center items-center gap-20">
-            <div className="w-[400px] flex flex-col border border-orange-600">
-                <div className="flex flex-row w-full items-center">
-                    <span className="text-[48px] text-dark-blue cyberpunk-heading pr-6">
-                        01
-                    </span>
-                    <div className="w-full h-[5px] bg-custom-gray bg-opacity-30" />
-                </div>
+            <div className="w-[400px] flex flex-col ">
+            
+            <div className="flex flex-row w-full items-center">
+            <motion.span
+                className="text-[48px] text-dark-blue cyberpunk-heading pr-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+            >
+                01
+            </motion.span>
+            <motion.div
+                className="h-[5px] bg-custom-gray bg-opacity-30"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 3, ease: [0.4, 0, 0.1, 1] }}
+            />
+        </div>
+                
+                <Reveal isPlaying={true} delay={0}>
                 <h1 className="mt-2 text-white font-semibold text-[40px]">
                     XRPL Dash
                 </h1>
+                </Reveal>
+                <Reveal isPlaying={true} delay={0.75}>
                 <p className="font-semibold text-custom-gray mt-3 mb-4">
                     Trading & analytics dashboard for the XRPL blockchain.
                     Development Funded by Ripple as part of their XRPL Grants
                     program.
                 </p>
+                </Reveal>
+                <Reveal isPlaying={true} delay={0.75}>
                 <AnimatePresence>
                     {infoVisible && (
                         <motion.div
@@ -171,6 +189,7 @@ export default function ProjectSection() {
                         ></path>
                     </svg>
                 </div>
+                </Reveal>
             </div>
         </div>
     );

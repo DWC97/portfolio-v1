@@ -1,6 +1,7 @@
 import { Chakra_Petch } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/global/Navbar';
+import { Providers } from '@/context/Providers';
 
 const chakraPetch = Chakra_Petch({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -23,14 +24,18 @@ export default function RootLayout({ children }) {
                     }
                 `}</style>
             </head>
+            
             <body className={chakraPetch.className}>
+            <Providers >
               <header>
                 <Navbar />
               </header>
               <main className=''>
                 {children}
               </main>
+              </Providers>
             </body>
+            
         </html>
     );
 }

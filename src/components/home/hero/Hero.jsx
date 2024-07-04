@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Digital } from './Digital';
 import RenderModel from './RenderModel';
 import DecodeAnimation from 'react-decode-animation';
@@ -9,8 +9,11 @@ import { TypeAnimation } from 'react-type-animation';
 import Lottie from 'lottie-react';
 import animationData from '@/animations/scroll-animation.json';
 import { useViewportWidth } from '@/hooks/useViewportWidth';
+import { ActiveSectionContext } from '@/context/ActiveSectionContext';
+import useDetectSection from '@/hooks/useDetectSection';
 
 export default function Hero() {
+
     const nameRef = useRef(null);
     const [playing, setPlaying] = useState(false);
     const [modelReady, setModelReady] = useState(false);
@@ -20,6 +23,7 @@ export default function Hero() {
     const scrollAnimationRef = useRef(null);
     const [opacity, setOpacity] = useState(0);
     const viewportWidth = useViewportWidth()
+
 
     useEffect(() => {
         if (modelReady) {
@@ -61,7 +65,7 @@ export default function Hero() {
               : { height: '336px', width: '784px' };
 
     return (
-        <div className="h-screen w-full relative flex justify-center items-center" id='hero'>
+        <div className="h-screen w-full relative flex justify-center items-center" >
             {divVisible && (
                 <motion.div
                     initial={{ width: 0 }}

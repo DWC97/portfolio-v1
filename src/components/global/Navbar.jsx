@@ -1,16 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
+import { ActiveSectionContext } from '@/context/ActiveSectionContext';
 
 export default function Navbar() {
+    const { activeSection, setActiveSection } =
+        useContext(ActiveSectionContext);
+        console.log(activeSection)
     const [nav, setNav] = useState(false); // set mobile nav menu
-    const sectionIds = ['hero', 'projects', 'contact', 'articles'];
-    const activeSection = useInView(sectionIds);
-    console.log(activeSection);
+    
 
     const glitch = useGlitch({
         timing: {

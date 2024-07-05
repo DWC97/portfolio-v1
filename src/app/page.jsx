@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import Footer from '@/components/global/Footer';
 import Hero from '@/components/home/hero/Hero';
@@ -15,7 +15,12 @@ const ProjectSection = dynamic(
 );
 
 export default function Home() {
-    const [sectionsInView, setSectionsInView] = useState([false, false, false, false]);
+    const [sectionsInView, setSectionsInView] = useState([
+        false,
+        false,
+        false,
+        false,
+    ]);
     const sectionRefs = [useRef(), useRef(), useRef(), useRef()];
 
     useEffect(() => {
@@ -56,18 +61,18 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <div ref={sectionRefs[0]} className="min-h-screen" id='projects'>
-        {sectionsInView[0] && <ProjectSection title="XRPL Dash" />}
-      </div>
-      <div ref={sectionRefs[1]} className="min-h-screen">
-        {sectionsInView[1] && <ProjectSection title="Project Two" />}
-      </div>
-      <div ref={sectionRefs[2]} className="min-h-screen">
-        {sectionsInView[2] && <ProjectSection title="Project Three" />}
-      </div>
-      <div ref={sectionRefs[3]} className="min-h-screen" id='contact'>
-        {sectionsInView[3] && <Contact/>}
-      </div>
+            <div ref={sectionRefs[0]} className="min-h-screen" id="projects">
+                {sectionsInView[0] && <ProjectSection title="XRPL Dash" />}
+            </div>
+            <div ref={sectionRefs[1]} className="min-h-screen">
+                {sectionsInView[1] && <ProjectSection title="Project Two" />}
+            </div>
+            <div ref={sectionRefs[2]} className="min-h-screen">
+                {sectionsInView[2] && <ProjectSection title="Project Three" />}
+            </div>
+            <div ref={sectionRefs[3]} className="min-h-screen" id="contact">
+                {sectionsInView[3] && <Contact />}
+            </div>
             {/* <Footer /> */}
         </>
     );

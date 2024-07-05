@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
-
+import Image from 'next/image';
 
 export default function ProjectSection({ title }) {
     const [infoVisible, setInfoVisible] = useState(false);
 
     return (
-        <div className="w-full min-h-screen flex flex-row justify-center items-center gap-20">
+        <div className="w-full min-h-[120vh] flex flex-row justify-center items-center gap-20">
             <div className="w-[400px] flex flex-col ">
                 <div className="flex flex-row w-full items-center">
                     <motion.span
@@ -195,6 +195,30 @@ export default function ProjectSection({ title }) {
                         </svg>
                     </div>
                 </Reveal>
+            </div>
+            <div className="project-polygon-wrap"
+            style={{ transform: 'rotateX(-20deg) rotateY(14deg) rotateZ(6deg)' }}
+            >
+                <div className="project-polygon-container w-[468px] h-[538px] flex justify-center items-center bg-med-blue">
+                    <div className="w-[460px] h-[530px] project-polygon  bg-primary-dark">
+                        <div className="w-[460px] h-[530px] project-polygon  bg-dark-blue bg-opacity-15 ">
+                            <div className="relative z-10 w-full">
+                                {/* <Image
+                src={"/test.png"}
+                alt="cart item"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                }}
+                className="object-cover"
+                /> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

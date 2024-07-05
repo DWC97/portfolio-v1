@@ -68,7 +68,7 @@ export default function Navbar() {
                         <li
                             className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 `}
                         >
-                            <Link href={'#contact'}>Contact</Link>
+                            <Link href={'/#contact'}>Contact</Link>
                         </li>
                         <li
                             className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 `}
@@ -192,7 +192,7 @@ export default function Navbar() {
                             >
                                 <Link
                                     className="w-full h-full flex items-center justify-center"
-                                    href={'#contact'}
+                                    href={'/#contact'}
                                 >
                                     Contact
                                 </Link>

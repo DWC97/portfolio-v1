@@ -1,24 +1,12 @@
 'use client';
 
-import { useContext, useEffect, useState } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
-import { ActiveSectionContext } from '@/context/ActiveSectionContext';
+
 
 export default function ProjectSection() {
     const [infoVisible, setInfoVisible] = useState(false);
-    const [hasBeenInView, setHasBeenInView] = useState(false);
-
-    const { activeSection } = useContext(ActiveSectionContext);
-    useEffect(() => {
-        if (activeSection === 'projects') {
-            setHasBeenInView(true);
-        }
-    }, [activeSection]);
-
-    if (!hasBeenInView) {
-        return null;
-    }
 
     return (
         <div className="w-full min-h-screen flex flex-row justify-center items-center gap-20">

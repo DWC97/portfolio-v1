@@ -197,12 +197,15 @@ export default function ProjectSection({ title }) {
                 </Reveal>
             </div>
             <div className="project-polygon-wrap"
-            style={{ transform: 'rotateX(-20deg) rotateY(14deg) rotateZ(6deg)' }}
+            // style={{ transform: 'rotateX(-20deg) rotateY(14deg) rotateZ(6deg)' }}
             >
                 <div className="project-polygon-container w-[468px] h-[538px] flex justify-center items-center bg-med-blue">
                     <div className="w-[460px] h-[530px] project-polygon  bg-primary-dark">
                         <div className="w-[460px] h-[530px] project-polygon  bg-dark-blue bg-opacity-15 ">
-                            <div className="relative z-10 w-full">
+                            <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
+                                <div className='w-full h-[371px] bg-black'>
+
+                                </div>
                                 {/* <Image
                 src={"/test.png"}
                 alt="cart item"

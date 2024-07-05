@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
 
 
-export default function ProjectSection() {
+export default function ProjectSection({ title }) {
     const [infoVisible, setInfoVisible] = useState(false);
 
     return (
@@ -30,7 +30,7 @@ export default function ProjectSection() {
 
                 <Reveal isPlaying={true} delay={0}>
                     <h1 className="mt-2 text-white font-semibold text-[40px]">
-                        XRPL Dash
+                        {title}
                     </h1>
                 </Reveal>
                 <Reveal isPlaying={true} delay={0.75}>

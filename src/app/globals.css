@@ -72,4 +72,38 @@ h1, h2, h3, h4, h5, h6 {
   .project-polygon-wrap {
     filter: drop-shadow(0 0 20px rgba(0, 238, 255, 0.8)); /* Strong red glow */
   }
+
+  .shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine::before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+    content: "";
+    display: block;
+    height: 100%;
+    left: -75%;
+    position: absolute;
+    opacity: 0.2;
+    top: 0;
+    transform: skewX(-25deg);
+    width: 30%;
+    z-index: 2;
+    animation: shine 12s linear infinite; /* Adjust duration (2s) and timing function (linear) as needed */
+}
+
+@keyframes shine {
+    0% {
+        left: -75%; /* Start position off-screen to the left */
+    }
+    50% {
+        left: 125%; /* Move to the right to create shine effect */
+    }
+    100% {
+        left: -75%; /* Move back to starting position off-screen to the left */
+    }
+}
+
+
   

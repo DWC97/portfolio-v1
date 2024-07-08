@@ -198,17 +198,46 @@ export default function ProjectSection({ title }) {
             </div>
             <div
                 className="project-polygon-wrap"
-                // style={{ transform: 'rotateX(-20deg) rotateY(14deg) rotateZ(6deg)' }}
+                style={{ transform: 'rotateX(-20deg) rotateY(14deg) rotateZ(6deg)' }}
             >
-                <div className="project-polygon-container w-[468px] h-[538px] flex justify-center items-center bg-med-blue bg-opacity-50">
-                    <div className="w-[460px] h-[530px] project-polygon  bg-primary-dark">
-                        <div className="w-[460px] h-[530px] project-polygon  bg-dark-blue bg-opacity-15 ">
+                <div className="project-polygon-container w-[468px] h-[488px] flex justify-center items-center bg-med-blue bg-opacity-50">
+                    <div className="w-[460px] h-[480px] project-polygon  bg-primary-dark">
+                        <div className="w-[460px] h-[480px] project-polygon  bg-dark-blue bg-opacity-15 ">
                             <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
-                                <div className="w-full h-[371px] bg-black"></div>
+                                <div className="w-full h-[371px]">
+                                    <div className="relative z-10 w-full h-full border border-custom-gray border-opacity-30">
+                                        <Image
+                                            src={'/images/bg6.jpg'}
+                                            alt="bg"
+                                            width={0}
+                                            height={0}
+                                            sizes="100vw"
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                            }}
+                                            className="object-cover opacity-100"
+                                        />
+                                    </div>
+                                </div>
                                 <div className="relative w-full h-[159px] ">
+                                    <div className='absolute left-[180px] top-[24px]'>
+                                        <ul className='flex flex-row gap-2'> 
+                                            <li className='rounded-full w-[10px] h-[10px] border-2 border-med-blue' />
+                                            <li className='rounded-full w-[10px] h-[10px] border-2 border-med-blue' />
+                                            <li className='rounded-full bg-med-blue w-[10px] h-[10px] border-2 border-med-blue' />
+                                            <li className='rounded-full w-[10px] h-[10px] border-2 border-med-blue' />
+                                            <li className='rounded-full w-[10px] h-[10px] border-2 border-med-blue' />
+
+                                            
+                                        </ul>
+                                    </div>
                                     <div className="absolute right-[44px] top-[60px] ">
                                         <ul className="flex flex-row ">
-                                            <li className="-mr-2 h-[48px] w-[48px] flex justify-center items-center rounded-full border border-custom-gray border-opacity-30 bg-gradient-to-r from-primary-light to-primary-dark">
+                                            <li
+                                                className="-mr-2 h-[48px] w-[48px] flex justify-center items-center rounded-full border border-custom-gray border-opacity-30 bg-gradient-to-r from-primary-light to-primary-dark"
+                                                data-tip="Description for Item 1"
+                                            >
                                                 {/* next js */}
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"

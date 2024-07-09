@@ -9,14 +9,13 @@ export default function ProjectSection({ title }) {
     const [infoVisible, setInfoVisible] = useState(false);
     const controls = useAnimation();
     const images = [
-        '/images/bg6.jpg',
-        '/images/articlebg2.jpg',
-        '/images/articlebg.png',
-        '/images/articlebg2.jpg',
-        '/images/articlebg.png',
+        { imageSrc: '/images/bg6.jpg', priority: true },
+        { imageSrc: '/images/articlebg2.jpg', priority: false },
+        { imageSrc: '/images/articlebg.png', priority: false },
+        { imageSrc: '/images/articlebg2.jpg', priority: false },
+        { imageSrc: '/images/articlebg.png', priority: false },
     ];
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [nextSlide, setNextSlide] = useState(1);
 
     useEffect(() => {
         // Start continuous animation
@@ -41,6 +40,8 @@ export default function ProjectSection({ title }) {
             clearInterval(interval);
         };
     }, [controls, images.length]);
+
+    
 
     const slideVariants = {
         initial: {
@@ -254,8 +255,8 @@ export default function ProjectSection({ title }) {
                         <div className="w-[460px] h-[477px] project-polygon  bg-dark-blue bg-opacity-15 ">
                             <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
                                 <div className="w-full h-[318px] ">
-                                    <div className="absolute top-0 left-0 w-full h-[318px] border border-custom-gray border-opacity-30 shine overflow-hidden">
-                                        <AnimatePresence initial={false}>
+                                    <div className="absolute top-0 left-0 w-full h-[318px] border border-custom-gray border-opacity-30 shine overflow-hidden opacity-90">
+                                        <AnimatePresence initial={true}>
                                             <motion.div
                                                 key={currentSlide}
                                                 className="w-full h-full flex absolute top-0 left-0"
@@ -264,7 +265,7 @@ export default function ProjectSection({ title }) {
                                                 variants={slideVariants}
                                             >
                                                 <Image
-                                                    src={images[currentSlide]}
+                                                    src={images[currentSlide].imageSrc}
                                                     alt={`Slide ${currentSlide}`}
                                                     width={0}
                                                     height={0}
@@ -273,15 +274,11 @@ export default function ProjectSection({ title }) {
                                                         width: '100%',
                                                         height: '100%',
                                                     }}
-                                                    className="object-cover"
+                                                    className="object-cover "
+                                                    priority={images[currentSlide].priority}
                                                 />
                                                 <Image
-                                                    src={
-                                                        images[
-                                                            (currentSlide + 1) %
-                                                                images.length
-                                                        ]
-                                                    }
+                                                    src={images[(currentSlide + 1) % images.length].imageSrc}
                                                     alt={`Slide ${(currentSlide + 1) % images.length}`}
                                                     width={0}
                                                     height={0}
@@ -290,7 +287,8 @@ export default function ProjectSection({ title }) {
                                                         width: '100%',
                                                         height: '100%',
                                                     }}
-                                                    className="object-cover"
+                                                    className="object-cover "
+                                                    priority={images[currentSlide].priority}
                                                 />
                                             </motion.div>
                                         </AnimatePresence>

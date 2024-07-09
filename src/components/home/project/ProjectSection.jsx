@@ -8,13 +8,21 @@ import Image from 'next/image';
 export default function ProjectSection({ title }) {
     const [infoVisible, setInfoVisible] = useState(false);
     const controls = useAnimation();
+    const images = [
+        '/images/bg6.jpg',
+        '/images/articlebg2.png',
+        '/images/articlebg.png',
+        '/images/articlebg2.png',
+        '/images/articlebg.png',
+    ];
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
         // Start continuous animation
         controls.start({
-            rotateX: [-20, 5], // Example of rotating from 10 to -20 degrees
-            rotateY: [14, 10], // Example of rotating from 10 to -20 degrees
-            rotateZ: [6, 0], // Example of rotating from 10 to -20 degrees
+            rotateX: [-20, -10], // Example of rotating from 10 to -20 degrees
+            rotateY: [16, -4], // Example of rotating from 10 to -20 degrees
+            rotateZ: [6, 4], // Example of rotating from 10 to -20 degrees
             transition: {
                 duration: 5,
                 repeat: Infinity, // Repeat indefinitely
@@ -223,11 +231,11 @@ export default function ProjectSection({ title }) {
                         initial={{ rotateX: -20, rotateY: 14, rotateZ: 6 }}
                         animate={controls}
                     >
-                        <div className="project-polygon-container w-[468px] h-[488px] flex justify-center items-center bg-med-blue bg-opacity-50">
-                            <div className="w-[460px] h-[480px] project-polygon  bg-primary-dark">
-                                <div className="w-[460px] h-[480px] project-polygon  bg-dark-blue bg-opacity-15 ">
+                        <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50">
+                            <div className="w-[460px] h-[477px] project-polygon  bg-primary-dark">
+                                <div className="w-[460px] h-[477px] project-polygon  bg-dark-blue bg-opacity-15 ">
                                     <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
-                                        <div className="w-full h-[371px] ">
+                                        <div className="w-full h-[368px] ">
                                             <div className="relative z-10 w-full h-full border border-custom-gray border-opacity-30 shine">
                                                 <Image
                                                     src={'/images/bg6.jpg'}

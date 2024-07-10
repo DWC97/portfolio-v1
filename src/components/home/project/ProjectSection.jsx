@@ -171,15 +171,15 @@ export default function ProjectSection({ index }) {
                     initial={{ rotateX: -20, rotateY: 16, rotateZ: 4 }}
                     animate={controls}
                 >
-                    <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50">
-                        <div className="w-[460px] h-[477px] project-polygon  bg-primary-dark">
-                            <div className="w-[460px] h-[477px] project-polygon  bg-dark-blue bg-opacity-15 ">
+                    <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50 rounded-tr-2xl">
+                        <div className="w-[460px] h-[477px] project-polygon rounded-tr-2xl bg-primary-dark">
+                            <div className="w-[460px] h-[477px] project-polygon rounded-tr-2xl bg-dark-blue bg-opacity-15 ">
                                 <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
                                 
-                                    <div className="w-full h-[318px] px-[20px] pt-[20px] ">
+                                    <div className="w-full h-[318px] px-[24px] pt-[24px] ">
                                         
-                                        <div className='w-full h-[298px] polygon3 '>
-                                        <div className="absolute top-0 left-0 w-full h-[298px] shine overflow-hidden opacity-90 ">
+                                        <div className='w-full h-[294px] '>
+                                        <div className="absolute top-0 left-0 w-full h-[294px] shine overflow-hidden opacity-90 border-custom-gray border border-opacity-50 ">
                                             <AnimatePresence initial={false}>
                                                 <motion.div
                                                     key={currentSlide}

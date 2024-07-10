@@ -59,7 +59,7 @@ export default function ProjectSection({ title }) {
 
     return (
         <div className="w-full min-h-screen md:min-h-[120vh] flex flex-col lg:flex-row justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0">
-            <div className="w-full px-10 md:px-0 md:w-[400px] flex flex-col ">
+            <div className="w-full px-10 md:px-0 md:w-[400px] flex flex-col lg:h-[500px] lg:justify-center">
                 <div className="flex flex-row w-full items-center">
                     <motion.span
                         className="text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading pr-6"

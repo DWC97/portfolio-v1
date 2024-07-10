@@ -226,7 +226,7 @@ export default function ProjectSection({ title }) {
                     </div>
                     <div className="flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2 mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer">
                         <span className="text-primary-dark font-semibold">
-                            View demo
+                            More info
                         </span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

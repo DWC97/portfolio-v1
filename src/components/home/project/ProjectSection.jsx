@@ -16,6 +16,7 @@ export default function ProjectSection({ title }) {
         { imageSrc: '/images/articlebg.png', priority: false },
     ];
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [isFirstRender, setIsFirstRender] = useState(true);
 
     useEffect(() => {
         // Start continuous animation
@@ -30,14 +31,14 @@ export default function ProjectSection({ title }) {
                 ease: 'linear', // Linear easing for continuous rotation
             },
         });
-
+        
         const interval = setInterval(() => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
         }, 5000);
-
+    
         return () => {
             controls.stop();
-            clearInterval(interval);
+            clearInterval(interval)
         };
     }, [controls, images.length]);
 
@@ -256,7 +257,7 @@ export default function ProjectSection({ title }) {
                             <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
                                 <div className="w-full h-[318px] ">
                                     <div className="absolute top-0 left-0 w-full h-[318px] border border-custom-gray border-opacity-30 shine overflow-hidden opacity-90">
-                                        <AnimatePresence initial={true}>
+                                        <AnimatePresence initial={false}>
                                             <motion.div
                                                 key={currentSlide}
                                                 className="w-full h-full flex absolute top-0 left-0"
@@ -297,11 +298,16 @@ export default function ProjectSection({ title }) {
                                 <div className="relative w-full h-[159px] ">
                                     <div className="absolute left-[188px] top-[24px]">
                                         <ul className="flex flex-row gap-2">
-                                            <li className="rounded-full w-[10px] h-[10px] border-2 border-med-blue" />
-                                            <li className="rounded-full w-[10px] h-[10px] border-2 border-med-blue" />
-                                            <li className="rounded-full bg-med-blue w-[10px] h-[10px] border-2 border-med-blue" />
-                                            <li className="rounded-full w-[10px] h-[10px] border-2 border-med-blue" />
-                                            <li className="rounded-full w-[10px] h-[10px] border-2 border-med-blue" />
+                                        {images.map((_, index) => (
+                                                <li
+                                                    key={index}
+                                                    className={`rounded-full ${
+                                                        currentSlide === index
+                                                            ? 'bg-med-blue'
+                                                            : ''
+                                                    } w-[10px] h-[10px] border-2 border-med-blue duration-500 ease-in-out`}
+                                                />
+                                            ))}
                                         </ul>
                                     </div>
                                     <div className="absolute right-[32px] top-[60px] ">

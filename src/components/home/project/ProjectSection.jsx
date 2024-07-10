@@ -23,7 +23,7 @@ export default function ProjectSection({ title }) {
         controls.start({
             rotateX: [-20, -10], // Example of rotating from 10 to -20 degrees
             rotateY: [16, -4], // Example of rotating from 10 to -20 degrees
-            rotateZ: [6, 4], // Example of rotating from 10 to -20 degrees
+            rotateZ: [4, 2], // Example of rotating from 10 to -20 degrees
             transition: {
                 duration: 5,
                 repeat: Infinity, // Repeat indefinitely
@@ -58,11 +58,11 @@ export default function ProjectSection({ title }) {
     };
 
     return (
-        <div className="w-full min-h-[120vh] flex flex-row justify-center items-center gap-20">
-            <div className="w-[400px] flex flex-col ">
+        <div className="w-full min-h-screen md:min-h-[120vh] flex flex-col lg:flex-row justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0">
+            <div className="w-full px-10 md:px-0 md:w-[400px] flex flex-col ">
                 <div className="flex flex-row w-full items-center">
                     <motion.span
-                        className="text-[48px] text-dark-blue cyberpunk-heading pr-6"
+                        className="text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading pr-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, ease: 'easeInOut' }}
@@ -78,7 +78,7 @@ export default function ProjectSection({ title }) {
                 </div>
 
                 <Reveal isPlaying={true} delay={0}>
-                    <h1 className="mt-2 text-white font-semibold text-[40px]">
+                    <h1 className="mt-2 text-white font-semibold text-[32px] md:text-[40px]">
                         {title}
                     </h1>
                 </Reveal>
@@ -102,7 +102,7 @@ export default function ProjectSection({ title }) {
                                     ease: 'easeInOut',
                                 }}
                             >
-                                <ul>
+                                <ul className='md:text-[16px] text-[14px]'>
                                     <li>
                                         <div className="flex flex-row pl-2 gap-2 items-center">
                                             <svg
@@ -247,8 +247,8 @@ export default function ProjectSection({ title }) {
             </div>
 
             <motion.div
-                className="project-polygon-wrap"
-                initial={{ rotateX: -20, rotateY: 14, rotateZ: 6 }}
+                className="project-polygon-wrap hidden md:flex"
+                initial={{ rotateX: -20, rotateY: 16, rotateZ: 4 }}
                 animate={controls}
             >
                 <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50">

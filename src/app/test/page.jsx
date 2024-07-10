@@ -5,7 +5,7 @@ export default function Test(){
     return (
         <div className="w-full ">
            
-            <ProjectSection title={"XRPL Dash"}/>
+            <ProjectSection index={0}/>
         </div>
     )
 }

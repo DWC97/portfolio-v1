@@ -34,7 +34,7 @@ export default function Contact() {
                 titleRef.current.play();
                 setPlaying2(true)
             }
-        }, 1000);
+        }, 500);
         }
     }, [isInView]);
 

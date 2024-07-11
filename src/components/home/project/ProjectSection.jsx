@@ -16,9 +16,9 @@ export default function ProjectSection({ index }) {
     useEffect(() => {
         // Start continuous animation
         controls.start({
-            rotateX: [-20, -10], // Example of rotating from 10 to -20 degrees
-            rotateY: [16, -4], // Example of rotating from 10 to -20 degrees
-            rotateZ: [4, 2], // Example of rotating from 10 to -20 degrees
+            rotateX: [-20, -10], 
+            rotateY: [16, -4],
+            rotateZ: [4, 2], 
             transition: {
                 duration: 5,
                 repeat: Infinity, // Repeat indefinitely

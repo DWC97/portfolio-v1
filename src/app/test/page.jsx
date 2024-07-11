@@ -5,7 +5,7 @@ export default function Test(){
     return (
         <div className="w-full ">
            
-            <ProjectSection index={0}/>
+            <ProjectSection index={1}/>
         </div>
     )
 }

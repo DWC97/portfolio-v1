@@ -62,18 +62,17 @@ export default function Home() {
         <>
             <Hero />
             <div ref={sectionRefs[0]} className="min-h-screen" id="projects">
-                {sectionsInView[0] && <ProjectSection title="XRPL Dash" />}
+                {sectionsInView[0] && <ProjectSection index={0} />}
             </div>
             <div ref={sectionRefs[1]} className="min-h-screen">
-                {sectionsInView[1] && <ProjectSection title="Project Two" />}
+                {sectionsInView[1] && <ProjectSection index={1} />}
             </div>
             <div ref={sectionRefs[2]} className="min-h-screen">
-                {sectionsInView[2] && <ProjectSection title="Project Three" />}
+                {sectionsInView[2] && <ProjectSection index={2} />}
             </div>
             <div ref={sectionRefs[3]} className="min-h-screen" id="contact">
                 {sectionsInView[3] && <Contact />}
             </div>
-            {/* <Footer /> */}
         </>
     );
 }

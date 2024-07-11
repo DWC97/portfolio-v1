@@ -12,13 +12,19 @@ export default function ProjectSection({ index }) {
     const controls = useAnimation();
     const images = project.slides;
     const [currentSlide, setCurrentSlide] = useState(0);
+    const initialRotateX = index === 1 ? 20 : -20;
+    const initialRotateY = index === 1 ? -16 : 16;
+    const initialRotateZ = index === 1 ? -4 : 4;
 
     useEffect(() => {
+        const rotateX = index === 1 ? [20, 10] : [-20, -10];
+        const rotateY = index === 1 ? [-16, 4] : [16, -4];
+        const rotateZ = index === 1 ? [-4, -2] : [4, 2];
         // Start continuous animation
         controls.start({
-            rotateX: [-20, -10], 
-            rotateY: [16, -4],
-            rotateZ: [4, 2], 
+            rotateX,
+            rotateY,
+            rotateZ,
             transition: {
                 duration: 5,
                 repeat: Infinity, // Repeat indefinitely
@@ -51,11 +57,11 @@ export default function ProjectSection({ index }) {
     };
 
     return (
-        <div className="w-full min-h-screen md:min-h-[120vh] flex flex-col lg:flex-row justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0">
-            <div className="w-full px-10 md:px-0 md:w-[400px] flex flex-col lg:h-[500px] lg:justify-center">
-                <div className="flex flex-row w-full items-center">
+        <div className={`w-full min-h-screen md:min-h-[120vh] flex flex-col ${index === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}  justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0`}>
+            <div className={`w-full px-10 md:px-0 md:w-[400px] flex flex-col lg:h-[500px] lg:justify-center `} >
+                <div className={`flex ${index === 1 ? "flex-row-reverse" : "flex-row"}  w-full items-center`}>
                     <motion.span
-                        className="text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading pr-6"
+                        className={`text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading ${index === 1 ? "pl-6" : "pr-6"} `}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, ease: 'easeInOut' }}
@@ -71,7 +77,7 @@ export default function ProjectSection({ index }) {
                 </div>
 
                 <Reveal isPlaying={true} delay={0}>
-                    <h1 className="mt-2 text-white font-semibold text-[32px] md:text-[40px]">
+                    <h1 className={`mt-2 text-white font-semibold text-[32px] md:text-[40px] `}>
                         {project.title}
                     </h1>
                 </Reveal>
@@ -146,7 +152,7 @@ export default function ProjectSection({ index }) {
                             ></path>
                         </motion.svg>
                     </div>
-                    <div className="flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2 mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer">
+                    <div className={`flex flex-row items-center justify-center gap-2 bg-dark-blue ${index === 1 ? "polygon3" : "polygon2"}  mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer`}>
                         <span className="text-primary-dark font-semibold">
                             More info
                         </span>
@@ -168,7 +174,7 @@ export default function ProjectSection({ index }) {
             <Reveal isPlaying={true} delay={1}>
                 <motion.div
                     className="project-polygon-wrap hidden md:flex"
-                    initial={{ rotateX: -20, rotateY: 16, rotateZ: 4 }}
+                    initial={{ rotateX: initialRotateX, rotateY: initialRotateY, rotateZ: initialRotateZ }}
                     animate={controls}
                 >
                     <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50 rounded-tr-2xl">
@@ -178,7 +184,7 @@ export default function ProjectSection({ index }) {
                                 
                                     <div className="w-full h-[318px] px-[24px] pt-[24px] ">
                                         
-                                        <div className='w-full h-[294px] '>
+                                        <div className='w-full h-[294px] bg-black bg-opacity-70'>
                                         <div className="absolute top-0 left-0 w-full h-[294px] shine overflow-hidden opacity-90 border-custom-gray border border-opacity-50 ">
                                             <AnimatePresence initial={false}>
                                                 <motion.div

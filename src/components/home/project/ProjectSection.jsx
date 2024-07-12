@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { Reveal } from '@/animations/Reveal';
 import Image from 'next/image';
 import projectsData from '@/data/projects.json';
+import Link from 'next/link';
 
 export default function ProjectSection({ index }) {
     const project = projectsData.projects[index];
@@ -59,9 +60,9 @@ export default function ProjectSection({ index }) {
     return (
         <div className={`w-full min-h-screen md:min-h-[120vh] flex flex-col ${index === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}  justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0`}>
             <div className={`w-full px-10 md:px-0 md:w-[400px] flex flex-col lg:h-[500px] lg:justify-center `} >
-                <div className={`flex ${index === 1 ? "flex-row-reverse" : "flex-row"}  w-full items-center`}>
+                <div className={`flex flex-row  w-full items-center`}>
                     <motion.span
-                        className={`text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading ${index === 1 ? "pl-6" : "pr-6"} `}
+                        className={`text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading pr-6 `}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, ease: 'easeInOut' }}
@@ -99,7 +100,7 @@ export default function ProjectSection({ index }) {
                                     ease: 'easeInOut',
                                 }}
                             >
-                                <ul className="md:text-[16px] text-[14px]">
+                                <ul className="text-[14px]">
                                     {project.bullets.map((bullet, i) => {
                                         return (
                                             <li key={i}>
@@ -152,7 +153,7 @@ export default function ProjectSection({ index }) {
                             ></path>
                         </motion.svg>
                     </div>
-                    <div className={`flex flex-row items-center justify-center gap-2 bg-dark-blue ${index === 1 ? "polygon3" : "polygon2"}  mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer`}>
+                    <Link href={project.link} className={`flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2  mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer`}>
                         <span className="text-primary-dark font-semibold">
                             More info
                         </span>
@@ -168,7 +169,7 @@ export default function ProjectSection({ index }) {
                                 d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
                             ></path>
                         </svg>
-                    </div>
+                    </Link>
                 </Reveal>
             </div>
             <Reveal isPlaying={true} delay={1}>
@@ -177,9 +178,9 @@ export default function ProjectSection({ index }) {
                     initial={{ rotateX: initialRotateX, rotateY: initialRotateY, rotateZ: initialRotateZ }}
                     animate={controls}
                 >
-                    <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50 rounded-tr-2xl">
-                        <div className="w-[460px] h-[477px] project-polygon rounded-tr-2xl bg-primary-dark">
-                            <div className="w-[460px] h-[477px] project-polygon rounded-tr-2xl bg-dark-blue bg-opacity-15 ">
+                    <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50 rounded-t-2xl">
+                        <div className="w-[460px] h-[477px] project-polygon rounded-t-2xl bg-primary-dark">
+                            <div className="w-[460px] h-[477px] project-polygon rounded-t-2xl bg-dark-blue bg-opacity-15 ">
                                 <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
                                 
                                     <div className="w-full h-[318px] px-[24px] pt-[24px] ">

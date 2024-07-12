@@ -10,13 +10,13 @@
                 "Personalized user profiles",
                 "Real-time messaging with web sockets"
             ],
-            "link": "",
+            "link": "/xrpl-dash",
             "slides":[
-                { "imageSrc": "/images/bg6.jpg", "priority": false },
-                { "imageSrc": "/images/articlebg2.jpg", "priority": true },
-                { "imageSrc": "/images/bg6.jpg", "priority": false },
-                { "imageSrc": "/images/articlebg2.jpg", "priority": false },
-                { "imageSrc": "/images/bg6.jpg", "priority": false }
+                { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false },
+                { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true },
+                { "imageSrc": "/images/fc-24-player-database/saka.avif", "priority": false },
+                { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false },
+                { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false }
             ],
             "stack":[
                 {
@@ -53,7 +53,7 @@
                 "Bookings/reservations managed with a postgresql db + stripe",
                 "Ecommerce store with shopping cart + filtering/sorting"
             ],
-            "link": "",
+            "link": "/jr-group-tours",
             "slides":[
                 { "imageSrc": "/images/jr/tank.avif", "priority": false },
                 { "imageSrc": "/images/jr/hero.avif", "priority": true },
@@ -102,7 +102,7 @@
                 "Advanced routing to manage pages for players, clubs and nations",
                 "Unlimited scroll functionality for browsing"
             ],
-            "link": "",
+            "link": "/fc-24-db",
             "slides":[
                 { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false },
                 { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true },

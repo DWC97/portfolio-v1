@@ -1,7 +1,12 @@
+import Banner from "@/components/project-page/Banner";
+
 export default function FC24DB(){
     return (
-        <div className="w-full min-h-screen">
-            <h1 className="text-white text-5xl">welcome to db</h1>
+        <div className="w-full  flex flex-col justify-center items-center ">
+            <div className="px-20 max-w-[1100px] w-full">
+            <Banner />
+            </div>
+       
         </div>
     )
 }

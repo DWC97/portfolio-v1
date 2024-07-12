@@ -1,16 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useGlitch } from 'react-powerglitch';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from '@/hooks/useInView';
-import { ActiveSectionContext } from '@/context/ActiveSectionContext';
+
 
 export default function Navbar() {
-    const { activeSection, setActiveSection } =
-        useContext(ActiveSectionContext);
-        console.log(activeSection)
+  
     const [nav, setNav] = useState(false); // set mobile nav menu
     
 
@@ -64,17 +61,17 @@ export default function Navbar() {
                 <div className=" -rotate-90 mt-52 w-6  align-baseline">
                     <ul className="flex flex-row gap-6 text-light-blue font-medium">
                         <li
-                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'articles' ? 'text-dark-blue' : ''}`}
+                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 `}
                         >
                             <Link href={'/articles'}>Articles</Link>
                         </li>
                         <li
-                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'contact' ? 'text-dark-blue' : ''}`}
+                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 `}
                         >
-                            <Link href={'/contact'}>Contact</Link>
+                            <Link href={'/#contact'}>Contact</Link>
                         </li>
                         <li
-                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 ${activeSection == 'projects' ? 'text-dark-blue' : ''}`}
+                            className={`hover:opacity-80 cursor-pointer ease-in-out duration-300 `}
                         >
                             <Link href={'/#projects'}>Projects</Link>
                         </li>
@@ -195,7 +192,7 @@ export default function Navbar() {
                             >
                                 <Link
                                     className="w-full h-full flex items-center justify-center"
-                                    href={'/contact'}
+                                    href={'/#contact'}
                                 >
                                     Contact
                                 </Link>

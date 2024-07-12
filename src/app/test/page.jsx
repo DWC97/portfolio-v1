@@ -3,9 +3,9 @@ import ProjectSection from "@/components/home/project/ProjectSection";
 
 export default function Test(){
     return (
-        <div className="w-full min-h-[200vh]">
-            <Hero />
-            {/* <ProjectSection /> */}
+        <div className="w-full ">
+           
+            <ProjectSection index={1}/>
         </div>
     )
 }

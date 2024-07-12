@@ -38,6 +38,7 @@ h1, h2, h3, h4, h5, h6 {
     clip-path: polygon(100% 0, 100% 75%, 92% 100%, 0 100%, 0 0);
 }
 
+
 .featured-bg {
     transition: transform 0.5s ease;
     will-change: transform;
@@ -47,3 +48,53 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1);
     
 }
+
+.project-polygon {
+    clip-path: polygon(100% 0, 100% 0%, 100% 65%, 100% 70%, 100% 95%, 45% 95%, 40% 100%, 5% 100%, 0 95%, 0 0);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .project-polygon-container {
+    clip-path: polygon(100% 0, 100% 0%, 100% 65%, 100% 70%, 100% 95%, 46% 95%, 41% 100%, 5% 100%, 0 95%, 0 0);
+    
+  }
+  
+  .project-polygon-wrap {
+    filter: drop-shadow(0 0 20px rgba(0, 238, 255, 0.8)); /* Strong red glow */
+  }
+
+  .shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine::before {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+    content: "";
+    display: block;
+    height: 100%;
+    left: -75%;
+    position: absolute;
+    opacity: 0.25;
+    top: 0;
+    transform: skewX(-25deg);
+    width: 30%;
+    z-index: 2;
+    animation: shine 12s linear infinite; /* Adjust duration (2s) and timing function (linear) as needed */
+}
+
+@keyframes shine {
+    0% {
+        left: -75%; /* Start position off-screen to the left */
+    }
+    50% {
+        left: 125%; /* Move to the right to create shine effect */
+    }
+    100% {
+        left: -75%; /* Move back to starting position off-screen to the left */
+    }
+}
+
+
+  

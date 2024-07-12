@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Digital } from './Digital';
 import RenderModel from './RenderModel';
 import DecodeAnimation from 'react-decode-animation';
@@ -9,8 +9,7 @@ import { TypeAnimation } from 'react-type-animation';
 import Lottie from 'lottie-react';
 import animationData from '@/animations/scroll-animation.json';
 import { useViewportWidth } from '@/hooks/useViewportWidth';
-import { ActiveSectionContext } from '@/context/ActiveSectionContext';
-import useDetectSection from '@/hooks/useDetectSection';
+
 
 export default function Hero() {
 

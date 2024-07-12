@@ -2,42 +2,77 @@
 
 import Footer from '@/components/global/Footer';
 import Hero from '@/components/home/hero/Hero';
-import ProjectSection from '@/components/home/project/ProjectSection';
+import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import Contact from '@/components/home/Contact';
 
-import { ActiveSectionContext } from '@/context/ActiveSectionContext';
-import useDetectSection from '@/hooks/useDetectSection';
-import { useContext, useEffect, useRef } from 'react';
+// Dynamic import for ProjectSection to enable lazy loading
+const ProjectSection = dynamic(
+    () => import('@/components/home/project/ProjectSection'),
+    {
+        ssr: false,
+    }
+);
 
 export default function Home() {
-    const projectsRef = useRef(null);
-    const heroRef = useRef(null);
-
-    const { setActiveSection } = useContext(ActiveSectionContext);
-
-    const [isProjectsInView] = useDetectSection(projectsRef);
-    const [isHeroInView] = useDetectSection(heroRef);
-   
+    const [sectionsInView, setSectionsInView] = useState([
+        false,
+        false,
+        false,
+        false,
+    ]);
+    const sectionRefs = [useRef(), useRef(), useRef(), useRef()];
 
     useEffect(() => {
-        if (isHeroInView) {
-            setActiveSection('hero');
-        }
-        if (isProjectsInView) {
-            setActiveSection('projects');
-        }
-       
-    }, [isProjectsInView, setActiveSection]);
+        const observers = sectionRefs.map(
+            (ref, index) =>
+                new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                setSectionsInView((prevState) => {
+                                    const newState = [...prevState];
+                                    newState[index] = true;
+                                    return newState;
+                                });
+                                observers[index].disconnect(); // Disconnect observer after the section is in view
+                            }
+                        });
+                    },
+                    { threshold: 0.1 }
+                )
+        );
 
+        sectionRefs.forEach((ref, index) => {
+            if (ref.current) {
+                observers[index].observe(ref.current);
+            }
+        });
+
+        // Clean up observers on unmount
+        return () => {
+            observers.forEach((observer, index) => {
+                if (sectionRefs[index].current) {
+                    observer.unobserve(sectionRefs[index].current);
+                }
+            });
+        };
+    }, []);
     return (
         <>
-            <div id="hero" ref={heroRef}>
-                <Hero />
+            <Hero />
+            <div ref={sectionRefs[0]} className="min-h-screen" id="projects">
+                {sectionsInView[0] && <ProjectSection index={0} />}
             </div>
-            <div id="projects" className="min-h-[300vh]" ref={projectsRef}>
-                <ProjectSection />
+            <div ref={sectionRefs[1]} className="min-h-screen">
+                {sectionsInView[1] && <ProjectSection index={1} />}
             </div>
- 
-            {/* <Footer /> */}
+            <div ref={sectionRefs[2]} className="min-h-screen">
+                {sectionsInView[2] && <ProjectSection index={2} />}
+            </div>
+            <div ref={sectionRefs[3]} className="min-h-screen" id="contact">
+                {sectionsInView[3] && <Contact />}
+            </div>
         </>
     );
 }

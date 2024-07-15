@@ -7,23 +7,38 @@ import Image from 'next/image';
 
 export default function Banner() {
     const project = projectsData.projects[2];
+    const [opacity, setOpacity] = useState(1);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const maxScroll = window.innerHeight * 0.5; // 75vh
+            const newOpacity = Math.max(0, 1 - scrollY / maxScroll);
+            setOpacity(newOpacity);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <div className="w-full h-[700px]">
-            <div className="relative h-[600px] w-full -rotate-3 z-0">
+        <div className="w-full h-[700px] relative overflow-hidden">
+            <div className="relative h-[600px] w-full  z-0"
+            style={{ opacity }}
+            >
                 <Image
                     src="/images/fc-24-player-database/saka-header.avif"
                     alt="banner"
                     fill
                     sizes="100vw"
                     priority
-                    className="object-contain opacity-90"
+                    className="object-contain opacity-90 z-0 "
                 />
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-[250px] bg-primary-dark" />
-            <div className="absolute bottom-[250px] left-0 w-full h-[300px] bg-gradient-to-b from-transparent to-primary-dark" />
-            <div className="absolute bottom-[250px] left-0 w-full h-[320px] bg-gradient-to-b from-transparent to-primary-dark" />
-            <div className="absolute top-[320px] w-full flex flex-row gap-20 items-center">
+            <div className="absolute bottom-0 left-0 w-full h-[250px] bg-primary-dark z-10" />
+            <div className="absolute bottom-[250px] left-0 w-full h-[300px] bg-gradient-to-b from-transparent to-primary-dark z-10" />
+            <div className="absolute bottom-[250px] left-0 w-full h-[320px] bg-gradient-to-b from-transparent to-primary-dark z-10" />
+            <div className="absolute top-[320px] w-full flex flex-row gap-20 items-center z-20">
                 <div className="flex flex-col w-[620px]">
                     <h1 className="text-white text-[56px] font-semibold">
                         FC 24 Player Database
@@ -35,7 +50,7 @@ export default function Banner() {
                         development.
                     </p>
                     <div className="flex flex-row justify-between items-center mt-8">
-                        <div className="flex flex-row items-center gap-3">
+                        <div className="flex flex-row items-center gap-3 hover:opacity-80 ease-in-out duration-300">
                             <span className="text-dark-blue font-medium text-[20px]">
                                 Live demo
                             </span>

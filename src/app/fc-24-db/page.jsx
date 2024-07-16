@@ -146,7 +146,7 @@ export default function FC24DB() {
                         in <span className="text-dark-blue">React.js</span>. The
                         actual logos used are from FC 24.
                     </p>
-                    <div className="w-full relative mt-10 mb-8 px-20">
+                    <div className="w-full relative mt-10 mb-8 md:px-20">
                         <Image
                             src={'/images/fc-24-player-database/home.avif'}
                             alt="scene img"
@@ -191,7 +191,7 @@ export default function FC24DB() {
                         The proxy was necessary to avoid CORS blocking and
                         implement robust error handling.
                     </p>
-                    <div className="w-full relative mt-10 mb-10 px-20">
+                    <div className="w-full relative mt-10 mb-10 md:px-20">
                         <Image
                             src={'/images/fc-24-player-database/players.avif'}
                             alt="scene img"
@@ -240,7 +240,7 @@ export default function FC24DB() {
                         charting and navlinks to the pages for his club and
                         nation.
                     </p>
-                    <div className="w-full relative mt-10 mb-8 px-20">
+                    <div className="w-full relative mt-10 mb-8 md:px-20">
                         <Image
                             src={'/images/fc-24-player-database/saka.avif'}
                             alt="scene img"

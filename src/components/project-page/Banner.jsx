@@ -44,7 +44,7 @@ export default function Banner() {
                     </h1>
                     <p className="font-medium text-[20px] text-custom-gray mt-8">
                         Search & visualization tool for the FC 24 player
-                        dataset. Includes ~5000 players from Europe's top five
+                        dataset. Includes ~5000 players from Europe&apos;s top five
                         leagues. Non-commerical product created purely for skill
                         development.
                     </p>

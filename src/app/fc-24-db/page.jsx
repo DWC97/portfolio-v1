@@ -49,9 +49,12 @@ export default function FC24DB() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out ">
+                        <a
+                            href="#ui"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out "
+                        >
                             UI/UX inspiration
-                        </span>
+                        </a>
                     </li>
                     <li className="flex flex-row gap-4 items-center pb-2">
                         <svg
@@ -65,9 +68,12 @@ export default function FC24DB() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out ">
+                        <a
+                            href="#data"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out "
+                        >
                             Managing large datasets
-                        </span>
+                        </a>
                     </li>
                     <li className="flex flex-row gap-4 items-center pb-2">
                         <svg
@@ -81,9 +87,12 @@ export default function FC24DB() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out ">
+                        <a
+                            href="#routing"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out "
+                        >
                             Routing
-                        </span>
+                        </a>
                     </li>
                     <li className="flex flex-row gap-4 items-center">
                         <svg
@@ -97,9 +106,12 @@ export default function FC24DB() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <span className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out ">
+                        <a
+                            href="#features"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out "
+                        >
                             Other features
-                        </span>
+                        </a>
                     </li>
                 </ul>
                 <div id="introduction" className="pt-10">
@@ -131,7 +143,8 @@ export default function FC24DB() {
                         pay homage to it by using a similar color palette and
                         website structure. The aim was to give the website a
                         slightly retro, minimalist feel with modern performance
-                        in React.js. The actual logos used are from FC 24.
+                        in <span className="text-dark-blue">React.js</span>. The
+                        actual logos used are from FC 24.
                     </p>
                     <div className="w-full relative mt-10 mb-8 px-20">
                         <Image
@@ -152,20 +165,31 @@ export default function FC24DB() {
                         Managing large datasets
                     </h1>
                     <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                        The main dataset [link to dataset] for player profiles
-                        is from FC 24. Using Excel, I filtered the dataset to
-                        only include players from Europe's top five leagues and
-                        converted it to json format. This was mainly to reduce
-                        the amount of different clubs because finding high
-                        quality logos for them wasn't easy and I had to compile
-                        that dataset myself. I was able a utilize an existing
-                        dataset + API to fetch nation flags (thankfully). The
-                        most difficult aspect was fetching player images because
-                        they were not included in the players dataset. I was
-                        able to scrape the images from an online database
-                        (sofifa.com) by virtue of a proxy Express server. The
-                        proxy was necessary to avoid CORS blocking and implement
-                        robust error handling.
+                        The main{' '}
+                        <a
+                            href="https://www.kaggle.com/datasets/stefanoleone992/ea-sports-fc-24-complete-player-dataset"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            dataset
+                        </a>{' '}
+                        for player profiles is from FC 24. Using{' '}
+                        <span className="text-dark-blue">Excel</span>, I
+                        filtered the dataset to only include players from
+                        Europe&apos;s top five leagues and converted it to json
+                        format. This was mainly to reduce the amount of
+                        different clubs because finding high quality logos for
+                        them wasn&apos;t easy and I had to compile that dataset
+                        myself. I was able a utilize an existing dataset + API
+                        to fetch nation flags (thankfully). The most difficult
+                        aspect was fetching player images because they were not
+                        included in the players dataset. I was able to scrape
+                        the images from an online database (sofifa.com) by
+                        virtue of a proxy{' '}
+                        <span className="text-dark-blue">Express</span> server.
+                        The proxy was necessary to avoid CORS blocking and
+                        implement robust error handling.
                     </p>
                     <div className="w-full relative mt-10 mb-10 px-20">
                         <Image
@@ -186,14 +210,15 @@ export default function FC24DB() {
                         Routing
                     </h1>
                     <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                        The app utilizes React Router with a nested layout to
-                        manage routing. The entire app is wrapped in a context
-                        with the players dataset passed down as a value. The
-                        data is imported on each route via a custom hook. A page
-                        is generated dynamically for each player, league, club
-                        and nation based on a search param. The search param id
-                        is used to find the corresponding match in the
-                        associated dataset.
+                        The app utilizes{' '}
+                        <span className="text-dark-blue">React Router</span>{' '}
+                        with a nested layout to manage routing. The entire app
+                        is wrapped in a context with the players dataset passed
+                        down as a value. The data is imported on each route via
+                        a custom hook. A page is generated dynamically for each
+                        player, league, club and nation based on a search param.
+                        The search param id is used to find the corresponding
+                        match in the associated dataset.
                     </p>
                     <div className="my-10">
                         <SyntaxHighlighter
@@ -253,8 +278,8 @@ export default function FC24DB() {
                             </div>
                             <p className="font-medium text-[20px] text-gray-200 leading-relaxed pl-10">
                                 The search tool filters through the data using
-                                the user's input as state. The actual data is
-                                not stored in state.
+                                the user&apos;s input as state. The actual data
+                                is not stored in state.
                             </p>
                         </li>
                         <li className="pb-2 pt-2">
@@ -323,12 +348,21 @@ export default function FC24DB() {
                                     ></path>
                                 </svg>
                                 <span className="text-dark-blue font-medium text-[20px]">
-                                Infinite scroll
+                                    Infinite scroll
                                 </span>
                             </div>
                             <div className="font-medium text-[20px] text-gray-200 leading-relaxed pl-10">
                                 <p>
-                                Only a small portion of the data is rendered to the DOM initially. This is to decrease processing time and improve performance. As the user scrolls down the list of rendered players, an intersection observer ref at the bottom of the list becomes visible and activates a function that increases the number of players in the rendered list. This way, the user never runs out of players to look at.
+                                    Only a small portion of the data is rendered
+                                    to the DOM initially. This is to decrease
+                                    processing time and improve performance. As
+                                    the user scrolls down the list of rendered
+                                    players, an intersection observer ref at the
+                                    bottom of the list becomes visible and
+                                    activates a function that increases the
+                                    number of players in the rendered list. This
+                                    way, the user never runs out of players to
+                                    look at.
                                 </p>
                                 <div className="my-10">
                                     <SyntaxHighlighter
@@ -360,8 +394,17 @@ export default function FC24DB() {
                     </ul>
                 </div>
                 <p className="font-medium text-[20px] text-gray-200 leading-relaxed pt-4">
-                Here's the source code for the project.
-                    </p>
+                    Here&apos;s the{' '}
+                    <a
+                        href="https://www.kaggle.com/datasets/stefanoleone992/ea-sports-fc-24-complete-player-dataset"
+                        className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        source code
+                    </a>{' '}
+                    for the project.
+                </p>
             </div>
             <Footer />
         </div>

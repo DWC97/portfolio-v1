@@ -110,6 +110,10 @@
                 { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false },
                 { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false }
             ],
+            "banner": "/images/fc-24-player-database/saka-header.avif",
+            "roles":[
+                "Conceptualization", "UI/UX Design", "Front End Development", "Back End Development"
+            ],
             "stack":[
                 {
                     "logo": "react",

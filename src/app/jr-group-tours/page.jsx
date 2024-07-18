@@ -94,7 +94,7 @@ export default function JRGroupTours() {
                             ></path>
                         </svg>
                         <a
-                            href="#routing"
+                            href="#ecomm"
                             className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out "
                         >
                             Ecommerce store section
@@ -179,10 +179,14 @@ export default function JRGroupTours() {
                 </div>
                 <div id="bookings" className="pt-10">
                     <h1 className="font-semibold text-white text-[40px] pb-4">
-                    Managing bookings + payment auth
+                        Managing bookings + payment auth
                     </h1>
                     <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                    User bookings are handled with <span className="text-dark-blue">Stripe</span> and <span className="text-dark-blue">Prisma</span>. When the user enters booking page, the stripe API generates a payment intent and checkout form.
+                        User bookings are handled with{' '}
+                        <span className="text-dark-blue">Stripe</span> and{' '}
+                        <span className="text-dark-blue">Prisma</span>. When the
+                        user enters booking page, the stripe API generates a
+                        payment intent and checkout form.
                     </p>
                     <div className="w-full relative mt-10 mb-8 md:px-20">
                         <Image
@@ -198,7 +202,13 @@ export default function JRGroupTours() {
                         />
                     </div>
                     <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                    When the user submits with their details, a server action is first called to check whether the booking (for that email + destination) exists already to avoid duplicates. The payment intent is then sent to Stripe and authenticated by them. Once authenticated, the stripe webhook creates a POST request to add the booking with the user/tour info to the database.
+                        When the user submits with their details, a server
+                        action is first called to check whether the booking (for
+                        that email + destination) exists already to avoid
+                        duplicates. The payment intent is then sent to Stripe
+                        and authenticated by them. Once authenticated, the
+                        stripe webhook creates a POST request to add the booking
+                        with the user/tour info to the database.
                     </p>
                     <div className="my-10">
                         <SyntaxHighlighter
@@ -250,9 +260,193 @@ export async function POST(req: NextRequest) {
 }`}
                         </SyntaxHighlighter>
                     </div>
-                    
                 </div>
+                <div id="ecomm" className="pt-10">
+                    <h1 className="font-semibold text-white text-[40px] pb-4">
+                        Ecommerce store section
+                    </h1>
+                    <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
+                        The store products are fetched using printify's API. A
+                        skeleton of the product is displayed while the fetch is
+                        in progress using Suspense. The main store page has
+                        filters and sorting functionality.{' '}
+                        <span className="text-dark-blue">Dynamic routing</span>{' '}
+                        is used to create individual pages for each product with
+                        their own information. Users can add to cart and view
+                        the cart from any page on the website. The entire app is
+                        wrapped in the shopping cart context so every page can
+                        access the cart items.
+                    </p>
+                    <div className="w-full relative mt-10 mb-8 md:px-20">
+                        <Image
+                            src={'/images/jr/cart.avif'}
+                            alt="scene img"
+                            width={0}
+                            height={0}
+                            sizes="100vw"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                            }}
+                        />
+                    </div>
+                </div>
+                <div id="features" className="pt-10">
+                    <h1 className="font-semibold text-white text-[40px] pb-4">
+                        Other features
+                    </h1>
+                    <ul className="pl-4 ">
+                        <li className="pb-2">
+                            <div className="flex flex-row gap-4 items-center pb-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    viewBox="0 0 1024 1024"
+                                >
+                                    <path
+                                        fill="#00EEFF"
+                                        d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                    ></path>
+                                </svg>
+                                <span className="text-dark-blue font-medium text-[20px]">
+                                    Reservations
+                                </span>
+                            </div>
+                            <p className="font-medium text-[20px] text-gray-200 leading-relaxed pl-10">
+                                Reservations are made through a contact form.
+                                When the user submits a valid form, a server
+                                action uses Prisma to make a POST request to the
+                                database.
+                            </p>
+                            <div className="w-full relative mt-10 mb-8 md:px-20">
+                                <Image
+                                    src={'/images/jr/contact.avif'}
+                                    alt="scene img"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                    }}
+                                />
+                            </div>
+                        </li>
+                        <li className="pb-2 pt-2">
+                            <div className="flex flex-row gap-4 items-center pb-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    viewBox="0 0 1024 1024"
+                                >
+                                    <path
+                                        fill="#00EEFF"
+                                        d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                    ></path>
+                                </svg>
+                                <span className="text-dark-blue font-medium text-[20px]">
+                                    Admin dashboard
+                                </span>
+                            </div>
+                            <div className="font-medium text-[20px] text-gray-200 leading-relaxed pl-10">
+                                <p>
+                                    The admin dashboard is secured with basic
+                                    WWW-Authenticate. It required the user input
+                                    a correct username + password to gain
+                                    access.
+                                </p>
+                                <div className="my-10">
+                                    <SyntaxHighlighter
+                                        language="javascript"
+                                        style={docco}
+                                        customStyle={{ fontSize: '14px' }}
+                                    >
+                                        {`export async function middleware(req: NextRequest) {
+    if ((await isAuthenticated(req)) === false) {
+        return new NextResponse('Unauthorized', {
+            status: 401,
+            headers: { 'WWW-Authenticate': 'Basic' },
+        });
+    }
+}
+
+async function isAuthenticated(req: NextRequest) {
+    const authHeader =
+        req.headers.get('authorization') || req.headers.get('Authorization');
+
+    if (authHeader == null) return false;
+
+    const [username, password] = Buffer.from(authHeader.split(' ')[1], 'base64')
+        .toString()
+        .split(':');
+
+    return (
+        username === process.env.ADMIN_USERNAME &&
+        password === process.env.ADMIN_PASSWORD
+    );
+}
+
+export const config = {
+    matcher: '/admin/:path*',
+};`}
+                                    </SyntaxHighlighter>
+                                </div>
+                                <p>
+                                    Once inside, the company reps can
+                                    add/edit/remove tours and the changes will
+                                    be reflected on the public side of the
+                                    website in real-time. <span className="text-dark-blue">Zod</span> is used for
+                                    validation to ensure any changes are within
+                                    the correct format.
+                                </p>
+                            </div>
+                        </li>
+                        <li className="pb-2 pt-2">
+                            <div className="flex flex-row gap-4 items-center pb-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width={24}
+                                    height={24}
+                                    viewBox="0 0 1024 1024"
+                                >
+                                    <path
+                                        fill="#00EEFF"
+                                        d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
+                                    ></path>
+                                </svg>
+                                <span className="text-dark-blue font-medium text-[20px]">
+                                    SEO
+                                </span>
+                            </div>
+                            <div className="font-medium text-[20px] text-gray-200 leading-relaxed pl-10">
+                                <p>
+                                    Next.js utilizes server-side rendering which
+                                    is ideal for SEO. In trials, the website
+                                    indexed at the top of Google search results
+                                    for a number of key words and held a 100%
+                                    score on lighthouse web vitals.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <p className="font-medium text-[20px] text-gray-200 leading-relaxed pt-4">
+                    Here&apos;s the{' '}
+                    <a
+                        href="https://www.kaggle.com/datasets/stefanoleone992/ea-sports-fc-24-complete-player-dataset"
+                        className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        source code
+                    </a>{' '}
+                    for the project.
+                </p>
             </div>
+            <Footer />
         </div>
     );
 }

@@ -61,6 +61,10 @@
                 { "imageSrc": "/images/jr/gallery.avif", "priority": false },
                 { "imageSrc": "/images/jr/store.avif", "priority": false }
             ],
+            "banner": "/images/jr/banner.avif",
+            "roles":[
+                "Conceptualization & Branding", "UI/UX Design", "Front End Development", "Back End Development"
+            ],
             "stack":[
                 {
                     "logo": "next",

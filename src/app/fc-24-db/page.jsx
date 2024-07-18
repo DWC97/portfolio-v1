@@ -13,8 +13,8 @@ export default function FC24DB() {
 
             <div className="max-w-[1160px] w-full px-10 sm:px-20 pb-20  z-30">
                 <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                    I built the front-end in React.js with Tailwind for styling.
-                    The minor back-end component is an Express server used to
+                    I built the front-end in <span className="text-dark-blue">React.js</span> with <span className="text-dark-blue">Tailwind</span> for styling.
+                    The minor back-end component is an <span className="text-dark-blue">Express</span> server used to
                     scrape player images from an existing database.
                 </p>
                 <ul className="pl-4 pt-6 text-dark-blue text-[20px]">

@@ -7,6 +7,8 @@ import Image from 'next/image';
 import projectsData from '@/data/projects.json';
 import Link from 'next/link';
 
+
+
 export default function ProjectSection({ index }) {
     const project = projectsData.projects[index];
     const [infoVisible, setInfoVisible] = useState(false);
@@ -52,14 +54,18 @@ export default function ProjectSection({ index }) {
             x: '-100%',
             transition: {
                 duration: 1.25,
-                ease: [0.4, 0, 0.1, 1],
+                ease: [0.25, 0.1, 0.25, 1],
             },
         },
     };
 
     return (
-        <div className={`w-full min-h-screen md:min-h-[120vh] flex flex-col ${index === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}  justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0`}>
-            <div className={`w-full px-10 md:px-0 md:w-[400px] flex flex-col lg:h-[500px] lg:justify-center `} >
+        <div
+            className={`w-full min-h-screen md:min-h-[120vh] flex flex-col ${index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}  justify-center items-center gap-20  2xl:gap-40 py-0  md:py-40 lg:py-0`}
+        >
+            <div
+                className={`w-full px-10 md:px-0 md:w-[400px] flex flex-col lg:h-[500px] lg:justify-center `}
+            >
                 <div className={`flex flex-row  w-full items-center`}>
                     <motion.span
                         className={`text-[36px] md:text-[48px] text-dark-blue cyberpunk-heading pr-6 `}
@@ -78,7 +84,9 @@ export default function ProjectSection({ index }) {
                 </div>
 
                 <Reveal isPlaying={true} delay={0}>
-                    <h1 className={`mt-2 text-white font-semibold text-[32px] md:text-[40px] `}>
+                    <h1
+                        className={`mt-2 text-white font-semibold text-[32px] md:text-[40px] `}
+                    >
                         {project.title}
                     </h1>
                 </Reveal>
@@ -153,7 +161,10 @@ export default function ProjectSection({ index }) {
                             ></path>
                         </motion.svg>
                     </div>
-                    <Link href={project.link} className={`flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2  mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer`}>
+                    <Link
+                        href={project.link}
+                        className={`flex flex-row items-center justify-center gap-2 bg-dark-blue polygon2  mt-6 w-[200px]  h-[52px] hover:opacity-80 ease-in-out duration-300 cursor-pointer`}
+                    >
                         <span className="text-primary-dark font-semibold">
                             More info
                         </span>
@@ -175,83 +186,94 @@ export default function ProjectSection({ index }) {
             <Reveal isPlaying={true} delay={1}>
                 <motion.div
                     className="project-polygon-wrap hidden md:flex"
-                    initial={{ rotateX: initialRotateX, rotateY: initialRotateY, rotateZ: initialRotateZ }}
+                    initial={{
+                        rotateX: initialRotateX,
+                        rotateY: initialRotateY,
+                        rotateZ: initialRotateZ,
+                    }}
                     animate={controls}
                 >
                     <div className="project-polygon-container w-[468px] h-[485px] flex justify-center items-center bg-med-blue bg-opacity-50 rounded-t-2xl">
                         <div className="w-[460px] h-[477px] project-polygon rounded-t-2xl bg-primary-dark">
                             <div className="w-[460px] h-[477px] project-polygon rounded-t-2xl bg-dark-blue bg-opacity-15 ">
                                 <div className="relative z-10 w-full h-full flex flex-col overflow-hidden">
-                                
                                     <div className="w-full h-[318px] px-[24px] pt-[24px] ">
-                                        
-                                        <div className='w-full h-[294px] bg-black bg-opacity-70'>
-                                        <div className="absolute top-0 left-0 w-full h-[294px] shine overflow-hidden opacity-90 border-custom-gray border border-opacity-50 ">
-                                            <AnimatePresence initial={false}>
-                                                <motion.div
-                                                    key={currentSlide}
-                                                    className="w-full h-full flex absolute top-0 left-0"
-                                                    initial="initial"
-                                                    animate="animate"
-                                                    variants={slideVariants}
+                                        <div className="w-full h-[294px] bg-black bg-opacity-70">
+                                            <div className="absolute top-0 left-0 w-full h-[294px] shine overflow-hidden opacity-90 border-custom-gray border border-opacity-50 ">
+                                                <AnimatePresence
+                                                    initial={false}
                                                 >
-                                                    <Image
-                                                        src={
-                                                            images[currentSlide]
-                                                                .imageSrc
-                                                        }
-                                                        alt={`Slide ${currentSlide}`}
-                                                        width={0}
-                                                        height={0}
-                                                        sizes="100vw"
-                                                        style={{
-                                                            width: '100%',
-                                                            height: '100%',
+                                                    <motion.div
+                                                        key={currentSlide}
+                                                        className="w-full h-full flex absolute top-0 left-0"
+                                                        initial={{ x: 0 }}
+                                                        animate={{ x: '-100%' }}
+                                                        transition={{
+                                                            duration: 1.25,
+                                                            ease: [
+                                                                0.4, 0, 0.1, 1,
+                                                            ],
                                                         }}
-                                                        className="object-cover "
-                                                        priority={
-                                                            images[currentSlide]
-                                                                .priority
-                                                        }
-                                                        placeholder="blur"
-                                                        blurDataURL={
-                                                            images[currentSlide]
-                                                                .blurredSrc
-                                                        }
-                                                    />
-                                                    <Image
-                                                        src={
-                                                            images[
-                                                                (currentSlide +
-                                                                    1) %
-                                                                    images.length
-                                                            ].imageSrc
-                                                        }
-                                                        alt={`Slide ${(currentSlide + 1) % images.length}`}
-                                                        width={0}
-                                                        height={0}
-                                                        sizes="100vw"
-                                                        style={{
-                                                            width: '100%',
-                                                            height: '100%',
-                                                        }}
-                                                        className="object-cover "
-                                                        priority={
-                                                            images[currentSlide]
-                                                                .priority
-                                                        }
-                                                        placeholder="blur"
-                                                        blurDataURL={
-                                                            images[
-                                                                (currentSlide +
-                                                                    1) %
-                                                                    images.length
-                                                            ].blurredSrc
-                                                        }
-                                                    />
-                                                </motion.div>
-                                            </AnimatePresence>
-                                        </div>
+                                                    >
+                                                        <Image
+                                                            src={
+                                                                images[
+                                                                    currentSlide
+                                                                ].imageSrc
+                                                            }
+                                                            alt={`Slide ${currentSlide}`}
+                                                            width={0}
+                                                            height={0}
+                                                            sizes="100vw"
+                                                            style={{
+                                                                width: '100%',
+                                                                height: '100%',
+                                                            }}
+                                                            className="object-cover"
+                                                            priority={true}
+                                                            placeholder="blur"
+                                                            blurDataURL={
+                                                                images[
+                                                                    currentSlide
+                                                                ].blurredSrc
+                                                            }
+                                                        />
+                                                        <Image
+                                                            src={
+                                                                images[
+                                                                    (currentSlide +
+                                                                        1) %
+                                                                        images.length
+                                                                ].imageSrc
+                                                            }
+                                                            alt={`Slide ${(currentSlide + 1) % images.length}`}
+                                                            width={0}
+                                                            height={0}
+                                                            sizes="100vw"
+                                                            style={{
+                                                                width: '100%',
+                                                                height: '100%',
+                                                            }}
+                                                            className="object-cover"
+                                                            priority={
+                                                                images[
+                                                                    (currentSlide +
+                                                                        1) %
+                                                                        images.length
+                                                                ].priority
+                                                            }
+                                                            placeholder="blur"
+                                                            blurDataURL={
+                                                                images[
+                                                                    (currentSlide +
+                                                                        1) %
+                                                                        images.length
+                                                                ].blurredSrc
+                                                            }
+                                                        />
+                                                    </motion.div>
+                                                </AnimatePresence>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="relative w-full h-[159px] ">

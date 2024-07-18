@@ -266,7 +266,7 @@ export async function POST(req: NextRequest) {
                         Ecommerce store section
                     </h1>
                     <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                        The store products are fetched using printify's API. A
+                        The store products are fetched using printify&apos;s API. A
                         skeleton of the product is displayed while the fetch is
                         in progress using Suspense. The main store page has
                         filters and sorting functionality.{' '}
@@ -353,7 +353,7 @@ export async function POST(req: NextRequest) {
                             <div className="font-medium text-[20px] text-gray-200 leading-relaxed pl-10">
                                 <p>
                                     The admin dashboard is secured with basic
-                                    WWW-Authenticate. It required the user input
+                                    WWW-Authenticate. It requires the user to input
                                     a correct username + password to gain
                                     access.
                                 </p>

@@ -83,9 +83,9 @@ export default function Banner({ index }) {
                     </div>
                 </div>
                 <ul className='w-full xl:w-auto xl:flex-grow h-full flex flex-col text-gray-400 text-[20px] border-b border-white border-opacity-20'>
-                    {project.roles.map(role => {
+                    {project.roles.map((role, i) => {
                         return (
-                            <li className='py-5 border-t border-white border-opacity-20'>{role}</li>
+                            <li key={i} className='py-5 border-t border-white border-opacity-20'>{role}</li>
                         )
                     })}
                 </ul>

@@ -12,11 +12,11 @@
             ],
             "link": "/xrpl-dash",
             "slides":[
-                { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false },
-                { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true },
-                { "imageSrc": "/images/fc-24-player-database/saka.avif", "priority": false },
-                { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false },
-                { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false }
+                { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/nations-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true, "blurredSrc": "/images/fc-24-player-database/blurred/home-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/saka.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/saka-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/players-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/clubs-blurred.avif" }
             ],
             "stack":[
                 {
@@ -55,11 +55,11 @@
             ],
             "link": "/jr-group-tours",
             "slides":[
-                { "imageSrc": "/images/jr/tank.avif", "priority": false },
-                { "imageSrc": "/images/jr/hero.avif", "priority": true },
-                { "imageSrc": "/images/jr/about.avif", "priority": false },
-                { "imageSrc": "/images/jr/gallery.avif", "priority": false },
-                { "imageSrc": "/images/jr/store.avif", "priority": false }
+                { "imageSrc": "/images/jr/tank.avif", "priority": false, "blurredSrc": "/images/jr/blurred/tank-blurred.avif" },
+                { "imageSrc": "/images/jr/hero.avif", "priority": true, "blurredSrc": "/images/jr/blurred/hero-blurred.avif" },
+                { "imageSrc": "/images/jr/about.avif", "priority": false, "blurredSrc": "/images/jr/blurred/about-blurred.avif" },
+                { "imageSrc": "/images/jr/gallery.avif", "priority": false, "blurredSrc": "/images/jr/blurred/gallery-blurred.avif" },
+                { "imageSrc": "/images/jr/store.avif", "priority": false, "blurredSrc": "/images/jr/blurred/store-blurred.avif" }
             ],
             "banner": "/images/jr/banner.avif",
             "roles":[
@@ -108,11 +108,11 @@
             ],
             "link": "/fc-24-db",
             "slides":[
-                { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false },
-                { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true },
-                { "imageSrc": "/images/fc-24-player-database/saka.avif", "priority": false },
-                { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false },
-                { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false }
+                { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/nations-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true, "blurredSrc": "/images/fc-24-player-database/blurred/home-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/saka.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/saka-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/players-blurred.avif" },
+                { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/clubs-blurred.avif" }
             ],
             "banner": "/images/fc-24-player-database/saka-header.avif",
             "roles":[

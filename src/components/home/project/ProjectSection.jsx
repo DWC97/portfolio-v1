@@ -213,6 +213,11 @@ export default function ProjectSection({ index }) {
                                                             images[currentSlide]
                                                                 .priority
                                                         }
+                                                        placeholder="blur"
+                                                        blurDataURL={
+                                                            images[currentSlide]
+                                                                .blurredSrc
+                                                        }
                                                     />
                                                     <Image
                                                         src={
@@ -234,6 +239,14 @@ export default function ProjectSection({ index }) {
                                                         priority={
                                                             images[currentSlide]
                                                                 .priority
+                                                        }
+                                                        placeholder="blur"
+                                                        blurDataURL={
+                                                            images[
+                                                                (currentSlide +
+                                                                    1) %
+                                                                    images.length
+                                                            ].blurredSrc
                                                         }
                                                     />
                                                 </motion.div>

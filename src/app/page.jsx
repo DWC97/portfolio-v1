@@ -4,7 +4,7 @@ import Footer from '@/components/global/Footer';
 import Hero from '@/components/home/hero/Hero';
 import React, { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import Contact from '@/components/home/Contact';
+
 
 // Dynamic import for ProjectSection to enable lazy loading
 const ProjectSection = dynamic(
@@ -19,9 +19,8 @@ export default function Home() {
         false,
         false,
         false,
-        false,
     ]);
-    const sectionRefs = [useRef(), useRef(), useRef(), useRef()];
+    const sectionRefs = [useRef(), useRef(), useRef()];
 
     useEffect(() => {
         const observers = sectionRefs.map(
@@ -70,9 +69,7 @@ export default function Home() {
             <div ref={sectionRefs[2]} className="min-h-screen">
                 {sectionsInView[2] && <ProjectSection index={2} />}
             </div>
-            <div ref={sectionRefs[3]} className="min-h-screen" id="contact">
-                {sectionsInView[3] && <Contact />}
-            </div>
+            <Footer />
         </>
     );
 }

@@ -1,30 +1,15 @@
-'use client';
-
 import Footer from '@/components/global/Footer';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Link from 'next/link';
 
 export default function ParallaxArticle() {
-
-    const [playing, setPlaying] = useState(false);
-
-    useEffect(() => {
-        setPlaying(true);
-    }, []);
-
-
     return (
         <>
             <div className="w-full  flex flex-col items-center pb-20">
                 <div className="w-full h-[75vh] relative flex flex-col justify-center items-center">
-                    <div
-                        className="absolute w-full h-full -z-10 overflow-hidden"
-
-                    >
+                    <div className="absolute w-full h-full -z-10 overflow-hidden">
                         <img
                             src="/images/articles/articlebg.avif"
                             alt=""
@@ -33,22 +18,14 @@ export default function ParallaxArticle() {
                     </div>
                     <div className="absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent to-primary-dark opacity-100 z-0" />
                     <div
-                        className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  z-10 mt-20 ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                        className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  z-10 mt-20 opacity-100 ease-in-out duration-500`}
                     >
                         <div className="flex flex-row gap-6">
                             <div
-                                className={`w-[100px] sm:w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                                className={`w-[100px] sm:w-[220px] relative opacity-100 ease-in-out duration-500`}
                             >
                                 <div className="absolute bottom-0 left-0 polygon1 bg-dark-blue w-[60px] sm:w-[112px] h-[12px] border-b border-b-dark-blue" />
-                                <motion.div
-                                    className="absolute h-[2px] w-full bg-dark-blue bottom-0 left-0"
-                                    initial={{ width: '0%' }}
-                                    animate={{ width: playing ? '100%' : '0%' }}
-                                    transition={{
-                                        duration: 2.5,
-                                        ease: [0.4, 0, 0.1, 1],
-                                    }}
-                                />
+                                <div className="absolute h-[2px] w-full bg-dark-blue bottom-0 left-0" />
                             </div>
                             <span
                                 className={`text-dark-blue font-medium  text-[14px] sm:text-[16px]`}
@@ -99,7 +76,7 @@ export default function ParallaxArticle() {
                     </div>
                 </div>
                 <div
-                    className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  text-gray-300 text-[20px] leading-relaxed ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
+                    className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  text-gray-300 text-[20px] leading-relaxed opacity-100 ease-in-out duration-500`}
                 >
                     <p className=" pt-10" id="p1">
                         2024 has seen the rise of interactivity in web design.
@@ -123,9 +100,12 @@ export default function ParallaxArticle() {
                                 d="M452.864 149.312a29.12 29.12 0 0 1 41.728.064L826.24 489.664a32 32 0 0 1 0 44.672L494.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L764.736 512L452.864 192a30.59 30.59 0 0 1 0-42.688m-256 0a29.12 29.12 0 0 1 41.728.064L570.24 489.664a32 32 0 0 1 0 44.672L238.592 874.624a29.12 29.12 0 0 1-41.728 0a30.59 30.59 0 0 1 0-42.752L508.736 512L196.864 192a30.59 30.59 0 0 1 0-42.688"
                             ></path>
                         </svg>
-                        <a href="https://github.com/DWC97" 
-                    target="_blank" 
-                    rel="noopener noreferrer" className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue">
+                        <a
+                            href="https://github.com/DWC97"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
+                        >
                             Demo of the final result.
                         </a>
                     </div>
@@ -152,12 +132,12 @@ export default function ParallaxArticle() {
                     </div>
                     <p className="mt-10">
                         Once we have the image, we can move into Photoshop or
-                        another photo editing tool of your choice. This isn&apos;t a
-                        photoshop tutorial so I will keep the explanation brief.
-                        In my case, the image needed color adjustments to dampen
-                        the whites so the text content would be able to stand
-                        out later on. The main work involved is cutting out each
-                        individual layer and{' '}
+                        another photo editing tool of your choice. This
+                        isn&apos;t a photoshop tutorial so I will keep the
+                        explanation brief. In my case, the image needed color
+                        adjustments to dampen the whites so the text content
+                        would be able to stand out later on. The main work
+                        involved is cutting out each individual layer and{' '}
                         <a
                             href="https://www.adobe.com/products/photoshop/generative-fill.html"
                             aria-label="generative fill tutorial"
@@ -179,10 +159,10 @@ export default function ParallaxArticle() {
                         the stack. Each <code>&lt;img&gt;</code> element has the
                         parallax class so that we can translate the x, y and z
                         coordinates later with a Javascript function. The
-                        parallax class is given a scale property so that the scene
-                        is slightly zoomed in. This to stop the edge of the
-                        background layers from becoming visible after they are
-                        shifted due to the parallax effect. The transition
+                        parallax class is given a scale property so that the
+                        scene is slightly zoomed in. This to stop the edge of
+                        the background layers from becoming visible after they
+                        are shifted due to the parallax effect. The transition
                         property gives the movement a smooth feel.
                     </p>
                     <div className="mt-10">

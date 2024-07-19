@@ -21,7 +21,10 @@ export default function Articles() {
                     <h2 className="text-[28px] font-medium text-white mt-40  mb-10 w-full border-b border-opacity-10 border-white px-4">
                         Latest articles
                     </h2>
-                    <Link href={"/articles/3D-parallax-effect-in-react"} className="flex flex-col hover:bg-primary-light p-4 cursor-pointer duration-500 ease-in-out">
+                    <Link
+                        href={'/articles/3D-parallax-effect-in-react'}
+                        className="flex flex-col hover:bg-primary-light p-4 cursor-pointer duration-500 ease-in-out"
+                    >
                         <div className="flex flex-row gap-6">
                             <div
                                 className={`w-[100px] sm:w-[220px] relative ${playing ? 'opacity-100' : 'opacity-0'} ease-in-out duration-500`}
@@ -48,12 +51,12 @@ export default function Articles() {
                             React
                         </h1>
                         <p className="text-custom-gray font-medium">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Morbi in nulla egestas, consequat nunc auctor,
-                            faucibus arcu. Aenean ligula nulla, venenatis eu
-                            lorem vel, vehicula tincidunt justo. Ut aliquet
-                            tempus felis, vel convallis lacus porttitor at. Duis
-                            viverra nunc quis neque elementum euismod.
+                            2024 has seen the rise of interactivity in web
+                            design. Designers are pushing the boundaries with
+                            3-D elements to give users a unique experience.
+                            Parallax effects with layers in the foreground and
+                            background moving at different speeds to create a
+                            realistic perspective are paticularly popular...
                         </p>
                         <div className="flex flex-row justify-between mt-6">
                             <div className="flex flex-row gap-2 items-center">
@@ -107,7 +110,8 @@ export default function Articles() {
                         <div
                             className="h-full w-full  opacity-50 featured-bg"
                             style={{
-                                backgroundImage: 'url(/images/articles/bg6.avif)',
+                                backgroundImage:
+                                    'url(/images/articles/bg6.avif)',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                             }}
@@ -181,7 +185,7 @@ export default function Articles() {
                                     ></path>
                                 </svg>
                                 <span className="font-medium text-custom-gray">
-                                    5 min
+                                    ? min
                                 </span>
                             </div>
                         </div>

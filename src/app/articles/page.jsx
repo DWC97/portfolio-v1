@@ -107,7 +107,7 @@ export default function Articles() {
                         <div
                             className="h-full w-full  opacity-50 featured-bg"
                             style={{
-                                backgroundImage: 'url(/images/bg6.jpg)',
+                                backgroundImage: 'url(/images/articles/bg6.avif)',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                             }}

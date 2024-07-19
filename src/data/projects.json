@@ -10,7 +10,7 @@
                 "Personalized user profiles",
                 "Real-time messaging with web sockets"
             ],
-            "link": "/xrpl-dash",
+            "link": "/fc-24-db",
             "slides":[
                 { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/nations-blurred.avif" },
                 { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true, "blurredSrc": "/images/fc-24-player-database/blurred/home-blurred.avif" },

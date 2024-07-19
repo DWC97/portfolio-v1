@@ -9,24 +9,13 @@ import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Link from 'next/link';
 
 export default function ParallaxArticle() {
-    const [opacity, setOpacity] = useState(1);
+
     const [playing, setPlaying] = useState(false);
 
     useEffect(() => {
         setPlaying(true);
     }, []);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const maxScroll = window.innerHeight * 0.5; // 75vh
-            const newOpacity = Math.max(0, 1 - scrollY / maxScroll);
-            setOpacity(newOpacity);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     return (
         <>
@@ -34,10 +23,10 @@ export default function ParallaxArticle() {
                 <div className="w-full h-[75vh] relative flex flex-col justify-center items-center">
                     <div
                         className="absolute w-full h-full -z-10 overflow-hidden"
-                        style={{ opacity }}
+
                     >
                         <img
-                            src="/images/articlebg.png"
+                            src="/images/articles/articlebg.avif"
                             alt=""
                             className="w-full h-full object-cover opacity-90"
                         />
@@ -150,7 +139,7 @@ export default function ParallaxArticle() {
                     </p>
                     <div className="w-full relative mt-10 mb-10">
                         <Image
-                            src={'/images/articlebg2.jpg'}
+                            src={'/images/articles/articlebg2.avif'}
                             alt="scene img"
                             width={0}
                             height={0}

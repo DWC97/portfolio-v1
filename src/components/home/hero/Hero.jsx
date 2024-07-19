@@ -1,18 +1,36 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { Digital } from './Digital';
-import RenderModel from './RenderModel';
+import React, {
+    useEffect,
+    useRef,
+    useState,
+    useMemo,
+    Suspense,
+} from 'react';
+
 import DecodeAnimation from 'react-decode-animation';
 import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation';
-import Lottie from 'lottie-react';
+
 import animationData from '@/animations/scroll-animation.json';
 import { useViewportWidth } from '@/hooks/useViewportWidth';
 
+import dynamic from 'next/dynamic';
+
+const Digital = dynamic(() => import('./Digital').then((mod) => mod.Digital), {
+    ssr: false,
+});
+const RenderModel = dynamic(() => import('./RenderModel'), { ssr: false });
+
+const TypeAnimation = dynamic(
+    () => import('react-type-animation').then((mod) => mod.TypeAnimation),
+    { ssr: false }
+);
+const Lottie = dynamic(
+    () => import('lottie-react').then((mod) => mod.default),
+    { ssr: false }
+);
 
 export default function Hero() {
-
     const nameRef = useRef(null);
     const [playing, setPlaying] = useState(false);
     const [modelReady, setModelReady] = useState(false);
@@ -21,7 +39,7 @@ export default function Hero() {
     const [scrollAnimation, setScrollAnimation] = useState(false);
     const scrollAnimationRef = useRef(null);
     const [opacity, setOpacity] = useState(0);
-    const viewportWidth = useViewportWidth()
+    const viewportWidth = useViewportWidth();
 
 
     useEffect(() => {
@@ -56,15 +74,14 @@ export default function Hero() {
         };
     }, []);
 
-    const divStyles =
-        viewportWidth < 640
-            ? { height: '170px', width: '328px' }
-            : viewportWidth < 1536
-              ? { height: '256px', width: '600px' }
-              : { height: '336px', width: '784px' };
+    const divStyles = useMemo(() => {
+        if (viewportWidth < 640) return { height: '170px', width: '328px' };
+        if (viewportWidth < 1536) return { height: '256px', width: '600px' };
+        return { height: '336px', width: '784px' };
+    }, [viewportWidth]);
 
     return (
-        <div className="h-screen w-full relative flex justify-center items-center" >
+        <div className="h-screen w-full relative flex justify-center items-center">
             {divVisible && (
                 <motion.div
                     initial={{ width: 0 }}
@@ -78,11 +95,13 @@ export default function Hero() {
                         <h2
                             className={`z-20 text-[14px] sm:text-[20px] 2xl:text-[24px] ${playing ? 'text-dark-blue weak-glow' : 'text-transparent'}  font-semibold tracking-widest pt-6  px-7 sm:px-8`}
                         >
-                            <DecodeAnimation
-                                ref={nameRef}
-                                text={'DOUGLAS WILLIAM CARTON'}
-                                customCharacters="アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨーラリルレロワヰヱヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ"
-                            />
+                       
+                                <DecodeAnimation
+                                    ref={nameRef}
+                                    text={'DOUGLAS WILLIAM CARTON'}
+                                    customCharacters="アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨーラリルレロワヰヱヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ"
+                                />
+                        
                         </h2>
                     </div>
 
@@ -102,23 +121,25 @@ export default function Hero() {
                         <span
                             className={`${textVisible ? 'text-white' : 'text-transparent'} ease-in-out transition-colors duration-500`}
                         >
-                            <TypeAnimation
-                                sequence={[
-                                    'Designer',
-                                    3000,
-                                    'Engineer',
-                                    3000,
-                                    'Researcher',
-                                    3000,
-                                ]}
-                                wrapper="span"
-                                speed={10}
-                                omitDeletionAnimation={true}
-                                deletionSpeed={30}
-                                repeat={Infinity}
-                                cursor={true}
-                                preRenderFirstString={false}
-                            />
+                            <Suspense fallback={null}>
+                                <TypeAnimation
+                                    sequence={[
+                                        'Designer',
+                                        3000,
+                                        'Engineer',
+                                        3000,
+                                        'Researcher',
+                                        3000,
+                                    ]}
+                                    wrapper="span"
+                                    speed={10}
+                                    omitDeletionAnimation={true}
+                                    deletionSpeed={30}
+                                    repeat={Infinity}
+                                    cursor={true}
+                                    preRenderFirstString={false}
+                                />
+                            </Suspense>
                         </span>
                     </h1>
                 </motion.div>
@@ -129,9 +150,11 @@ export default function Hero() {
                     viewportWidth < 768 ? '-top-[12vh]' : 'top-0'
                 } left-0 opacity-80 w-full h-screen z-0`}
             >
-                <RenderModel setModelReady={setModelReady}>
-                    <Digital />
-                </RenderModel>
+                <Suspense fallback={null}>
+                    <RenderModel setModelReady={setModelReady}>
+                        <Digital />
+                    </RenderModel>
+                </Suspense>
             </div>
             <div
                 style={{
@@ -140,12 +163,14 @@ export default function Hero() {
                 }}
                 className={`absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[200px] ${scrollAnimation ? ' opacity-70' : 'opacity-0'} flex justify-center items-center ease-in-out duration-1000 z-30`}
             >
-                <Lottie
-                    lottieRef={scrollAnimationRef}
-                    animationData={animationData}
-                    className="w-16"
-                    loop={true}
-                />
+                <Suspense fallback={null}>
+                    <Lottie
+                        lottieRef={scrollAnimationRef}
+                        animationData={animationData}
+                        className="w-16"
+                        loop={true}
+                    />
+                </Suspense>
             </div>
         </div>
     );

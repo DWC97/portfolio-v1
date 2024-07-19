@@ -16,18 +16,10 @@ export default function RenderModel({ children, className, setModelReady }){
             <Suspense fallback={null}>
                 {children}
             </Suspense>
-            {/* <EffectComposer>
-                <Bloom 
-                    intensity={2} 
-                    luminanceThreshold={0} 
-                    luminanceSmoothing={0.3} 
-                    height={300} 
-
-                />
-            </EffectComposer> */}
+         
             <Environment preset="studio" />
         
-            {/* <ambientLight /> */}
+
         </Canvas>
     )
 }

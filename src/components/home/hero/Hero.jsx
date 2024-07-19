@@ -33,7 +33,7 @@ const Lottie = dynamic(
 export default function Hero() {
     const nameRef = useRef(null);
     const [playing, setPlaying] = useState(false);
-    const [modelReady, setModelReady] = useState(false);
+    const [modelReady, setModelReady] = useState(true);
     const [divVisible, setDivVisible] = useState(false);
     const [textVisible, setTextVisible] = useState(false);
     const [scrollAnimation, setScrollAnimation] = useState(false);
@@ -145,7 +145,7 @@ export default function Hero() {
                 </motion.div>
             )}
 
-            <div
+            {/* <div
                 className={`absolute ${
                     viewportWidth < 768 ? '-top-[12vh]' : 'top-0'
                 } left-0 opacity-80 w-full h-screen z-0`}
@@ -155,7 +155,7 @@ export default function Hero() {
                         <Digital />
                     </RenderModel>
                 </Suspense>
-            </div>
+            </div> */}
             <div
                 style={{
                     opacity: opacity,

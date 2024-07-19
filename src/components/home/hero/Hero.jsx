@@ -145,7 +145,7 @@ export default function Hero() {
                 )}
             </div>
 
-            {/* <div
+            <div
                 className={`absolute ${
                     viewportWidth < 768 ? '-top-[12vh]' : 'top-0'
                 } left-0 opacity-80 w-full h-screen z-0`}
@@ -155,7 +155,7 @@ export default function Hero() {
                         <Digital />
                     </RenderModel>
                 </Suspense>
-            </div> */}
+            </div>
             <div
                 style={{
                     opacity: opacity,

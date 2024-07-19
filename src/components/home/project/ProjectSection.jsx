@@ -7,8 +7,6 @@ import Image from 'next/image';
 import projectsData from '@/data/projects.json';
 import Link from 'next/link';
 
-
-
 export default function ProjectSection({ index }) {
     const project = projectsData.projects[index];
     const [infoVisible, setInfoVisible] = useState(false);
@@ -312,23 +310,44 @@ export default function ProjectSection({ index }) {
                                                 )}
                                             </ul>
                                         </div>
-                                        <div className="absolute bottom-8 left-[52px] flex flex-row justify-center items-center gap-3">
+                                        <a
+                                            href={project.repo}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`absolute bottom-8 ${project.repo ? "left-[52px]" : "left-[60px]"}  flex flex-row justify-center items-center gap-3 hover:opacity-80 ease-in-out duration-300`}
+                                        >
                                             <span className="text-custom-gray font-semibold">
-                                                View repo
+                                                {project.repo
+                                                    ? 'View repo'
+                                                    : 'No repo'}
                                             </span>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width={24}
-                                                height={24}
-                                                viewBox="0 0 16 16"
-                                            >
-                                                <path
-                                                    fill="#6E98AE"
-                                                    fillRule="evenodd"
-                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                                                ></path>
-                                            </svg>
-                                        </div>
+                                            {project.repo ? (
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width={24}
+                                                    height={24}
+                                                    viewBox="0 0 16 16"
+                                                >
+                                                    <path
+                                                        fill="#6E98AE"
+                                                        fillRule="evenodd"
+                                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                                                    ></path>
+                                                </svg>
+                                            ) : (
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width={24}
+                                                    height={24}
+                                                    viewBox="0 0 32 32"
+                                                >
+                                                    <path
+                                                        fill="#6E98AE"
+                                                        d="M16 3.667C9.19 3.667 3.667 9.187 3.667 16S9.19 28.333 16 28.333c6.812 0 12.333-5.52 12.333-12.333S22.813 3.667 16 3.667m0 3c1.85 0 3.572.548 5.024 1.48L8.147 21.024A9.263 9.263 0 0 1 6.667 16c0-5.146 4.187-9.333 9.333-9.333m0 18.666a9.271 9.271 0 0 1-5.024-1.48l12.876-12.877A9.263 9.263 0 0 1 25.332 16c0 5.146-4.186 9.333-9.332 9.333"
+                                                    ></path>
+                                                </svg>
+                                            )}
+                                        </a>
                                     </div>
                                 </div>
                             </div>

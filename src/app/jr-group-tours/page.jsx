@@ -436,7 +436,7 @@ export const config = {
                 <p className="font-medium text-[20px] text-gray-200 leading-relaxed pt-4">
                     Here&apos;s the{' '}
                     <a
-                        href="https://www.kaggle.com/datasets/stefanoleone992/ea-sports-fc-24-complete-player-dataset"
+                        href="https://github.com/DWC97/j3-v3-project"
                         className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
                         target="_blank"
                         rel="noopener noreferrer"

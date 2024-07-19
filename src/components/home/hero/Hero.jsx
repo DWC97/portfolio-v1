@@ -36,6 +36,12 @@ export default function Hero() {
     const viewportWidth = useViewportWidth();
 
     useEffect(() => {
+        if (viewportWidth > 768){
+            setModelReady(true)
+        }
+    }, [viewportWidth])
+
+    useEffect(() => {
         if (modelReady) {
             // Start the div animation after the model is ready
             setDivVisible(true);
@@ -145,17 +151,16 @@ export default function Hero() {
                 )}
             </div>
 
-            <div
-                className={`absolute ${
-                    viewportWidth < 768 ? '-top-[12vh]' : 'top-0'
-                } left-0 opacity-80 w-full h-screen z-0`}
+            {viewportWidth > 768 && <div
+                className={`absolute top-0 
+                left-0 opacity-80 w-full h-screen z-0`}
             >
                 <Suspense fallback={null}>
                     <RenderModel setModelReady={setModelReady}>
                         <Digital />
                     </RenderModel>
                 </Suspense>
-            </div>
+            </div>}
             <div
                 style={{
                     opacity: opacity,

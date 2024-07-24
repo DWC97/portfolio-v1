@@ -145,7 +145,7 @@ export default function XRPLDash() {
                         program a few years ago. The XRPL Dash is an idea that
                         myself and four other developers put forward to Ripple,
                         with the aim of improving user experience on the XRPL.
-                        Being an inexperienced developer, who'd only ever worked
+                        Being an inexperienced developer, who&apos;d only ever worked
                         on personal projects, I wanted the opportunity to work
                         on a commercial project, where I could learn best
                         practices from more senior mentors. After a rigorous
@@ -168,12 +168,12 @@ export default function XRPLDash() {
                             lack of integration
                         </span>{' '}
                         between these tools. You would have to go to one website
-                        to trade an asset, another to analyse the asset's
+                        to trade an asset, another to analyse the asset&apos;s
                         charts, another to get updates from the team behind the
                         project etc. We thought having everything in one place
                         would{' '}
                         <span className="text-dark-blue">take friction</span>{' '}
-                        out of the user experience. That's where the idea for
+                        out of the user experience. That&apos;s where the idea for
                         the XRPL Dash came from. A one-stop shop for anyone
                         interested in the XRPL.
                     </p>
@@ -183,7 +183,7 @@ export default function XRPLDash() {
                         UI modules
                     </h1>
                     <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                        It's all well and good having a tonne of features for
+                        It&apos;s all well and good having a tonne of features for
                         the user but how can you realistically fit them into a
                         UI without it getting cluttered? The solution we came up
                         with was to make our platform a dashboard with a{' '}
@@ -420,7 +420,7 @@ export default function XRPLDash() {
                                     non-custodial wallet service for users to
                                     store their XRPL assets. Our dashboard
                                     interacts with the Xaman API to authenticate
-                                    the user's signature and then return to us
+                                    the user&apos;s signature and then return to us
                                     their XRPL address.{' '}
                                     <span className="text-dark-blue">
                                         NextAuth.js

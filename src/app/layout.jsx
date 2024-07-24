@@ -1,6 +1,7 @@
 import { Chakra_Petch } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/global/Navbar';
+import NextTopLoader from 'nextjs-toploader';
 
 const chakraPetch = Chakra_Petch({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -30,6 +31,11 @@ export default function RootLayout({ children }) {
                 <Navbar />
               </header>
               <main className=''>
+              <NextTopLoader 
+              color="#4BD2D5"
+              speed={200}
+              showSpinner={false}
+              />
                 {children}
               </main>
           

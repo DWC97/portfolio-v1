@@ -8,10 +8,10 @@ import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 export default function JRGroupTours() {
     return (
         <div className="w-full flex flex-col items-center relative">
-            <div className="max-w-[1160px] w-full px-10 sm:px-20 mb-10 sm:-mb-10">
+            <div className="max-w-[1160px] w-full px-6 sm:px-20 mb-10 sm:-mb-10">
                 <Banner index={1} />
             </div>
-            <div className="max-w-[1160px] w-full px-10 sm:px-20 pb-20  z-30">
+            <div className="max-w-[1160px] w-full px-6 sm:px-20 pb-20  z-30">
                 <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
                     I built the entire app in{' '}
                     <span className="text-dark-blue">Next.js 14</span> with{' '}

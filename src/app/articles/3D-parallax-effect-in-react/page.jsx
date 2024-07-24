@@ -76,7 +76,7 @@ export default function ParallaxArticle() {
                     </div>
                 </div>
                 <div
-                    className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  text-gray-300 text-[20px] leading-relaxed opacity-100 ease-in-out duration-500`}
+                    className={`w-full px-6 sm:px-10 md:px-0 md:w-[700px]  text-gray-200 text-[20px] leading-relaxed opacity-100 ease-in-out duration-500`}
                 >
                     <p className=" pt-10" id="p1">
                         2024 has seen the rise of interactivity in web design.

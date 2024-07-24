@@ -7,11 +7,11 @@ import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 export default function FC24DB() {
     return (
         <div className="w-full flex flex-col items-center relative">
-            <div className="max-w-[1160px] w-full px-10 sm:px-20 mb-10 sm:-mb-10">
+            <div className="max-w-[1160px] w-full px-6 sm:px-20 mb-10 sm:-mb-10">
                 <Banner index={2} />
             </div>
 
-            <div className="max-w-[1160px] w-full px-10 sm:px-20 pb-20  z-30">
+            <div className="max-w-[1160px] w-full px-6 sm:px-20 pb-20  z-30">
                 <p className="font-medium text-[20px] text-gray-200 leading-relaxed">
                     I built the front-end in <span className="text-dark-blue">React.js</span> with <span className="text-dark-blue">Tailwind</span> for styling.
                     The minor back-end component is an <span className="text-dark-blue">Express</span> server used to

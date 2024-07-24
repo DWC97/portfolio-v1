@@ -13,7 +13,7 @@ export default function Footer() {
                     target="_blank" 
                     rel="noopener noreferrer"
                 >
-                    Created in Next.js, Three.js and Framer Motion.
+                    Portfolio custom built in Next.js, Three.js and Framer Motion.
                 </a>
             </span>
            

@@ -224,7 +224,7 @@ export default function XRPLDash() {
                                 ></path>
                             </svg>
                             <span className="font-medium text-[20px] text-gray-200 leading-relaxed">
-                                Trading via XRPL's DEX
+                                Trading via XRPL&apos;s DEX
                             </span>
                         </li>
                         <li className="flex flex-row gap-4 items-center pb-2">

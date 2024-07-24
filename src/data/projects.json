@@ -10,7 +10,7 @@
                 "Personalized user profiles",
                 "Real-time messaging with web sockets"
             ],
-            "link": "/fc-24-db",
+            "link": "/xrpl-dash",
             "slides":[
                 { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/nations-blurred.avif" },
                 { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true, "blurredSrc": "/images/fc-24-player-database/blurred/home-blurred.avif" },
@@ -19,6 +19,9 @@
                 { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/clubs-blurred.avif" }
             ],
             "banner": "/images/jr/banner.avif",
+            "roles":[
+                "Conceptualization", "Branding", "UI/UX Design", "Front End Development"
+            ],
             "stack":[
                 {
                     "logo": "next",

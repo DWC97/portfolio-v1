@@ -314,7 +314,7 @@ export default function ProjectSection({ index }) {
                                             href={project.repo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`absolute bottom-8 ${project.repo ? "left-[52px]" : "left-[60px]"}  flex flex-row justify-center items-center gap-3 hover:opacity-80 ease-in-out duration-300`}
+                                            className={`absolute bottom-8 ${project.repo ? "left-[52px] hover:opacity-80 ease-in-out duration-300" : "left-[60px]"}  flex flex-row justify-center items-center gap-3 `}
                                         >
                                             <span className="text-custom-gray font-semibold">
                                                 {project.repo

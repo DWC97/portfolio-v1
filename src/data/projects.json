@@ -62,6 +62,7 @@
                 "Ecommerce store with shopping cart + filtering/sorting"
             ],
             "link": "/jr-group-tours",
+            "demo": "https://www.jollyrogertours.com/",
             "slides":[
                 { "imageSrc": "/images/jr/tank.avif", "priority": false, "blurredSrc": "/images/jr/blurred/tank-blurred.avif" },
                 { "imageSrc": "/images/jr/hero.avif", "priority": true, "blurredSrc": "/images/jr/blurred/hero-blurred.avif" },
@@ -115,6 +116,7 @@
                 "Unlimited scroll functionality for browsing"
             ],
             "link": "/fc-24-db",
+            "demo": "https://gleaming-sprite-1c99ff.netlify.app/",
             "slides":[
                 { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/nations-blurred.avif" },
                 { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true, "blurredSrc": "/images/fc-24-player-database/blurred/home-blurred.avif" },

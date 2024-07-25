@@ -79,9 +79,10 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col gap-6">
                     <a
-                        href="http://www.instagram.com"
+                        href="https://www.linkedin.com/in/douglas-william-carton-17ba69170/"
                         aria-label="instagram"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -97,9 +98,10 @@ export default function Navbar() {
                         </svg>
                     </a>
                     <a
-                        href="http://www.instagram.com"
+                        href="https://github.com/DWC97"
                         aria-label="instagram"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -211,9 +213,10 @@ export default function Navbar() {
                         </ul>
                         <div className="absolute p-[60px] bottom-0 left-0 flex flex-row gap-6">
                             <a
-                                href="http://www.instagram.com"
+                                href="https://www.linkedin.com/in/douglas-william-carton-17ba69170/"
                                 aria-label="instagram"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -229,9 +232,10 @@ export default function Navbar() {
                                 </svg>
                             </a>
                             <a
-                                href="http://www.instagram.com"
+                                href="https://github.com/DWC97"
                                 aria-label="instagram"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

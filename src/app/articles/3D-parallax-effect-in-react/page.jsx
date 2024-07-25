@@ -101,7 +101,7 @@ export default function ParallaxArticle() {
                             ></path>
                         </svg>
                         <a
-                            href="https://github.com/DWC97"
+                            href="https://www.jollyrogertours.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"
@@ -320,7 +320,7 @@ loadEvents();`}
                             form if you have any questions. You can find the
                             full repo for the project{' '}
                             <a
-                                href="https://github.com/DWC97"
+                                href="https://github.com/DWC97/j3-v3-project/tree/master/src/components/home/hero"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="border-b-2 border-dark-blue border-opacity-30 hover:border-opacity-100 transition duration-300 ease-in-out text-dark-blue"

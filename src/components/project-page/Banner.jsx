@@ -46,7 +46,11 @@ export default function Banner({ index }) {
                         {project.desc}
                     </p>
                     <div className="flex flex-row justify-between items-center mt-8">
-                        {project.repo && <div className="flex flex-row items-center gap-3 hover:opacity-80 ease-in-out duration-300">
+                        {project.repo && <a
+                        href={project.demo}
+                        target="_blank" 
+                    rel="noopener noreferrer"
+                        className="flex flex-row items-center gap-3 hover:opacity-80 ease-in-out duration-300">
                             <span className="text-dark-blue font-medium text-[20px]">
                                 Live demo
                             </span>
@@ -63,7 +67,7 @@ export default function Banner({ index }) {
                                     d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
                                 ></path>
                             </svg>
-                        </div>}
+                        </a>}
                         <ul className="flex flex-row ">
                             {project.stack.map((stack, i) => {
                                 return (

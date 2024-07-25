@@ -11,7 +11,7 @@ export default function Banner({ index }) {
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const maxScroll = window.innerHeight * 0.5; // 75vh
+            const maxScroll = window.innerHeight * 0.5; 
             const newOpacity = Math.max(0, 1 - scrollY / maxScroll);
             setOpacity(newOpacity);
         };

@@ -12,13 +12,13 @@
             ],
             "link": "/xrpl-dash",
             "slides":[
-                { "imageSrc": "/images/fc-24-player-database/nations.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/nations-blurred.avif" },
-                { "imageSrc": "/images/fc-24-player-database/home.avif", "priority": true, "blurredSrc": "/images/fc-24-player-database/blurred/home-blurred.avif" },
-                { "imageSrc": "/images/fc-24-player-database/saka.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/saka-blurred.avif" },
-                { "imageSrc": "/images/fc-24-player-database/players.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/players-blurred.avif" },
-                { "imageSrc": "/images/fc-24-player-database/clubs.avif", "priority": false, "blurredSrc": "/images/fc-24-player-database/blurred/clubs-blurred.avif" }
+                { "imageSrc": "/images/dash/profile.avif", "priority": false, "blurredSrc": "/images/dash/blurred/profile.jpg" },
+                { "imageSrc": "/images/dash/login.avif", "priority": true, "blurredSrc": "/images/dash/blurred/login.jpg" },
+                { "imageSrc": "/images/dash/layout1.avif", "priority": false, "blurredSrc": "/images/dash/blurred/layout1.jpg" },
+                { "imageSrc": "/images/dash/layout2.avif", "priority": false, "blurredSrc": "/images/dash/blurred/layout2.jpg" },
+                { "imageSrc": "/images/dash/NFTs.avif", "priority": false, "blurredSrc": "/images/dash/blurred/nfts.jpg" }
             ],
-            "banner": "/images/jr/banner.avif",
+            "banner": "/images/dash/banner.avif",
             "roles":[
                 "Conceptualization", "Branding", "UI/UX Design", "Front End Development"
             ],

@@ -295,7 +295,7 @@ export default function XRPLDash() {
                     </ul>
                     <div className="w-full relative mt-10 mb-8 md:px-20">
                         <Image
-                            src={'/images/jr/about.avif'}
+                            src={'/images/dash/layout1.avif'}
                             alt="scene img"
                             width={0}
                             height={0}
@@ -321,7 +321,7 @@ export default function XRPLDash() {
                     </p>
                     <div className="w-full relative mt-10 mb-8 md:px-20">
                         <Image
-                            src={'/images/jr/about.avif'}
+                            src={'/images/dash/layout2.avif'}
                             alt="scene img"
                             width={0}
                             height={0}
@@ -433,7 +433,7 @@ export default function XRPLDash() {
                                 </p>
                                 <div className="w-full relative mt-10 mb-8 md:px-20">
                                     <Image
-                                        src={'/images/jr/contact.avif'}
+                                        src={'/images/dash/login.avif'}
                                         alt="scene img"
                                         width={0}
                                         height={0}
@@ -477,7 +477,7 @@ export default function XRPLDash() {
                                 </p>
                                 <div className="w-full relative mt-10 mb-8 md:px-20">
                                     <Image
-                                        src={'/images/jr/contact.avif'}
+                                        src={'/images/dash/profile.avif'}
                                         alt="scene img"
                                         width={0}
                                         height={0}
@@ -511,19 +511,6 @@ export default function XRPLDash() {
                                 <p>
                                 The messaging system utilizes <span className="text-dark-blue">web sockets</span> for real-time communication between users. Users can send/receive messages, see previous conversations and search through old chats. They have the option of sending the message as an XRPL transaction with or without payment for a minimal fee. This provides a way of sending money/messages on a blockchain with transparency and immutability.
                                 </p>
-                                <div className="w-full relative mt-10 mb-8 md:px-20">
-                                    <Image
-                                        src={'/images/jr/contact.avif'}
-                                        alt="scene img"
-                                        width={0}
-                                        height={0}
-                                        sizes="100vw"
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                        }}
-                                    />
-                                </div>
                             </div>
                         </li>
                     </ul>
